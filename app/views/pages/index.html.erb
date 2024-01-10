@@ -1,1 +1,7 @@
 <h1>Airbnb Copy</h1>
+
+<ul>
+  <% @flats.each do |flat| %>
+    <li><%= flat.title %></li>
+  <% end %>
+</ul>
