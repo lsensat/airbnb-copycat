@@ -1,0 +1,29 @@
+footer{
+  position: static;
+  background-color: rgb(231, 230, 230);
+  padding-inline: 30px;
+
+  div{
+    border-bottom: 0.5px solid rgb(189, 189, 189);
+    display: flex;
+    justify-content: space-evenly;
+    padding-block: 15px;
+  }
+
+  ul li{
+    list-style-type: none;
+  }
+
+  ul li a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .airbnb-info ul li a:hover{
+    text-decoration: underline;
+  }
+
+  .language-social ul li{
+    display: inline;
+  }
+}

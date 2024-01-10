@@ -11,8 +11,85 @@
   </head>
 
   <body>
+    <nav>
+      <div id="logo">
+        <%= link_to root_path do %>
+          <%= image_tag "airbnb-logo.png", alt: "Airbnb", width: 100 %>
+        <% end %>
+      </div>
+      <div class="profile">
+        <%= link_to "Airbnb your home", "#" %>
+        <%= link_to "#" do %>
+          <i class="fa-light fa-earth-americas"></i>
+        <% end %>
+        <% if current_user %>
+          <%= link_to "Log Out", destroy_user_session_path %>
+        <% else %>
+          <%= link_to "Log In", new_user_session_path %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %>
+      </div>
+    </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <main class="flats">
+      <%= yield %>
+    </main>
+
+
+    <footer>
+      <div class="airbnb-info">
+        <ul>
+          <strong>Support</strong>
+          <li><%= link_to "Help Center", "#" %></li>
+          <li><%= link_to "AirCover", "#" %></li>
+          <li><%= link_to "Anti-discrimination", "#" %></li>
+          <li><%= link_to "Disability support", "#" %></li>
+          <li><%= link_to "Cancellation options", "#" %></li>
+          <li><%= link_to "Report neighborhood concern", "#" %></li>
+        </ul>
+        <ul>
+          <strong>Hosting</strong>
+          <li><%= link_to "Airbnb your home", "#" %></li>
+          <li><%= link_to "AirCover for Hosts", "#" %></li>
+          <li><%= link_to "Hosting resources", "#" %></li>
+          <li><%= link_to "Community forum", "#" %></li>
+          <li><%= link_to "Hosting responsibly", "#" %></li>
+          <li><%= link_to "Airbnb-friendly apartments", "#" %></li>
+        </ul>
+        <ul>
+          <strong>Airbnb</strong>
+          <li><%= link_to "Newsroom", "#" %></li>
+          <li><%= link_to "New features", "#" %></li>
+          <li><%= link_to "Careers", "#" %></li>
+          <li><%= link_to "Investors", "#" %></li>
+          <li><%= link_to "Gift cards", "#" %></li>
+          <li><%= link_to "Airbnb.org emergency stays", "#" %></li>
+        </ul>
+      </div>
+      <div class="language-social">
+        <ul>
+          <li>English (US)</li>
+          <li>€ EUR</li>
+          <li>
+            <%= link_to 'https://www.facebook.com/' do %>
+              <i class="fa-brands fa-square-facebook"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://twitter.com/' do %>
+              <i class="fa-brands fa-square-twitter"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://www.instagram.com/' do %>
+              <i class="fa-brands fa-square-instagram"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
