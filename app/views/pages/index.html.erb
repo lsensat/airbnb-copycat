@@ -1,15 +1,15 @@
 <% @flats.each do |flat| %>
   <div class="flat-card">
-    <section class="flat-card-image">
-      <%= image_tag "house.webp", alt:"house", crop: :fill %>
-    </section>
+    <%= image_tag "house.webp", alt:"house", crop: :fit %>
     <section class="flat-card-info">
       <section class="flat-card-info-public">
-        <h3><%= flat.title %></h3>
+        <h6><%= flat.title %></h6>
         <p><%= flat.rating %> <i class="fa-regular fa-star"></i></p>
       </section>
-      <p><%= flat.description %></p>
-      <h4><%= flat.price %>€</h4>
+      <% unless flat.description.nil? %>
+        <p><%= flat.description %></p>
+      <% end %>
+      <h6>€<%= flat.price %></h6>
     </section>
   </div>
 <% end %>
