@@ -1,4 +1,4 @@
-.flat-info{
+.flat{
   a{
     text-decoration: underline;
     color: black;
@@ -7,44 +7,71 @@
     list-style: none;
   }
 
-  section{
-    padding-block: 1.3em;
-  }
-
-  .things-to-know{
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 33%);
-
-    ul{
-      padding-left: 0;
-    }
-  }
-
-  .account-data{
+  header{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
 
-    p{
-      margin-right: 2em;
+    h2{
+      width: 60%;
     }
   }
 
-  .contact-host{
-    width: max-content;
-    margin-block: 1em;
-    padding-inline: 0.8em;
-    padding-block: 0.9em;
-    border: 1.2px black solid;
-    border-radius: 0.5em;
+  .flat-images{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 300px;
 
-    a{
-      text-decoration: none;
+    img{
+      object-fit: cover;
+    }
+  }
+
+  .flat-info{
+    section{
+      padding-block: 1.3em;
     }
 
+    .things-to-know{
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 33%);
+
+      ul{
+        padding-left: 0;
+      }
+    }
+
+    .account-data{
+      display: flex;
+      justify-content: flex-start;
+
+      p{
+        margin-right: 2em;
+      }
+    }
+
+    .contact-host{
+      width: max-content;
+      margin-block: 1em;
+      padding-inline: 0.9em;
+      padding-block: 0.7em;
+      border: 1.2px black solid;
+      border-radius: 0.5em;
+
+      a{
+        text-decoration: none;
+      }
+
+    }
+
+    .contact-host:hover{
+      background-color: rgb(226, 224, 224);
+    }
+
+    section + section{
+      border-top: 0.5px solid grey;
+    }
   }
 
-  section + section{
-    border-top: 0.5px solid grey;
-  }
 }
