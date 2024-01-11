@@ -1,5 +1,8 @@
 <% @flats.each do |flat| %>
   <div class="flat-card">
+    <%= link_to "#" do %>
+      <i class="fa-regular fa-heart like"></i>
+    <% end %>
     <%= image_tag "house.webp", alt:"house", crop: :fit %>
     <section class="flat-card-info">
       <section class="flat-card-info-public">

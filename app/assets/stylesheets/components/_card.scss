@@ -3,11 +3,21 @@ div.flat-card{
   height: 300px;
   width: 250px;
   margin-block: 10px;
+  position: relative;
 
   img{
     height: 200px;
     width: 100%;
+    object-fit: cover;
     border-radius: $border-radius-cards;
+  }
+
+  i.like{
+    position: absolute;
+    color: white;
+    top: 15px;
+    left: 210px;
+    font-size: 1.5em;
   }
 
   section.flat-card-info{

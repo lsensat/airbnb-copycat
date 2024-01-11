@@ -17,10 +17,14 @@
           <%= image_tag "airbnb-logo.png", alt: "Airbnb", width: 100 %>
         <% end %>
       </div>
+      <div>
+        <input type="text">
+        <%# <%= render search %>
+      </div>
       <div class="profile">
-        <%= link_to "Airbnb your home", "#" %>
+        <%= link_to "Airbnb your home", "#", class: "btn-normal" %>
         <%= link_to "#" do %>
-          <i class="fa fa-earth-americas"></i>
+          <i class="fa fa-earth-americas btn-normal"></i>
         <% end %>
         <% if current_user %>
           <%= link_to "Log Out", destroy_user_session_path %>
@@ -34,7 +38,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <main class="flats">
+    <main class="list">
       <%= yield %>
     </main>
 
