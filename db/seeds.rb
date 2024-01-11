@@ -41,6 +41,7 @@ User.ids.each do |user|
       zip: Faker::Address.zip_code,
       country:,
       user_id: user,
+      description: "Great place to stay and to book! Near a lot of tourist places...",
       rating: rand(2..5),
       price: rand(50..500),
       size: rand(50..300),

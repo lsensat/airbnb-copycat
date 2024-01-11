@@ -1,0 +1,82 @@
+<header>
+  <h2><%= @flat.title %></h2>
+  <section class="flat-links">
+    <%= link_to "#" do %>
+      <i class="fa fa-arrow-up-from-bracket"></i>
+      <p>Share</p>
+    <% end %>
+    <%= link_to "#" do %>
+      <i class="fa fa-heart like"></i>
+      <p>Save</p>
+    <% end %>
+  </section>
+</header>
+
+<section>
+  <% if @flat.photos.length != 0 %>
+    <%= cl_image_tag @flat.photos, crop: :fit %>
+  <% else %>
+    <%= image_tag "house.webp", alt:"house", crop: :fit %>
+  <% end %>
+</section>
+
+<p><%= @flat.description %></p>
+
+<main class="flat-info">
+  <section>
+    <h3>Hosted by <%= @flat.user.first_name %></h3>
+  </section>
+  <section>
+    <h3>What this place offers</h3>
+  </section>
+  <section>
+    <h3>Calendar</h3>
+  </section>
+  <section>
+    <% if @flat.review.nil? %>
+      <h3>No reviews (yet)</h3>
+    <% else %>
+      <h3>Reviews</h3>
+    <% end %>
+  </section>
+  <section>
+    <h3>Where you'll be</h3>
+  </section>
+
+  <section>
+    <h3>Hosted by <%= @flat.user.first_name %></h3>
+    <p>Joined in <%= @flat.user.created_at %></p>
+    <div class="account-data">
+      <p><i class="fa-solid fa-star"></i> 9 Review</p>
+      <p><i class="fa-solid fa-shield"></i> Identity verified</p>
+    </div>
+    <div class="contact-host">
+      <%= link_to "Contact Host", "#" %>
+    </div>
+  </section>
+
+  <section>
+    <h3>Things to know</h3>
+    <div class="things-to-know">
+      <ul>
+        <strong>House rules</strong>
+        <li>Check-in: 4:00 PM - 8:00 PM</li>
+        <li>Checkout before 10:00 AM</li>
+        <li>2 guests maximum</li>
+
+      </ul>
+      <ul>
+        <strong>Safety & property</strong>
+        <li>Carbon monoxide alarm not reported</li>
+        <li>Smoke alarm not reported</li>
+        <li><%= link_to "Show more", "#" %></li>
+      </ul>
+      <ul>
+        <strong>Cancellation policy</strong>
+        <li>This reservation is non-refundable.</li>
+        <li>Review the Host’s full cancellation policy which applies even if you cancel for illness or disruptions caused by COVID-19.</li>
+        <li><%= link_to "Show more", "#" %></li>
+      </ul>
+    </div>
+  </section>
+</main>

@@ -1,18 +1,25 @@
-<% @flats.each do |flat| %>
-  <div class="flat-card">
-    <%= link_to "#" do %>
-      <i class="fa-regular fa-heart like"></i>
-    <% end %>
-    <%= image_tag "house.webp", alt:"house", crop: :fit %>
-    <section class="flat-card-info">
-      <section class="flat-card-info-public">
-        <h6><%= flat.title %></h6>
-        <p><%= flat.rating %> <i class="fa-regular fa-star"></i></p>
-      </section>
-      <% unless flat.description.nil? %>
-        <p><%= flat.description %></p>
+<main class="list">
+  <% @flats.each do |flat| %>
+    <div class="flat-card">
+      <%= link_to "#" do %>
+        <i class="fa-regular fa-heart like"></i>
       <% end %>
-      <h6>€<%= flat.price %></h6>
-    </section>
-  </div>
-<% end %>
+      <% if flat.photos.length != 0 %>
+        <%= cl_image_tag flat.photos, crop: :fit %>
+      <% else %>
+        <%= image_tag "house.webp", alt:"house", crop: :fit %>
+      <% end %>
+      <%= link_to flat_path(flat) do %>
+        <section class="flat-card-info">
+          <section class="flat-card-info-public">
+            <h6><%= flat.title %></h6>
+            <p><%= flat.rating %> <i class="fa-regular fa-star"></i></p>
+          </section>
+          <div class="flat-card-info-price">
+            <h6>€<%= flat.price %></h6>
+          </div>
+        </section>
+      <% end %>
+    </div>
+  <% end %>
+</main>

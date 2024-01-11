@@ -1,0 +1,50 @@
+.flat-info{
+  a{
+    text-decoration: underline;
+    color: black;
+  }
+  li{
+    list-style: none;
+  }
+
+  section{
+    padding-block: 1.3em;
+  }
+
+  .things-to-know{
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 33%);
+
+    ul{
+      padding-left: 0;
+    }
+  }
+
+  .account-data{
+    display: flex;
+    justify-content: flex-start;
+
+    p{
+      margin-right: 2em;
+    }
+  }
+
+  .contact-host{
+    width: max-content;
+    margin-block: 1em;
+    padding-inline: 0.8em;
+    padding-block: 0.9em;
+    border: 1.2px black solid;
+    border-radius: 0.5em;
+
+    a{
+      text-decoration: none;
+    }
+
+  }
+
+  section + section{
+    border-top: 0.5px solid grey;
+  }
+}

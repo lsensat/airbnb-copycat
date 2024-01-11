@@ -1,6 +1,6 @@
 div.flat-card{
   margin: 10px;
-  height: 300px;
+  height: 350px;
   width: 250px;
   margin-block: 10px;
   position: relative;
@@ -31,5 +31,11 @@ div.flat-card{
   section p{
     color: rgb(163, 163, 163);
     margin-bottom: 8px;
+  }
+
+  .flat-card-info-public-description{
+  }
+
+  .flat-card-info-price{
   }
 }
