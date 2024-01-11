@@ -1,0 +1,13 @@
+<%= simple_form_for(@flat) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :zip %>
+  <%= f.country_select :country, label: "Country" %>
+  <%= f.input :bedrooms %>
+  <%= f.input :price %>
+  <%= f.input :checkin %>
+  <%= f.input :checkout %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit %>
+<% end %>

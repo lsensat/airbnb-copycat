@@ -104,6 +104,10 @@ GEM
       rest-client (>= 2.0.0)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
+    countries (5.7.1)
+      unaccent (~> 0.3)
+    country_select (8.0.3)
+      countries (~> 5.0)
     crass (1.0.6)
     date (3.3.4)
     debug (1.9.1)
@@ -130,6 +134,7 @@ GEM
     ffi (1.16.3)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     http-accept (1.7.0)
@@ -277,6 +282,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unaccent (0.4.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -303,12 +309,14 @@ DEPENDENCIES
   bootstrap
   capybara
   cloudinary
+  country_select
   debug
   devise
   dotenv-rails
   error_highlight (>= 0.4.0)
   faker
   font-awesome-sass
+  geocoder
   importmap-rails
   jbuilder
   pg (~> 1.1)

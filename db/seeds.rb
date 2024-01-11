@@ -44,7 +44,7 @@ User.ids.each do |user|
       description: "Great place to stay and to book! Near a lot of tourist places...",
       rating: rand(2..5),
       price: rand(50..500),
-      size: rand(50..300),
+      bedrooms: rand(1..4),
       title: "#{%w[Amazing Incredible Awesome].sample} flat at #{address}, #{city}, #{country}"
     )
     flat.save

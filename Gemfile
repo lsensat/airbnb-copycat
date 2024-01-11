@@ -36,6 +36,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'dotenv-rails'
 gem 'cloudinary'
+gem 'country_select'
+gem 'geocoder'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
