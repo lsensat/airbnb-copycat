@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_11_175426) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_12_144941) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_175426) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "amenities", force: :cascade do |t|
+    t.bigint "flat_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_amenities_on_flat_id"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "flat_id", null: false
@@ -58,7 +66,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_175426) do
     t.text "description"
     t.integer "bedrooms"
     t.integer "price"
-    t.float "rating"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -86,6 +93,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_175426) do
     t.bigint "user_id", null: false
     t.bigint "flat_id", null: false
     t.text "comment"
+    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flat_id"], name: "index_reviews_on_flat_id"
@@ -108,6 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_175426) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "amenities", "flats"
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
   add_foreign_key "flats", "users"

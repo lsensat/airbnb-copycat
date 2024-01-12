@@ -43,16 +43,22 @@ flats = [
   { address: 'Sant Marius 13', zip: '08022' }
 ]
 
+amenities = ['Kitchen', 'Wifi', 'Shared pool', 'TV', 'Washer', 'Air conditioning',
+             'Backyard', 'Carbon monoxide alarm', 'Smoke alarm']
+
 User.ids.sample(10).each_with_index do |user, index|
-  puts flats[index][:address]
   Flat.create(
-    city: 'Barcelona', country: 'Spain', rating: rand(2..5), bedrooms: rand(1..4),
+    city: 'Barcelona', country: 'Spain', bedrooms: rand(1..4),
     price: rand(50..500),
     description: 'Great place to stay and to book! Near a lot of tourist places...',
     title: '',
     address: flats[index][:address].to_s, zip: flats[index][:zip].to_s,
     user_id: user
   )
+
+  amenities.sample(6).each do |amenity|
+    Amenity.create(name: amenity, flat_id: Flat.ids.last)
+  end
 end
 puts 'Flats created!'
 

@@ -22,28 +22,42 @@
     <% end %>
   </section>
 
-  <p><%= @flat.description %></p>
-
   <main class="flat-info">
     <section>
       <h3>Hosted by <%= @flat.user.first_name %></h3>
     </section>
     <section>
+      <p><%= @flat.description %></p>
+    </section>
+    <section>
       <h3>What this place offers</h3>
+      <ul>
+        <li>Kitchen</li>
+        <li>Wifi</li>
+        <li>Shared pool</li>
+        <li>TV</li>
+        <li>Washer</li>
+        <li>Air conditioning</li>
+        <li>Backyard</li>
+        <li>Unavailable: Carbon monoxide alarmCarbon monoxide alarm</li>
+        <li>Unavailable: Smoke alarmSmoke alarm</li>
+      </ul>
     </section>
     <section>
       <h3>Calendar</h3>
+      <p>2 nights in Topas | Jan 25, 2024 - Jan 27, 2024</p>
     </section>
     <section>
       <% if @flat %>
         <h3>No reviews (yet)</h3>
+        <p>This host does not have any review yet.</p>
       <% else %>
         <h3>Reviews</h3>
       <% end %>
     </section>
     <section>
       <h3>Where you'll be</h3>
-
+      <p><%= @flat.city %>, <%= @flat.country %></p>
       <div id="map-flat"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"

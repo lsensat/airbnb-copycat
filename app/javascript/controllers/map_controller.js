@@ -10,7 +10,6 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    console.log(this.markersValue)
     this.map = new mapboxgl.Map({
       container: this.element,
       zoom: 9,
@@ -22,7 +21,6 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      console.log(marker)
         new mapboxgl.Marker()
           .setLngLat([ marker.lng, marker.lat ])
           .addTo(this.map)

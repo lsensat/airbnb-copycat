@@ -6,7 +6,6 @@ class CreateFlats < ActiveRecord::Migration[7.1]
       t.integer :bedrooms
       t.integer :price
       t.string :location
-      t.float :rating
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
