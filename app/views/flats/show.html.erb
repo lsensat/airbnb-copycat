@@ -32,15 +32,14 @@
     <section>
       <h3>What this place offers</h3>
       <ul>
-        <li>Kitchen</li>
-        <li>Wifi</li>
-        <li>Shared pool</li>
-        <li>TV</li>
-        <li>Washer</li>
-        <li>Air conditioning</li>
-        <li>Backyard</li>
-        <li>Unavailable: Carbon monoxide alarmCarbon monoxide alarm</li>
-        <li>Unavailable: Smoke alarmSmoke alarm</li>
+        <% @flat.flat_amenities.each do |item| %>
+          <% if item.has_amenity? %>
+            <li><%= item.amenity.name %></li>
+          <% else %>
+            <li><strike><%= item.amenity.name %></strike></li>
+          <% end %>
+          <li></li>
+        <% end %>
       </ul>
     </section>
     <section>

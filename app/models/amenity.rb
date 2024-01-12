@@ -1,3 +1,4 @@
 class Amenity < ApplicationRecord
-  belongs_to :flat
+  has_many :flat_amenities
+  has_many :flats, through: :flat_amenities
 end

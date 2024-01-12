@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_12_144941) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_12_171008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,11 +43,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_144941) do
   end
 
   create_table "amenities", force: :cascade do |t|
-    t.bigint "flat_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["flat_id"], name: "index_amenities_on_flat_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -59,6 +57,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_144941) do
     t.datetime "updated_at", null: false
     t.index ["flat_id"], name: "index_bookings_on_flat_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "flat_amenities", force: :cascade do |t|
+    t.bigint "flat_id", null: false
+    t.bigint "amenity_id", null: false
+    t.boolean "has_amenity", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_flat_amenities_on_amenity_id"
+    t.index ["flat_id"], name: "index_flat_amenities_on_flat_id"
   end
 
   create_table "flats", force: :cascade do |t|
@@ -116,9 +124,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_144941) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "amenities", "flats"
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
+  add_foreign_key "flat_amenities", "amenities"
+  add_foreign_key "flat_amenities", "flats"
   add_foreign_key "flats", "users"
   add_foreign_key "likes", "flats"
   add_foreign_key "likes", "users"

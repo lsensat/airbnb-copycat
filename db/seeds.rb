@@ -10,6 +10,9 @@
 
 require 'faker'
 
+puts 'Deleting previous amenities...'
+FlatAmenity.delete_all
+Amenity.delete_all
 puts 'Deleting previous flats...'
 Flat.delete_all
 puts 'Deleting previous users...'
@@ -29,6 +32,15 @@ puts 'Creating users...'
 end
 puts 'Users created!'
 
+puts 'Create different amenities...'
+amenities = ['Kitchen', 'Wifi', 'Shared pool', 'TV', 'Washer', 'Air conditioning',
+  'Backyard', 'Carbon monoxide alarm', 'Smoke alarm']
+
+amenities.each do |amenity|
+  Amenity.create(name: amenity)
+end
+puts 'Amenities created!'
+
 puts 'Creating flats...'
 flats = [
   { address: 'Carrer de Freixa, 36', zip: '08021' },
@@ -43,22 +55,23 @@ flats = [
   { address: 'Sant Marius 13', zip: '08022' }
 ]
 
-amenities = ['Kitchen', 'Wifi', 'Shared pool', 'TV', 'Washer', 'Air conditioning',
-             'Backyard', 'Carbon monoxide alarm', 'Smoke alarm']
-
 User.ids.sample(10).each_with_index do |user, index|
   Flat.create(
     city: 'Barcelona', country: 'Spain', bedrooms: rand(1..4),
     price: rand(50..500),
-    description: 'Great place to stay and to book! Near a lot of tourist places...',
-    title: '',
-    address: flats[index][:address].to_s, zip: flats[index][:zip].to_s,
+    description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
+    title: "#{flats[index][:address]}, Barcelona",
+    address: flats[index][:address], zip: flats[index][:zip],
     user_id: user
   )
 
-  amenities.sample(6).each do |amenity|
-    Amenity.create(name: amenity, flat_id: Flat.ids.last)
+  Amenity.ids.each do |amenity|
+    FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity, has_amenity: [true, false].sample)
   end
+
+  # amenities.sample(6).each do |amenity|
+  #   FlatAmenity.create(name: amenity, flat_id: Flat.ids.last)
+  # end
 end
 puts 'Flats created!'
 
