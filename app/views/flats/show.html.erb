@@ -2,14 +2,18 @@
   <header>
     <h4><%= @flat.title %></h4>
     <section class="flat-links">
-      <%= link_to "#" do %>
-        <i class="fa fa-arrow-up-from-bracket"></i>
-        <p>Share</p>
-      <% end %>
-      <%= link_to "#" do %>
-        <i class="fa fa-heart like"></i>
-        <p>Save</p>
-      <% end %>
+      <ul>
+        <li>
+          <%= link_to "#" do %>
+            <p><i class="fa fa-arrow-up-from-bracket"></i> Share</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+            <p><i class="fa fa-heart like"></i> Save</p>
+          <% end %>
+        </li>
+      </ul>
     </section>
   </header>
 
