@@ -1,5 +1,5 @@
 class Flat < ApplicationRecord
-  geocoded_by :address
+  geocoded_by :address, params: { countrycodes: :country }
   after_validation :geocode, if: :will_save_change_to_address?
 
   belongs_to :user
