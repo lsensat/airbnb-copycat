@@ -72,15 +72,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_171008) do
   create_table "flats", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "bedrooms"
+    t.integer "bedrooms", default: 1
     t.integer "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "zip", null: false
+    t.string "zip", null: false
     t.string "city", null: false
     t.string "country", null: false
+    t.string "street", null: false
     t.string "address", null: false
+    t.integer "guests", default: 2, null: false
+    t.integer "baths", default: 1, null: false
     t.time "checkin", default: "2000-01-01 08:00:00"
     t.time "checkout", default: "2000-01-01 22:00:00"
     t.float "latitude"

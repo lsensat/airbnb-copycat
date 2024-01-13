@@ -15,14 +15,19 @@
     display: flex;
     justify-content: space-between;
 
-    li{
-      display: inline;
-    }
-
-    a{
-      text-decoration: none;
+    .flat-links{
+      a{
+        text-decoration: none;
+      }
+      ul li{
+        display: inline;
+      }
+      li + li{
+        margin-left: 10px;
+      }
     }
   }
+
 
   .flat-images{
     width: 100%;

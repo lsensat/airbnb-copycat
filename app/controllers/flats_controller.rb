@@ -10,6 +10,7 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
+    @flat.address = address(@flat)
     @flat.user = current_user
     if @flat.save
       redirect_to flat_path(@flat)
@@ -34,7 +35,11 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :address, :zip, :city, :country,
-                                :price, :bedrooms, :checkin, :checkout)
+    params.require(:flat).permit(:title, :description, :street, :zip, :city, :country,
+                                 :price, :bedrooms, :baths, :guests, :checkin, :checkout)
+  end
+
+  def address(flat)
+    [flat.street, flat.city, flat.zip, flat.country].compact.join(', ')
   end
 end

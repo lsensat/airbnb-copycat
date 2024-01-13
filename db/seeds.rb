@@ -43,27 +43,34 @@ puts 'Amenities created!'
 
 puts 'Creating flats...'
 flats = [
-  { address: 'Carrer de Freixa, 36', zip: '08021' },
-  { address: 'C/ de Muntaner, 102', zip: '08036' },
-  { address: 'C. del dos de Maig, 234I', zip: '08026' },
-  { address: 'Carrer dels Paletes, 3', zip: '08034' },
-  { address: 'C/ de Tarragona, 141', zip: '08014' },
-  { address: 'Carrer de la Perla, 21', zip: '08012' },
-  { address: 'C/ de València, 430', zip: '08013' },
-  { address: 'C. de Pujades, 170', zip: '08005' },
-  { address: 'Carrer de Mercedes, 2', zip: '08024' },
-  { address: 'Sant Marius 13', zip: '08022' }
+  { street: 'Carrer de Freixa, 36', zip: '08021' },
+  { street: 'C/ de Muntaner, 102', zip: '08036' },
+  { street: 'C. del dos de Maig, 234I', zip: '08026' },
+  { street: 'Carrer dels Paletes, 3', zip: '08034' },
+  { street: 'C/ de Tarragona, 141', zip: '08014' },
+  { street: 'Carrer de la Perla, 21', zip: '08012' },
+  { street: 'C/ de València, 430', zip: '08013' },
+  { street: 'C. de Pujades, 170', zip: '08005' },
+  { street: 'Carrer de Mercedes, 2', zip: '08024' },
+  { street: 'Sant Marius 13', zip: '08022' }
 ]
 
 User.ids.sample(10).each_with_index do |user, index|
-  Flat.create(
+  flat = Flat.new(
     city: 'Barcelona', country: 'Spain', bedrooms: rand(1..4),
     price: rand(50..500),
     description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-    title: "#{flats[index][:address]}, Barcelona",
-    address: flats[index][:address], zip: flats[index][:zip],
+    title: "#{flats[index][:street]}, Barcelona",
+    street: flats[index][:street], zip: flats[index][:zip],
     user_id: user
   )
+
+  def address(flat)
+    [flat.street, flat.city, flat.zip, flat.country].compact.join(', ')
+  end
+
+  flat.address = address(flat)
+  flat.save
 
   Amenity.ids.each do |amenity|
     FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity, has_amenity: [true, false].sample)

@@ -1,11 +1,13 @@
 <%= simple_form_for(@flat) do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
-  <%= f.input :address %>
+  <%= f.input :street %>
   <%= f.input :zip %>
   <%= f.input :city %>
   <%= f.country_select :country, label: "Country" %>
   <%= f.input :bedrooms %>
+  <%= f.input :baths %>
+  <%= f.input :guests %>
   <%= f.input :price %>
   <%= f.input :checkin %>
   <%= f.input :checkout %>
