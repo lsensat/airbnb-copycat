@@ -1,1 +1,9 @@
 <h2>Book</h2>
+
+<%= simple_form_for [@flat, @booking], data: { controller: 'flatpickr' } do |f| %>
+  <h3><%= @flat.price %>€ night</h3>
+  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "blur->flatpickr#updatePrice" }, id: 'endTime' } %>
+  <%= f.input :total_price, input_html: { data: { flatpickr_target: "priceTotal" }, value: @flat.price } %>
+  <%= f.submit "Submit booking", class: "btn btn-primary" %>
+<% end %>

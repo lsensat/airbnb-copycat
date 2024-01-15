@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: 'pages#index'
   resources :flats do
-    resources :bookings
+    resources :bookings, only: %i[new create]
   end
 end
