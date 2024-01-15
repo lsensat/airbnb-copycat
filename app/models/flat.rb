@@ -7,4 +7,6 @@ class Flat < ApplicationRecord
 
   has_many :flat_amenities
   has_many :amenities, through: :flat_amenities
+
+  has_many :bookings
 end

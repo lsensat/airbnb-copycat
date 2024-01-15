@@ -52,7 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_171008) do
     t.bigint "user_id", null: false
     t.bigint "flat_id", null: false
     t.integer "total_price"
-    t.integer "days"
+    t.string "start_time"
+    t.string "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flat_id"], name: "index_bookings_on_flat_id"
