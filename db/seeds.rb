@@ -54,7 +54,7 @@ flats = [
   { street: 'Carrer de Mercedes, 2', zip: '08024' },
   { street: 'Sant Marius 13', zip: '08022' }
 ]
-
+require "open-uri"
 User.ids.sample(10).each_with_index do |user, index|
   flat = Flat.new(
     city: 'Barcelona', country: 'Spain', bedrooms: rand(1..4),
@@ -69,7 +69,13 @@ User.ids.sample(10).each_with_index do |user, index|
     [flat.street, flat.city, flat.zip, flat.country].compact.join(', ')
   end
 
+
   flat.address = address(flat)
+  # flat.photos.attach(io: File.open('/photo1.png'), filename: 'photo1.png', content_type: 'image/png')
+  # flat.photos.attach(io: File.open('/photo2.png'), filename: 'photo2.png', content_type: 'image/png')
+  # flat.photos.attach(io: File.open('/photo3.png'), filename: 'photo3.png', content_type: 'image/png')
+  # flat.photos.attach(io: File.open('/photo4.png'), filename: 'photo4.png', content_type: 'image/png')
+  # 'b83ydk9e3yc9fjny6qa1jrduvaxo', 'log9d7m720rgl1j7046fhl429sou', 'a01b97c5-b3ef-4ec7-9918-2f56edd45405_w1ympu'
   flat.save
 
   Amenity.ids.each do |amenity|

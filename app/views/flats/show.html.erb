@@ -20,9 +20,19 @@
 
   <section class="flat-images">
     <% if @flat.photos.length != 0 %>
-      <%= cl_image_tag @flat.photos, crop: :fit %>
+      <% @flat.photos.each do |photo| %>
+        <% if photo == @flat.photos.first %>
+          <div class="main-photo"><%= cl_image_tag photo.key, crop: :fit %></div>
+        <% else %>
+          <div>
+            <div class="second-photo"><%= cl_image_tag photo.key, crop: :fit %></div>
+          </div>
+        <% end %>
+      <% end %>
     <% else %>
-      <%= image_tag "house.webp", alt:"house", crop: :fit %>
+      <% @flat.photos.each do |photo| %>
+        <%= image_tag "house.webp", alt:"house", crop: :fit %>
+      <% end %>
     <% end %>
   </section>
 

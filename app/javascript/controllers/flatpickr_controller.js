@@ -15,7 +15,6 @@ export default class extends Controller {
   updatePrice(){
     const startTime = new Date(this.startTimeTarget.value)
     const endTime = new Date(this.endTimeTarget.value)
-    console.log(startTime.getUTCDate() - endTime.getUTCDate())
-    this.priceTotalTarget.value = (startTime.getUTCDate() - endTime.getUTCDate())
+    this.priceTotalTarget.value = (endTime.getUTCDate() - startTime.getUTCDate())
   }
 }

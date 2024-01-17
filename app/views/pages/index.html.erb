@@ -5,7 +5,7 @@
         <i class="fa-regular fa-heart like"></i>
       <% end %>
       <% if flat.photos.length != 0 %>
-        <%= cl_image_tag flat.photos, crop: :fit %>
+        <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
       <% else %>
         <%= image_tag "house.webp", alt:"house", crop: :fit %>
       <% end %>

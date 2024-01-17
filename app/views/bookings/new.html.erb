@@ -1,9 +1,41 @@
-<h2>Book</h2>
 
-<%= simple_form_for [@flat, @booking], data: { controller: 'flatpickr' } do |f| %>
-  <h3><%= @flat.price %>€ night</h3>
-  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "blur->flatpickr#updatePrice" }, id: 'endTime' } %>
-  <%= f.input :total_price, input_html: { data: { flatpickr_target: "priceTotal" }, value: @flat.price } %>
-  <%= f.submit "Submit booking", class: "btn btn-primary" %>
+<%= link_to @flat_path do %>
+  <h1>< Request to book</h1>
 <% end %>
+
+<section>
+  <h2>Your trip</h2>
+</section>
+
+<section>
+  <h2>Travel insurance</h2>
+  <ul>
+    <li>Add travel insurance for € 37.80</li>
+    <li><%= link_to "Add" %></li>
+  </ul>
+  <p>Get reimbursed if you need to cancel due to ilness, flight delays, and more.</p>
+  <%= link_to "What's covered", "#" %>
+</section>
+
+<section>
+  <h2>Required for your trip</h2>
+  <p>Message the Host</p>
+  <p>Share why you're traveling, who's coming with you, and what you love about the space.</p>
+
+  <%= @flat.user.first_name %>
+  <p>Joined in <%= @flat.created_at %></p>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+</section>
+
+<section>
+  <h2>Cancellation policy</h2>
+  <p>This reservation is non-refundable. <%= link_to "Learn more", "#" %></p>
+</section>
+
+<section>
+  <p>By selecting the button below, I agree to the Host's House Rules, Ground rules
+    for guests, Airbnb's Rebooking and Refund Policy, and that Airbnb can charge my
+    payment method if I’m responsible for damage. I agree to pay the total amount
+    shown if the Host accepts my booking request. Payment Terms between you and
+    Airbnb Payments Luxembourg S.A.</p>
+</section>

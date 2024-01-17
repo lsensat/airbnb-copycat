@@ -1,0 +1,70 @@
+.booking-form{
+  border: 0.5px solid grey;
+  border-radius: 8px;
+  padding-inline: 1.3em;
+  padding-block: 1.4em;
+  box-shadow: 0px 0px 10px rgb(197, 197, 197);
+
+  section{
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 0.5px;
+
+    div{
+      width: 50%;
+
+      label{
+        position: relative;
+        top: 35px;
+        left: 12px;
+      }
+      input{
+        border: 0.5px solid black;
+        height: 3.5em;
+        padding-top: 20px;
+
+      }
+      #booking_start_time{
+        border-top-right-radius: 0;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 0px;
+      }
+      #endTime{
+        border-top-right-radius: 8px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+  }
+  .btn{
+    width: 100%;
+    border-radius: 8px;
+  }
+  .warning{
+    text-align: center;
+    padding-block: 1em;
+    color: rgb(185, 184, 184);
+  }
+  ul{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+  }
+  ul li{
+    display: inline;
+    height: 1em;
+
+
+    input{
+      padding: 0;
+      border: none;
+      text-align: right;
+    }
+  }
+  .total{
+    border-top: 0.5px solid grey;
+    padding-top: 0.5em;
+  }
+}
