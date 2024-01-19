@@ -1,6 +1,7 @@
 <h2>Post a review</h2>
 
 <%= simple_form_for [@flat, @review] do |f| %>
+  <%= f.input :title %>
   <%= f.input :comment, as: :text, input_html: {rows: 10, cols: 10} %>
   <%= f.input :rating %>
   <%= f.submit 'Post' %>

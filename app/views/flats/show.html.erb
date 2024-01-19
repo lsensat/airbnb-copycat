@@ -13,6 +13,11 @@
             <i class="fa fa-heart like"></i> Save
           <% end %>
         </li>
+        <% if @flat.user == current_user %>
+          <li>
+            <%= link_to "Edit", "#" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </header>
@@ -44,7 +49,7 @@
         <%= @flat.bedrooms %> <%= @flat.bedrooms > 1 ? "bedrooms" : "bedroom" %> ·
         <%= @flat.baths / @flat.guests.to_f.round(1) %> <%= @flat.baths != 1.0 ? "baths" : "bath" %>
       </p>
-      <p><%= average_rating(@flat) %><i class="fa-regular fa-star"></i></p>
+      <p><%= average_rating(@flat) %><i class="fa-solid fa-star"></i></p>
     </section>
     <section>
       <p><%= @flat.description %></p>
@@ -76,17 +81,15 @@
         <h3>Reviews</h3>
         <ul>
           <% @flat.reviews.each do |review| %>
-            <li>
-              <%= review.comment %>
-              <%= review.rating %>
-            </li>
+            <%= render 'review', review: review %>
           <% end %>
         </ul>
-
       <% end %>
-      <div class="btn-action">
-        <%= link_to "Post a review", new_flat_review_path(@flat) %>
-      </div>
+      <% if @flat.user == current_user %>
+        <div class="btn-action">
+          <%= link_to "Post a review", new_flat_review_path(@flat) %>
+        </div>
+      <% end %>
     </section>
     <section>
       <h3>Where you'll be</h3>
