@@ -1,7 +1,21 @@
-<li>
-  <div>
-    <p><%= review.title %> by <strong><%= review.user.first_name %></strong></p>
-    <p><em><%= review.comment %></em></p>
-    <p><%= review.rating.to_f %> <i class="fa-solid fa-star"></i></p>
+<div class="review">
+  <p>by <strong><%= review.user.first_name %></strong></p>
+
+  <div class="review-rating">
+    <div>
+      <% review.rating.times do %>
+        <i class="fa-solid fa-star"></i>
+      <% end %>
+      <% if review.rating < 5 %>
+        <% (5 - review.rating).times do %>
+          <i class="fa-regular fa-star"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <p class="review-date"> · <%= review.created_at.strftime('%B') %></p>
+    </div>
   </div>
-</li>
+  <p><em><%= review.comment %></em></p>
+  <p><%= review.rating.to_f %> <i class="fa-solid fa-star"></i></p>
+</div>

@@ -1,6 +1,7 @@
 class FlatsController < ApplicationController
+  before_action :set_flat
+
   def show
-    @flat = Flat.find(params[:id])
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
   end
 
@@ -20,15 +21,22 @@ class FlatsController < ApplicationController
   end
 
   def edit
-    @flat = Flat.find(params[:id])
+    # edit
   end
 
   def update
-    @flat = Flat.find(flat_params)
-    if @flat.update
+    if @flat.update(flat_params)
       redirect_to flat_path(@flat)
     else
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def delete
+    if @flat.destroy
+      redirect_to flats_path
+    else
+      render :show, status: :unprocessable_entity
     end
   end
 
@@ -37,6 +45,10 @@ class FlatsController < ApplicationController
   end
 
   private
+
+  def set_flat
+    @flat = Flat.find(params[:id])
+  end
 
   def flat_params
     params.require(:flat).permit(:title, :description, :street, :zip, :city, :country,

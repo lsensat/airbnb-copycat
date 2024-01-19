@@ -1,0 +1,25 @@
+.review-container{
+  padding-left: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+  margin-bottom: 1em;
+
+  p{
+    margin-bottom: 0px;
+  }
+  i{
+    font-size: 1em;
+  }
+  .review-rating{
+    display: flex;
+    justify-content: left;
+  }
+  .review{
+    font-size: 0.9em;
+  }
+  .review-date{
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+}

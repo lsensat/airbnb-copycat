@@ -15,7 +15,7 @@
         </li>
         <% if @flat.user == current_user %>
           <li>
-            <%= link_to "Edit", "#" %>
+            <%= link_to "Edit", edit_flat_path(@flat) %>
           </li>
         <% end %>
       </ul>
@@ -24,20 +24,26 @@
 
 
   <section class="flat-images">
-    <div class="main-image">
-      <%= link_to flat_photos_path(@flat) do %>
-        <%= cl_image_tag(@flat.photos[0].key, crop: :fill) %>
-      <% end %>
-    </div>
-    <div class="second-image">
-      <% for index in 1...4 %>
+    <% if @flat.photos.empty? %>
+      <div class="main-image">
+        <%= cl_image_tag('pw64vj1jlxc1v5iwgp9ysy7nh7cc', crop: :fill) %>
+      </div>
+    <% else %>
+      <div class="main-image">
         <%= link_to flat_photos_path(@flat) do %>
-          <%= cl_image_tag(@flat.photos[index].key, crop: :fill) %>
+          <%= cl_image_tag(@flat.photos[0].key, crop: :fill) %>
         <% end %>
+      </div>
+      <div class="second-image">
+        <% for index in 1..4 %>
+          <%= link_to flat_photos_path(@flat) do %>
+            <%= cl_image_tag(@flat.photos[index].key, crop: :fill) %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= link_to(flat_photos_path(@flat), class: "show-photos") do %>
+        <i class="fa-solid fa-grip-vertical"></i> Show all photos
       <% end %>
-    </div>
-    <%= link_to(flat_photos_path(@flat), class: "show-photos") do %>
-      <i class="fa-solid fa-grip-vertical"></i> Show all photos
     <% end %>
   </section>
 
@@ -79,13 +85,13 @@
         <p>This host does not have any review yet.</p>
       <% else %>
         <h3>Reviews</h3>
-        <ul>
+        <div class="review-container">
           <% @flat.reviews.each do |review| %>
             <%= render 'review', review: review %>
           <% end %>
-        </ul>
+        </div>
       <% end %>
-      <% if @flat.user == current_user %>
+      <% if @flat.user != current_user %>
         <div class="btn-action">
           <%= link_to "Post a review", new_flat_review_path(@flat) %>
         </div>

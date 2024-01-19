@@ -27,8 +27,24 @@
 
 .btn-action:hover{
   background-color: black;
+  color: white;
   a{
     color: white;
   }
+}
 
+.btn-delete{
+  width: max-content;
+  margin-block: 1em;
+  padding-inline: 0.9em;
+  padding-block: 0.7em;
+  border: 1.2px red solid;
+  border-radius: 0.5em;
+  color: red;
+  text-decoration: none;
+}
+
+.btn-delete:hover{
+  background-color: rgb(247, 63, 63);
+  color: white;
 }
