@@ -32,6 +32,10 @@ class FlatsController < ApplicationController
     end
   end
 
+  def show_photos
+    @flat = Flat.find(params[:flat_id])
+  end
+
   private
 
   def flat_params

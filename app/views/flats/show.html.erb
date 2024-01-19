@@ -19,20 +19,20 @@
 
 
   <section class="flat-images">
-    <% if @flat.photos.length != 0 %>
-      <% @flat.photos.each do |photo| %>
-        <% if photo == @flat.photos.first %>
-          <div class="main-photo"><%= cl_image_tag photo.key, crop: :fit %></div>
-        <% else %>
-          <div>
-            <div class="second-photo"><%= cl_image_tag photo.key, crop: :fit %></div>
-          </div>
+    <div class="main-image">
+      <%= link_to flat_photos_path(@flat) do %>
+        <%= cl_image_tag(@flat.photos[0].key, crop: :fill) %>
+      <% end %>
+    </div>
+    <div class="second-image">
+      <% for index in 1...4 %>
+        <%= link_to flat_photos_path(@flat) do %>
+          <%= cl_image_tag(@flat.photos[index].key, crop: :fill) %>
         <% end %>
       <% end %>
-    <% else %>
-      <% @flat.photos.each do |photo| %>
-        <%= image_tag "house.webp", alt:"house", crop: :fit %>
-      <% end %>
+    </div>
+    <%= link_to(flat_photos_path(@flat), class: "show-photos") do %>
+      <i class="fa-solid fa-grip-vertical"></i> Show all photos
     <% end %>
   </section>
 
