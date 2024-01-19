@@ -1,15 +1,16 @@
 .flat{
-
-  a{
-    text-decoration: underline;
-    color: black;
-  }
   ul {
     padding: 0;
     margin: 0;
   }
   li{
     list-style: none;
+  }
+  li.a{
+    text-decoration: underline;
+  }
+  a{
+    color: black;
   }
 
   header{
@@ -99,24 +100,6 @@
       p{
         margin-right: 2em;
       }
-    }
-
-    .contact-host{
-      width: max-content;
-      margin-block: 1em;
-      padding-inline: 0.9em;
-      padding-block: 0.7em;
-      border: 1.2px black solid;
-      border-radius: 0.5em;
-
-      a{
-        text-decoration: none;
-      }
-
-    }
-
-    .contact-host:hover{
-      background-color: rgb(226, 224, 224);
     }
 
     section + section{

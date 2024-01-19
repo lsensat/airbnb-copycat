@@ -10,3 +10,25 @@
   border-radius: 2em;
   background-color: rgb(237, 237, 237);
 }
+
+.btn-action{
+  width: max-content;
+  margin-block: 1em;
+  padding-inline: 0.9em;
+  padding-block: 0.7em;
+  border: 1.2px black solid;
+  border-radius: 0.5em;
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.btn-action:hover{
+  background-color: black;
+  a{
+    color: white;
+  }
+
+}

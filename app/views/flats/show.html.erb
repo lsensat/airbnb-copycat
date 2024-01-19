@@ -64,7 +64,9 @@
     </section>
     <section>
       <h3>Booking</h3>
-      <%= link_to "Click to Book", new_flat_booking_path(@flat) %>
+      <div class="btn-action">
+        <%= link_to "Click to Book", new_flat_booking_path(@flat) %>
+      </div>
     </section>
     <section>
       <% if @flat.reviews.empty? %>
@@ -82,11 +84,13 @@
         </ul>
 
       <% end %>
-      <%= link_to "Post a review", new_flat_review_path(@flat) %>
+      <div class="btn-action">
+        <%= link_to "Post a review", new_flat_review_path(@flat) %>
+      </div>
     </section>
     <section>
       <h3>Where you'll be</h3>
-      <p><%= @flat.city %>, <%= @flat.country %></p>
+      <p><%= @flat.city.capitalize %>, <%= @flat.country %></p>
       <div id="map-flat"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
@@ -98,10 +102,10 @@
       <h3>Hosted by <%= @flat.user.first_name %></h3>
       <p>Joined in <%= @flat.user.created_at %></p>
       <div class="account-data">
-        <p><i class="fa-solid fa-star"></i> 9 Review</p>
+        <p><i class="fa-solid fa-star"></i> <%= @flat.reviews.size %> Review</p>
         <p><i class="fa-solid fa-shield"></i> Identity verified</p>
       </div>
-      <div class="contact-host">
+      <div class="btn-action">
         <%= link_to "Contact Host", "#" %>
       </div>
     </section>
