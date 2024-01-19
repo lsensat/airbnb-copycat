@@ -13,7 +13,11 @@
         <section class="flat-card-info">
           <section class="flat-card-info-public">
             <h6><%= flat.title %></h6>
-            <p><i class="fa-regular fa-star"></i></p>
+            <% if flat.reviews.empty? %>
+              <p>No rating yet</p>
+            <% else %>
+              <p><%= average_rating(flat) %><i class="fa-regular fa-star"></i></p>
+            <% end %>
           </section>
           <div class="flat-card-info-price">
             <h6>€<%= flat.price %></h6>
