@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     get 'photos', to: 'flats#show_photos'
     resources :bookings, only: %i[new create]
     resources :reviews, only: %i[new create]
+    resources :likes, only: %i[create delete]
+    # member do
+    #   post :like
+    # end
   end
 end
