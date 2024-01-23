@@ -1,8 +1,11 @@
 footer{
-  position: static;
+  position: fixed;
   background-color: rgb(231, 230, 230);
   padding-inline: 30px;
   margin-top: 20px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
 
   div{
     border-bottom: 0.5px solid rgb(189, 189, 189);
