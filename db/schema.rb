@@ -104,7 +104,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_171008) do
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "flat_id", null: false
-    t.string "title", null: false
     t.text "comment"
     t.integer "rating"
     t.datetime "created_at", null: false
