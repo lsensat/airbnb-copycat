@@ -3,10 +3,12 @@ class FlatsController < ApplicationController
 
   def show
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
+    @amenities = Amenity.all
   end
 
   def new
     @flat = Flat.new
+    @flat_amenities = FlatAmenity.new()
   end
 
   def create
@@ -16,7 +18,7 @@ class FlatsController < ApplicationController
     if @flat.save
       redirect_to flat_path(@flat)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity # notice: "Couldn't be added: #{@flat.errors.full_messages.join(", ")}"
     end
   end
 
@@ -52,7 +54,8 @@ class FlatsController < ApplicationController
 
   def flat_params
     params.require(:flat).permit(:title, :description, :street, :zip, :city, :country,
-                                 :price, :bedrooms, :baths, :guests, :checkin, :checkout, photos: [])
+                                 :price, :bedrooms, :baths, :guests, :checkin, :checkout, photos: [],
+                                 amenity_ids: [])
   end
 
   def address(flat)

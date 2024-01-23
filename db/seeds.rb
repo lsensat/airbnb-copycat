@@ -79,7 +79,7 @@ User.ids.sample(10).each_with_index do |user, index|
   flat.save
 
   Amenity.ids.each do |amenity|
-    FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity, has_amenity: [true, false].sample)
+    FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity)
   end
 
   # amenities.sample(6).each do |amenity|

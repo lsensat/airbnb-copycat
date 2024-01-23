@@ -63,7 +63,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_12_171008) do
   create_table "flat_amenities", force: :cascade do |t|
     t.bigint "flat_id", null: false
     t.bigint "amenity_id", null: false
-    t.boolean "has_amenity", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["amenity_id"], name: "index_flat_amenities_on_amenity_id"

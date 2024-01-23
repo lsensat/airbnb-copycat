@@ -8,12 +8,13 @@
             <i class="fa fa-arrow-up-from-bracket"></i> Share
           <% end %>
         </li>
-        <li>
-          <%= link_to "#" do %>
-            <i class="fa fa-heart like"></i> Save
-          <% end %>
-        </li>
-        <% if @flat.user == current_user %>
+        <% if @flat.user != current_user %>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-heart like"></i> Save
+            <% end %>
+          </li>
+        <% else %>
           <li>
             <%= link_to "Edit", edit_flat_path(@flat) %>
           </li>
@@ -35,9 +36,11 @@
         <% end %>
       </div>
       <div class="second-image">
-        <% for index in 1..4 %>
-          <%= link_to flat_photos_path(@flat) do %>
-            <%= cl_image_tag(@flat.photos[index].key, crop: :fill) %>
+        <% if @flat.photos.length > 1 %>
+          <% for index in 1..4 %>
+            <%= link_to flat_photos_path(@flat) do %>
+              <%= cl_image_tag(@flat.photos[index].key, crop: :fill) %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -55,7 +58,11 @@
         <%= @flat.bedrooms %> <%= @flat.bedrooms > 1 ? "bedrooms" : "bedroom" %> ·
         <%= @flat.baths / @flat.guests.to_f.round(1) %> <%= @flat.baths != 1.0 ? "baths" : "bath" %>
       </p>
-      <p><%= average_rating(@flat) %><i class="fa-solid fa-star"></i></p>
+      <% if average_rating(@flat) >= 0 %>
+        <p><%= average_rating(@flat) %><i class="fa-solid fa-star"></i></p>
+      <% else %>
+        <p>No rating yet.</p>
+      <% end %>
     </section>
     <section>
       <p><%= @flat.description %></p>
@@ -63,11 +70,11 @@
     <section>
       <h3>What this place offers</h3>
       <ul>
-        <% @flat.flat_amenities.each do |item| %>
-          <% if item.has_amenity? %>
-            <li><%= item.amenity.name %></li>
+        <% @amenities.each do |item| %>
+          <% if @flat.amenities.include? item %>
+            <li><%= item.name %></li>
           <% else %>
-            <li><strike><%= item.amenity.name %></strike></li>
+            <li><strike><%= item.name %></strike></li>
           <% end %>
           <li></li>
         <% end %>
