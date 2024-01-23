@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat
+  before_action :set_flat, except: %i[new create]
 
   def show
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]

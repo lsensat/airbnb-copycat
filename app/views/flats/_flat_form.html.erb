@@ -8,6 +8,7 @@
   <%= f.input :bedrooms %>
   <%= f.input :baths %>
   <%= f.input :guests %>
+  <%= f.association :amenities, as: :check_boxes %>
   <%= f.input :price %>
   <%= f.input :checkin %>
   <%= f.input :checkout %>
