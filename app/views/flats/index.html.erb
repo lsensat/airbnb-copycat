@@ -3,29 +3,7 @@
     <div class="flats-searched">
       <% @flats.each do |flat| %>
         <div class="flat-card">
-          <%= link_to "#" do %>
-            <i class="fa-regular fa-heart like"></i>
-          <% end %>
-          <% if flat.searchable.photos.length != 0 %>
-            <%= cl_image_tag flat.searchable.photos.first.blob.key, crop: :fit %>
-          <% else %>
-            <%= image_tag "house.webp", alt:"house", crop: :fit %>
-          <% end %>
-          <%= link_to flat_path(flat.searchable) do %>
-            <section class="flat-card-info">
-              <section class="flat-card-info-public">
-                <h6><%= flat.searchable.title %></h6>
-                <% if flat.searchable.reviews.empty? %>
-                  <p>No rating yet</p>
-                <% else %>
-                  <p><%= average_rating(flat.searchable) %><i class="fa-regular fa-star"></i></p>
-                <% end %>
-              </section>
-              <div class="flat-card-info-price">
-                <h6>€<%= flat.searchable.price %></h6>
-              </div>
-            </section>
-          <% end %>
+          <%= render 'card', flat: flat.searchable %>
         </div>
       <% end %>
     </div>
@@ -37,34 +15,11 @@
     </div>
   </div>
 
-
 <% else %>
-<section class="list-all">
+  <section class="list-all">
     <% @flats.each do |flat| %>
       <div class="flat-card">
-        <%= link_to "#" do %>
-          <i class="fa-regular fa-heart like"></i>
-        <% end %>
-        <% if flat.photos.length != 0 %>
-          <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
-        <% else %>
-          <%= image_tag "house.webp", alt:"house", crop: :fit %>
-        <% end %>
-        <%= link_to flat_path(flat) do %>
-          <section class="flat-card-info">
-            <section class="flat-card-info-public">
-              <h6><%= flat.title %></h6>
-              <% if flat.reviews.empty? %>
-                <p>No rating yet</p>
-              <% else %>
-                <p><%= average_rating(flat) %><i class="fa-regular fa-star"></i></p>
-              <% end %>
-            </section>
-            <div class="flat-card-info-price">
-              <h6>€<%= flat.price %></h6>
-            </div>
-          </section>
-        <% end %>
+        <%= render 'card', flat: flat %>
       </div>
     <% end %>
   </section>

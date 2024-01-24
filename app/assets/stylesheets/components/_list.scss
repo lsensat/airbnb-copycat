@@ -4,6 +4,7 @@
   padding-inline: 0rem;
   padding-top: 2rem;
   justify-content: center;
+  gap: 1.5rem;
 }
 
 .searched-map{
@@ -18,4 +19,6 @@
   grid-template-columns: repeat(auto-fill, 17em);
   padding-inline: 0rem;
   justify-content: center;
+  gap: 1.5rem;
+  padding-block: 1.5rem;
 }

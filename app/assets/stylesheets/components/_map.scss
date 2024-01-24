@@ -16,7 +16,31 @@
   max-width: 200px;
 }
 
-.mapboxgl-popup-content {
-  text-align: center;
+div.mapboxgl-popup-content{
+  // text-align: center;
   font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  border-radius: $border-radius-cards;
+
+  img{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  button{
+    color: black;
+    background-color: white;
+    position: relative;
+    top: -300px;
+    left: 10px;
+    padding-inline: 6px;
+    font-size: 1.4em;
+    border-radius: 25em;
+  }
+
+  button:hover{
+    box-shadow: 0 0 8px black;
+    background-color: white;
+  }
 }

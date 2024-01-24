@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_113015) do
   end
 
   create_table "flats", force: :cascade do |t|
-    t.string "title"
+    t.string "flat_type"
     t.text "description"
     t.integer "bedrooms", default: 1
     t.integer "price"

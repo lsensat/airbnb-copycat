@@ -60,7 +60,7 @@ User.ids.sample(10).each_with_index do |user, index|
     city: 'Barcelona', country: 'Spain', bedrooms: rand(1..4),
     price: rand(50..500),
     description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-    title: "#{flats[index][:street]}, Barcelona",
+    flat_type: "#{['Room', 'Shared Room', 'Place to stay'].sample}",
     street: flats[index][:street], zip: flats[index][:zip],
     user_id: user
   )

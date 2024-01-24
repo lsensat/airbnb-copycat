@@ -10,7 +10,9 @@ class FlatsController < ApplicationController
       @markers = @flats.map do |flat|
         {
           lat: flat.searchable.latitude,
-          lng: flat.searchable.longitude
+          lng: flat.searchable.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {flat: flat.searchable}),
+          marker_html: render_to_string(partial: "marker", locals: {flat: flat.searchable})
         }
       end
     end
@@ -68,7 +70,7 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :street, :zip, :city, :country,
+    params.require(:flat).permit(:flat_type, :description, :street, :zip, :city, :country,
                                  :price, :bedrooms, :baths, :guests, :checkin, :checkout, photos: [],
                                  amenity_ids: [])
   end
