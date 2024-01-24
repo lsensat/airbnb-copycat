@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root to: 'pages#index'
+  root to: 'flats#index'
   resources :flats do
     get 'photos', to: 'flats#show_photos'
     resources :bookings, only: %i[new create]

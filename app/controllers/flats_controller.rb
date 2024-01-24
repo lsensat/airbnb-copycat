@@ -1,5 +1,20 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, except: %i[new create]
+  before_action :set_flat, except: %i[index new create]
+
+  def index
+    @flats = Flat.all
+    if params[:query].present?
+      PgSearch::Multisearch.rebuild(Flat)
+      PgSearch::Multisearch.rebuild(User)
+      @flats = PgSearch.multisearch(params[:query])
+      @markers = @flats.map do |flat|
+        {
+          lat: flat.searchable.latitude,
+          lng: flat.searchable.longitude
+        }
+      end
+    end
+  end
 
   def show
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]

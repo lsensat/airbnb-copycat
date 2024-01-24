@@ -11,4 +11,8 @@ class Flat < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :likes
+
+  include PgSearch::Model
+  multisearchable against: [:address]
+
 end

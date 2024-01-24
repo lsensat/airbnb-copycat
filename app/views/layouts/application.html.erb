@@ -22,9 +22,8 @@
           <%= image_tag "airbnb-logo.png", alt: "Airbnb", width: 100 %>
         <% end %>
       </div>
-      <div>
-        <input type="text">
-        <%# <%= render search %>
+      <div id="search-field">
+        <%= render 'flats/search' %>
       </div>
       <div class="profile">
         <% if user_signed_in? %>
@@ -45,12 +44,10 @@
       </div>
     </nav>
 
+    <%= yield %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <section class="main">
-      <%= yield %>
-    </section>
 
     <footer>
       <div class="airbnb-info">
