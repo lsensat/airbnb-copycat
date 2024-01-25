@@ -1,26 +1,18 @@
 .list-all{
   display: grid;
-  grid-template-columns: repeat(auto-fill, 17em);
+  grid-template-columns: repeat(auto-fill, 14em);
   padding-inline: 0rem;
   padding-top: 2rem;
   justify-content: center;
   gap: 1.5rem;
 }
 
-.searched-map{
+#flats-container{
+  width: 60%;
+  overflow-y: auto;
+  height: 85vh;
   display: grid;
-  grid-template-columns: 0.6fr 0.4fr;
-  padding-inline: 0rem;
+  grid-template-columns: repeat(auto-fill, 14em);
+  gap: 1.2em;
   justify-content: center;
-
-  // position: relative;
-}
-
-.flats-searched{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 17em);
-  padding-inline: 0rem;
-  justify-content: center;
-  gap: 1.5rem;
-  padding-block: 1.5rem;
 }

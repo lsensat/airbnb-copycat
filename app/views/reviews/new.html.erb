@@ -1,8 +1,14 @@
-<h2>Post a review</h2>
+<div class="flat">
+  <div class="flat-header">
+    <%= link_to flat_path(@flat) do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+    <h2>Post a review</h2>
+  </div>
 
-<%= simple_form_for [@flat, @review] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :comment, as: :text, input_html: {rows: 10, cols: 10} %>
-  <%= f.input :rating %>
-  <%= f.submit 'Post', class: 'btn-action' %>
-<% end %>
+  <%= simple_form_for [@flat, @review] do |f| %>
+    <%= f.input :comment, as: :text, input_html: {rows: 10, cols: 10} %>
+    <%= f.input :rating %>
+    <%= f.submit 'Post', class: 'btn-action' %>
+  <% end %>
+</div>

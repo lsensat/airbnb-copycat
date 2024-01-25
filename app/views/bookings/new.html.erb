@@ -1,41 +1,50 @@
+<div class="flat">
 
-<%= link_to @flat_path do %>
-  <h1>< Request to book</h1>
-<% end %>
+  <div class="flat-header">
+    <%= link_to flat_path(@flat) do %>
+      <i class="fa-solid fa-chevron-left"></i>
+    <% end %>
+    <h2>Confirm and pay</h2>
+  </div>
 
-<section>
-  <h2>Your trip</h2>
-</section>
+  <main class="flat-info">
+    <section>
+      <h2>Your trip</h2>
+    </section>
 
-<section>
-  <h2>Travel insurance</h2>
-  <ul>
-    <li>Add travel insurance for € 37.80</li>
-    <li><%= link_to "Add" %></li>
-  </ul>
-  <p>Get reimbursed if you need to cancel due to ilness, flight delays, and more.</p>
-  <%= link_to "What's covered", show_photos_path(@flat) %>
-</section>
+    <section>
+      <h2>Travel insurance</h2>
+      <ul>
+        <li>Add travel insurance for € 37.80</li>
+        <li><%= link_to "Add" %></li>
+      </ul>
+      <p>Get reimbursed if you need to cancel due to ilness, flight delays, and more.</p>
+      <%= link_to "What's covered", flat_photos_path(@flat) %>
+    </section>
 
-<section>
-  <h2>Required for your trip</h2>
-  <p>Message the Host</p>
-  <p>Share why you're traveling, who's coming with you, and what you love about the space.</p>
+    <section>
+      <h2>Required for your trip</h2>
+      <p>Message the Host</p>
+      <p>Share why you're traveling, who's coming with you, and what you love about the space.</p>
 
-  <%= @flat.user.first_name %>
-  <p>Joined in <%= @flat.created_at %></p>
-  <textarea name="" id="" cols="30" rows="10"></textarea>
-</section>
+      <%= @flat.user.first_name %>
+      <p>Joined in <%= @flat.created_at %></p>
+      <textarea name="" id="" cols="99" rows="10"></textarea>
+    </section>
 
-<section>
-  <h2>Cancellation policy</h2>
-  <p>This reservation is non-refundable. <%= link_to "Learn more", "#" %></p>
-</section>
+    <section>
+      <h2>Cancellation policy</h2>
+      <p>This reservation is non-refundable. <%= link_to "Learn more", "#" %></p>
+    </section>
 
-<section>
-  <p>By selecting the button below, I agree to the Host's House Rules, Ground rules
-    for guests, Airbnb's Rebooking and Refund Policy, and that Airbnb can charge my
-    payment method if I’m responsible for damage. I agree to pay the total amount
-    shown if the Host accepts my booking request. Payment Terms between you and
-    Airbnb Payments Luxembourg S.A.</p>
-</section>
+    <section>
+      <p>By selecting the button below, I agree to the Host's House Rules, Ground rules
+        for guests, Airbnb's Rebooking and Refund Policy, and that Airbnb can charge my
+        payment method if I’m responsible for damage. I agree to pay the total amount
+        shown if the Host accepts my booking request. Payment Terms between you and
+        Airbnb Payments Luxembourg S.A.</p>
+    </section>
+  </main>
+
+
+</div>

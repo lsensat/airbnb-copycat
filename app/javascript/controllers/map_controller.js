@@ -28,6 +28,9 @@ export default class extends Controller {
           .addTo(this.map)
       })
     } else {
+      const sectionBody = document.querySelector(".main-body")
+      sectionBody.style.paddingLeft = "1.2em"
+      sectionBody.style.paddingRight = "0.8em"
       this.markersValue.forEach((marker) => {
         const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
 
