@@ -10,6 +10,7 @@
   <main class="flat-info">
     <section>
       <h2>Your trip</h2>
+      <%= render 'new', flat: @flat %>
     </section>
 
     <section>
@@ -28,7 +29,7 @@
       <p>Share why you're traveling, who's coming with you, and what you love about the space.</p>
 
       <%= @flat.user.first_name %>
-      <p>Joined in <%= @flat.created_at %></p>
+      <p>Joined in <%= @flat.created_at.year %></p>
       <textarea name="" id="" cols="99" rows="10"></textarea>
     </section>
 

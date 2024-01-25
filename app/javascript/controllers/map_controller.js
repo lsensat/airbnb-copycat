@@ -20,7 +20,6 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
-    console.log(this.markersValue.length)
     if (this.markersValue.length == 1) {
       this.markersValue.forEach((marker) => {
         new mapboxgl.Marker()

@@ -3,23 +3,25 @@
     <h3>€ <%= @flat.price %> night</h3>
     <section>
       <%= f.input :start_time, as: :string, label: 'Check-in', input_html: { data: { flatpickr_target: "startTime" } } %>
-      <%= f.input :end_time, as: :string, label: 'Checkout', input_html: { data: { flatpickr_target: "endTime", action: "blur->flatpickr#updatePrice" }, id: 'endTime' } %>
+      <%= f.input :end_time, as: :string, label: 'Checkout', input_html: { data: { flatpickr_target: "endTime", action: "change->flatpickr#updatePrice" }, id: 'endTime' } %>
     </section>
-    <%= f.submit "Reserve", class: "btn btn-primary" %>
+    <%= f.submit "Reserve", class: "btn-action-long" %>
 
     <p class="warning"><em>You won't be charged yet</em></p>
 
     <ul>
-      <li>€ <%= @flat.price %> x 2</li>
-      <li><%= f.hidden_field :total_price, :as => :hidden, input_html: { data: { flatpickr_target: "priceTotal" }, value: @flat.price, readonly: true } %></li>
+      <li><%= @flat.price %></li>
+      <li></li>
+      <%# <li><%= f.input :total_price, :as => :hidden, input_html: { data: { flatpickr_target: "priceTotal", initialPrice_target: @flat.price }, value: @flat.price, readonly: true } %></li>
     </ul>
     <ul>
       <li>Cleaning fee</li>
-      <li>233 €</li>
+      <li data-flatpickr-target="fee"><%= 233 %></li>
     </ul>
     <ul class="total">
       <li><strong>Total</strong></li>
-      <li><%= @booking.total_price %></li>
+      <li></li>
+      <%# <li><%= f.input :total_price, label: false, input_html: { data: { flatpickr_target: "priceTotal" }, value: @flat.price, readonly: true } %></li>
     </ul>
   <% end %>
 </section>

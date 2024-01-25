@@ -25,13 +25,35 @@
   }
 }
 
-.btn-action:hover{
+.btn-action-long{
+  width: 100%;
+  margin-block: 1em;
+  padding-inline: 0.9em;
+  padding-block: 0.7em;
+  border: 1.2px black solid;
+  border-radius: 0.5em;
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.btn-action:hover {
   background-color: black;
   color: white;
   a{
     color: white;
   }
 }
+.btn-action-long:hover {
+  background-color: black;
+  color: white;
+  a{
+    color: white;
+  }
+}
+
 
 .btn-delete{
   width: max-content;
