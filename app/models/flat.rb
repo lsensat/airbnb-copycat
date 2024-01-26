@@ -9,6 +9,7 @@ class Flat < ApplicationRecord
   has_many :amenities, through: :flat_amenities
 
   has_many :bookings
+
   has_many :reviews
   has_many :likes
 
