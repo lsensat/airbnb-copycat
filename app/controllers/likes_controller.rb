@@ -1,8 +1,18 @@
 class LikesController < ApplicationController
   def create
     @flat = Flat.find(params[:id])
-    current_user.likes
+    # @like = Like.new(like_params)
+
+    @like = Like.new(post_id: params[:post_id])
+
+    if @like.save
+      render json: { status: "success" }, status: :ok
+    else
+      render json: { status: "error" }, status: :unprocessable_entity
+    end
   end
+
+
 
   private
 

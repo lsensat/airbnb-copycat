@@ -1,11 +1,13 @@
-<div
-  data-controller="like">
+<div data-controller="like">
 
-  <%= link_to "#" do %>
-    <i class="fa-regular fa-heart"
-      data-action="click->like#add"
-      data-like-target="unlike"></i>
-  <% end %>
+    <%= content_tag :div, data: { controller: "like", action: "click->like#add", postId: flat.id } do %>
+      <%= link_to "#" do %>
+        <i class="fa-regular fa-heart"
+        data-action="click->like#add"
+        data-like-target="like"></i>
+      <% end %>
+    <% end %>
+
   <% if flat.photos.length != 0 %>
     <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
   <% else %>
