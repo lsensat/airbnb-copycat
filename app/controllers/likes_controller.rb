@@ -2,7 +2,6 @@ class LikesController < ApplicationController
   def create
     @flat = Flat.find(params[:id])
     current_user.likes
-    raise
   end
 
   private
