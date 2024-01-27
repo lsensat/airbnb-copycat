@@ -1,14 +1,18 @@
 class LikesController < ApplicationController
   def create
-    @flat = Flat.find(params[:id])
+    flat = Flat.find(params[:flat_id])
     # @like = Like.new(like_params)
 
-    @like = Like.new(post_id: params[:post_id])
+    like = Like.new(user: current_user, flat_id: flat)
 
-    if @like.save
-      render json: { status: "success" }, status: :ok
-    else
-      render json: { status: "error" }, status: :unprocessable_entity
+    respond_to do |format|
+      if like.save
+        format.html { redirect_to flats_path }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render flats_path, status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
     end
   end
 

@@ -1,32 +1,28 @@
-<div data-controller="like">
+<%= link_to "#" do %>
+  <i class="fa-regular fa-heart"
+  data-controller="like"
+  data-action="click->like#add"
+  data-like-target="like"
+  data-like-flat-value="<%= flat.id %>"></i>
+<% end %>
 
-    <%= content_tag :div, data: { controller: "like", action: "click->like#add", postId: flat.id } do %>
-      <%= link_to "#" do %>
-        <i class="fa-regular fa-heart"
-        data-action="click->like#add"
-        data-like-target="like"></i>
+<% if flat.photos.length != 0 %>
+  <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
+<% else %>
+  <%= image_tag "house.webp", alt:"house", crop: :fit %>
+<% end %>
+<%= link_to flat_path(flat) do %>
+  <section class="flat-card-info">
+    <section class="flat-card-info-public">
+      <h6><%= flat.flat_type %> in <%= flat.city %></h6>
+      <% if flat.reviews.empty? %>
+        <p>No rating yet</p>
+      <% else %>
+        <p><%= average_rating(flat) %><i class="fa-regular fa-star"></i></p>
       <% end %>
-    <% end %>
-
-  <% if flat.photos.length != 0 %>
-    <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
-  <% else %>
-    <%= image_tag "house.webp", alt:"house", crop: :fit %>
-  <% end %>
-  <%= link_to flat_path(flat) do %>
-    <section class="flat-card-info">
-      <section class="flat-card-info-public">
-        <h6><%= flat.flat_type %> in <%= flat.city %></h6>
-        <% if flat.reviews.empty? %>
-          <p>No rating yet</p>
-        <% else %>
-          <p><%= average_rating(flat) %><i class="fa-regular fa-star"></i></p>
-        <% end %>
-      </section>
-      <div class="flat-card-info-price">
-        <h6>€<%= flat.price %></h6>
-      </div>
     </section>
-  <% end %>
-
-</div>
+    <div class="flat-card-info-price">
+      <h6>€<%= flat.price %></h6>
+    </div>
+  </section>
+<% end %>
