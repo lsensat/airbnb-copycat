@@ -1,9 +1,16 @@
-<%= link_to "#" do %>
-  <i class="fa-regular fa-heart"
-  data-controller="like"
-  data-action="click->like#add"
-  data-like-target="like"
-  data-like-flat-value="<%= flat.id %>"></i>
+<% if current_user.likes.where(flat: flat).empty? %>
+  <%= link_to("#", method: "post", action: 'create',
+    data: {
+      controller: "like",
+      action: "click->like#add",
+      like_flat_value: flat.id
+    }, remote: true) do %>
+    <i class="fa-regular fa-heart" data-like-target="like"></i>
+  <% end %>
+<% else %>
+  <%= link_to("#") do %>
+    <i class="fa-solid fa-heart" data-like-target="like"></i>
+  <% end %>
 <% end %>
 
 <% if flat.photos.length != 0 %>
