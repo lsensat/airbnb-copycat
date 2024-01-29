@@ -16,22 +16,23 @@ export default class extends Controller {
     // this.likeTarget.classList.toggle("fa-regular")
 
     const url = `/flats/${this.flatValue}/likes`
+    const token = document.head.querySelector("meta[name=csrf-token]").content
 
     const content = {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        "flat_id": this.flatValue,
+        "flat": this.flatValue,
+        // "X-CSRF-Token": token
       })
     }
 
     fetch(url, content)
     .then(response => {
-      console.log(response)
-      response.json()
+      return response.json()
     })
     .then(data => {
-      if (data.status === 'Success'){
+      if (data.status === 'success'){
         this.likeTarget.classList.toggle("fa-solid")
       }
     })

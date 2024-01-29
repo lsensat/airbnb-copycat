@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :flat_find, only: %i[create destroy]
+  before_action :flat_find, only: %i[create delete]
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     @like = current_user.likes.new(flat: @flat)
 
     if @like.save
-      render json: { status: 'Success' }
+      render json: { status: 'success' }
     else
       render json: { errors: @like.error.messages, status: 'error' }
     end
