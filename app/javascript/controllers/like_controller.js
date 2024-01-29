@@ -12,71 +12,45 @@ export default class extends Controller {
 
   add(event) {
     event.preventDefault()
-    this.likeTarget.classList.toggle("fa-solid")
-    this.likeTarget.classList.toggle("fa-regular")
+    // this.likeTarget.classList.toggle("fa-solid")
+    // this.likeTarget.classList.toggle("fa-regular")
 
     const url = `/flats/${this.flatValue}/likes`
-    const token = document.querySelector('meta[name="csrf-token"]').content;
-    console.log(token)
 
     const content = {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         "flat_id": this.flatValue,
-        'X-CSRF-Token': token,
       })
     }
 
     fetch(url, content)
     .then(response => {
-      console.log(response),
-      response.json()})
+      console.log(response)
+      response.json()
+    })
     .then(data => {
-      console.log(data)
-      if (data.status === 'success') {
-        // Handle success
-        console.log('Success:', data);
-      } else {
-        // Handle errors
-        console.error('Error:', data.errors);
+      if (data.status === 'Success'){
+        this.likeTarget.classList.toggle("fa-solid")
       }
     })
-    .catch(error => console.error('Error:', error));
   }
 
-  delete(event) {
-    event.preventDefault()
-    this.likeTarget.classList.toggle("fa-solid")
-    this.likeTarget.classList.toggle("fa-regular")
+  // delete(event) {
+  //   event.preventDefault()
+  //   const url = `/flats/${this.flatValue}/likes`
 
-    const url = `/flats/${this.flatValue}/likes`
-    const token = document.querySelector('meta[name="csrf-token"]').content;
-    console.log(token)
+  //   const content = {
+  //     method: "DELETE",
+  //     headers: {"Content-Type": "application/json"}
+  //   }
+  //   this.likeTarget.classList.toggle("fa-regular")
 
-    const content = {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        "flat_id": this.flatValue,
-        'X-CSRF-Token': token,
-      })
-    }
-
-    fetch(url, content)
-    .then(response => {
-      console.log(response),
-      response.json()})
-    .then(data => {
-      console.log(data)
-      if (data.status === 'success') {
-        // Handle success
-        console.log('Success:', data);
-      } else {
-        // Handle errors
-        console.error('Error:', data.errors);
-      }
-    })
-    .catch(error => console.error('Error:', error));
-  }
+  //   fetch(url, content)
+  //   .then(response => {
+  //     console.log(response),
+  //     console.log(response.ok)
+  //   })
+  // }
 }

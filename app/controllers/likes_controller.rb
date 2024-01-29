@@ -6,29 +6,16 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(flat: @flat)
 
-    respond_to do |format|
-      if @like.save
-        format.html { redirect_to flats_path(@like) }
-        format.json # Follows the classic Rails flow and look for a create.json view
-      else
-        format.html { render "flats", status: :unprocessable_entity }
-        format.json # Follows the classic Rails flow and look for a create.json view
-      end
+    if @like.save
+      render json: { status: 'Success' }
+    else
+      render json: { errors: @like.error.messages, status: 'error' }
     end
   end
 
-  def destroy
-    @like = current_user.likes.destroy(flat: @flat)
-
-    respond_to do |format|
-      if @like.save
-        format.html { redirect_to flats_path(@like) }
-        format.json # Follows the classic Rails flow and look for a create.json view
-      else
-        format.html { render "flats", status: :unprocessable_entity }
-        format.json # Follows the classic Rails flow and look for a create.json view
-      end
-    end
+  def delete
+    # like_ids = likes.where(flat: flat).ids
+    # current_user.likes.where(flat: flat).destroy(like_ids)
   end
 
   private

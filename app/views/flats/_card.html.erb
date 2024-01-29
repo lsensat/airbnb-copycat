@@ -8,10 +8,17 @@
     <i class="fa-regular fa-heart" data-like-target="like"></i>
   <% end %>
 <% else %>
-  <%= link_to("#") do %>
+  <%= link_to "#" do %>
+  <%# <%= link_to("#", method: "delete", action: 'delete',
+    data: {
+      controller: 'like',
+      action: "click->like#delete",
+      like_flat_value: flat.id
+    }, remote: true) do %>
     <i class="fa-solid fa-heart" data-like-target="like"></i>
   <% end %>
 <% end %>
+
 
 <% if flat.photos.length != 0 %>
   <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
