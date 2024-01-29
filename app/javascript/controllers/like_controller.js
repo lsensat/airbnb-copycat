@@ -34,6 +34,7 @@ export default class extends Controller {
     .then(data => {
       if (data.status === 'success'){
         this.likeTarget.classList.toggle("fa-solid")
+        this.likeTarget.classList.toggle("fa-regular")
       }
     })
   }
