@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['like']
   static values = {
-    flat: Number
+    flat: Number,
+    likeId: Number
   }
 
   connect() {
@@ -39,20 +40,28 @@ export default class extends Controller {
     })
   }
 
-  // delete(event) {
-  //   event.preventDefault()
-  //   const url = `/flats/${this.flatValue}/likes`
+  delete(event) {
+    event.preventDefault()
+    const url = `/flats/${this.flatValue}/likes/${this.likeIdValue}`
 
-  //   const content = {
-  //     method: "DELETE",
-  //     headers: {"Content-Type": "application/json"}
-  //   }
-  //   this.likeTarget.classList.toggle("fa-regular")
+    const content = {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        "like_id": this.likeIdValue,
+      })
+    }
 
-  //   fetch(url, content)
-  //   .then(response => {
-  //     console.log(response),
-  //     console.log(response.ok)
-  //   })
-  // }
+    fetch(url, content)
+    .then(response => {
+      console.log(response)
+      return response.json()
+    })
+    .then(data => {
+      if (data.status === 'success'){
+        this.likeTarget.classList.toggle("fa-solid")
+        this.likeTarget.classList.toggle("fa-regular")
+      }
+    })
+  }
 }

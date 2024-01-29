@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, except: %i[index new create]
+  before_action :set_flat, except: %i[index new create destroy]
 
   def index
     @flats = Flat.all
@@ -51,7 +51,7 @@ class FlatsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     if @flat.destroy
       redirect_to flats_path
     else

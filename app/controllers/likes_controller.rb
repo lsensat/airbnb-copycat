@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :flat_find, only: %i[create delete]
+  before_action :flat_find, only: %i[create destroy]
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
@@ -13,9 +13,13 @@ class LikesController < ApplicationController
     end
   end
 
-  def delete
-    # like_ids = likes.where(flat: flat).ids
-    # current_user.likes.where(flat: flat).destroy(like_ids)
+  def destroy
+    @like = Like.find(params[:like_id])
+    if @like.destroy
+      render json: { status: 'success' }
+    else
+      render json: { errors: @like.error.messages, status: 'error' }
+    end
   end
 
   private

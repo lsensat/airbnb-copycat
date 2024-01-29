@@ -3,4 +3,5 @@ class Like < ApplicationRecord
   belongs_to :flat
 
   validates :user, presence: true
+  validates :flat, uniqueness: true
 end
