@@ -22,14 +22,15 @@ export default class extends Controller {
     const content = {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        "flat": this.flatValue,
+      // body: JSON.stringify({
+        // "flat": this.flatValue,
         // "X-CSRF-Token": token
-      })
+      // })
     }
 
     fetch(url, content)
     .then(response => {
+      console.log('liking')
       return response.json()
     })
     .then(data => {
@@ -54,7 +55,7 @@ export default class extends Controller {
 
     fetch(url, content)
     .then(response => {
-      console.log(response)
+      console.log('unliking')
       return response.json()
     })
     .then(data => {

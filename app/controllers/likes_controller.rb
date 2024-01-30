@@ -3,6 +3,10 @@ class LikesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
+  def index
+    @likes = Like.all
+  end
+
   def create
     @like = current_user.likes.new(flat: @flat)
 

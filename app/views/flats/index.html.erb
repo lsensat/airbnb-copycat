@@ -15,7 +15,9 @@
   <section class="list-all">
     <% @flats.each do |flat| %>
       <div class="flat-card">
-        <%= render 'card', flat: flat %>
+        <%# <%= turbo_frame_tag flat.id do %>
+          <%= render 'card', flat: flat %>
+        <%# <% end %>
       </div>
     <% end %>
   </section>

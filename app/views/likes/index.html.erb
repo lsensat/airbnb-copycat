@@ -1,0 +1,11 @@
+<h2>Favourites</h2>
+
+<ul>
+  <% @likes.each do |like| %>
+    <li>
+      <%= link_to flat_path(like.flat) do %>
+        <%= like.flat.flat_type %>: <%= like.flat.address %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
