@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-  has_one_attached :photos
+  has_one_attached :photo
   belongs_to :user
 
   include PgSearch::Model

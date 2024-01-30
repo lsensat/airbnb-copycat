@@ -1,0 +1,7 @@
+<%= simple_form_for(account) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Save', class: 'btn-action' %>
+<% end %>
