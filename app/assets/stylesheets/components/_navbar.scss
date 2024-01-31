@@ -17,4 +17,17 @@ nav{
     margin: 0;
     padding: 0;
   }
+
+  .profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .dropdown-menu.show{
+      position: absolute;
+      inset: 15px auto auto 0px;
+      margin: 0px;
+      transform: translate3d(-120px, 30px, 0px);
+    }
+  }
 }

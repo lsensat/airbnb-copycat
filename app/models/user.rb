@@ -7,14 +7,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :reviews
   has_many :likes
-  has_one :account
-
-  after_create :create_account
-
-  private
-
-  def create_account
-    Account.create(user_id: user)
-  end
-
+  has_one_attached :photo
 end
