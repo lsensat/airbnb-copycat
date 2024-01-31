@@ -1,5 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :set_flat
+  before_action :set_flat, except: %i[index]
+
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
+
   def new
     @booking = Booking.new
   end

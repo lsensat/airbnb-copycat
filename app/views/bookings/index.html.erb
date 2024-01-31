@@ -1,0 +1,11 @@
+<h2>Stays</h2>
+
+<ul>
+  <% @bookings.each do |booking| %>
+  <li>
+    <%= link_to flat_path(booking.flat) do %>
+      <%= booking.flat.address %> (from <%= booking.booking_dates.first.date %> to <%= booking.booking_dates.last.date %>)
+    <% end %>
+  </li>
+  <% end %>
+</ul>

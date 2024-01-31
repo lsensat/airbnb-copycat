@@ -13,10 +13,11 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
+    <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   </head>
 
   <body>
@@ -37,7 +38,7 @@
           <%= link_to "Airbnb your home", new_flat_path, class: "btn-normal" %>
 
           <div class="dropdown">
-            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <% unless current_user.photo %>
                 User
               <% else %>
@@ -47,6 +48,7 @@
 
             <ul class="dropdown-menu">
               <li><%= link_to "Favourites", flat_likes_path(current_user.likes), class: "dropdown-item" %></li>
+              <li><%= link_to "Stays", user_bookings_path(current_user), class: "dropdown-item" %></li>
               <li><%= link_to "Account", edit_user_registration_path(current_user), class: "dropdown-item" %></li>
               <li><%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
             </ul>

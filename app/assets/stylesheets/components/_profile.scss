@@ -1,0 +1,17 @@
+.profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div{
+    margin-left: 0.5em;
+  }
+
+  ul.show{
+    position: absolute;
+    inset: 15px auto auto 0px;
+    margin: 0px;
+    transform: translate3d(-120px, 30px, 0px);
+    top: 15px;
+  }
+}

@@ -19,4 +19,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
     resources :likes, only: %i[index create destroy]
   end
+  resources :users do
+    resources :bookings, only: %i[index]
+  end
 end
