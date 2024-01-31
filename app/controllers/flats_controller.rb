@@ -4,10 +4,9 @@ class FlatsController < ApplicationController
   def index
     @flats = Flat.all
     @flats_liked = current_user.likes
-    
+
     if params[:query].present?
       PgSearch::Multisearch.rebuild(Flat)
-      PgSearch::Multisearch.rebuild(User)
       @flats = PgSearch.multisearch(params[:query])
       @markers = @flats.map do |flat|
         {

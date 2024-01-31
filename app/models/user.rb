@@ -8,7 +8,4 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :likes
   has_one_attached :photo
-
-  include PgSearch::Model
-  multisearchable against: [:first_name, :last_name]
 end
