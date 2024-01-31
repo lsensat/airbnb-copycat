@@ -1,5 +1,6 @@
-
+<% if user_signed_in? %>
   <%= render 'like', flat: flat %>
+<% end %>
 
   <% if flat.photos.length != 0 %>
     <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>

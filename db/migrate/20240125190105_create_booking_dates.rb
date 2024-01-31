@@ -5,8 +5,6 @@ class CreateBookingDates < ActiveRecord::Migration[7.1]
       t.date :date
       t.integer :price
 
-      add_foreign_key :booking_dates, :bookings, on_delete: :cascade
-
       t.timestamps
     end
   end

@@ -10,10 +10,10 @@ class Flat < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
 
-  has_many :reviews
-  has_many :likes
+  has_many :reviews, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   include PgSearch::Model
-  multisearchable against: [:address, :latitude, :longitude]
+  multisearchable against: [:address, :flat_type, :latitude, :longitude]
 
 end

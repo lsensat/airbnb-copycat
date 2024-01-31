@@ -1,9 +1,12 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, except: %i[index new create destroy]
+  before_action :set_flat, except: %i[index new create destroy show_photos]
+  before_action :authenticate_user!, except: %i[index show show_photos]
 
   def index
     @flats = Flat.all
-    @flats_liked = current_user.likes
+    if user_signed_in?
+      @flats_liked = current_user.likes
+    end
 
     if params[:query].present?
       PgSearch::Multisearch.rebuild(Flat)

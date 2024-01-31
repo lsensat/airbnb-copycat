@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_flat, except: %i[index]
+  before_action :authenticate_user!
 
   def index
     @bookings = Booking.where(user: current_user)

@@ -13,12 +13,17 @@ require 'faker'
 puts 'Deleting previous amenities...'
 FlatAmenity.delete_all
 Amenity.delete_all
+puts 'Deleting bookings...'
+Booking.delete_all
+puts 'Deleting likes...'
+Like.delete_all
 puts 'Deleting previous flats...'
 Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
 puts 'Creating users...'
+require "open-uri"
 10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
@@ -28,11 +33,13 @@ puts 'Creating users...'
     email: Faker::Internet.unique.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'gmail'),
     password: 'UsersAreTested1'
   )
+  file = URI.open("https://thispersondoesnotexist.com/")
+  user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
   user.save
 end
 puts 'Users created!'
 
-puts 'Create different amenities...'
+puts 'Creating different amenities...'
 amenities = ['Kitchen', 'Wifi', 'Shared pool', 'TV', 'Washer', 'Air conditioning',
   'Backyard', 'Carbon monoxide alarm', 'Smoke alarm']
 
@@ -42,26 +49,14 @@ end
 puts 'Amenities created!'
 
 puts 'Creating flats...'
-flats = [
-  { street: 'Carrer de Freixa, 36', zip: '08021' },
-  { street: 'C/ de Muntaner, 102', zip: '08036' },
-  { street: 'C. del dos de Maig, 234I', zip: '08026' },
-  { street: 'Carrer dels Paletes, 3', zip: '08034' },
-  { street: 'C/ de Tarragona, 141', zip: '08014' },
-  { street: 'Carrer de la Perla, 21', zip: '08012' },
-  { street: 'C/ de València, 430', zip: '08013' },
-  { street: 'C. de Pujades, 170', zip: '08005' },
-  { street: 'Carrer de Mercedes, 2', zip: '08024' },
-  { street: 'Sant Marius 13', zip: '08022' }
-]
-require "open-uri"
+
 User.ids.sample(10).each_with_index do |user, index|
   flat = Flat.new(
-    city: 'Barcelona', country: 'Spain', bedrooms: rand(1..4),
+    city: Faker::Address.city, country: Faker::Address.country, bedrooms: rand(1..4),
     price: rand(50..500),
-    description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
+    description: Faker::Lorem.paragraph(sentence_count: rand(2..4)),
     flat_type: "#{['Room', 'Shared Room', 'Place to stay'].sample}",
-    street: flats[index][:street], zip: flats[index][:zip],
+    street: Faker::Address.street_address, zip: Faker::Address.zip,
     user_id: user
   )
 
@@ -69,24 +64,32 @@ User.ids.sample(10).each_with_index do |user, index|
     [flat.street, flat.city, flat.zip, flat.country].compact.join(', ')
   end
 
-
-  flat.address = address(flat)
-  # flat.photos.attach(io: File.open('/photo1.png'), filename: 'photo1.png', content_type: 'image/png')
-  # flat.photos.attach(io: File.open('/photo2.png'), filename: 'photo2.png', content_type: 'image/png')
-  # flat.photos.attach(io: File.open('/photo3.png'), filename: 'photo3.png', content_type: 'image/png')
-  # flat.photos.attach(io: File.open('/photo4.png'), filename: 'photo4.png', content_type: 'image/png')
-  # 'b83ydk9e3yc9fjny6qa1jrduvaxo', 'log9d7m720rgl1j7046fhl429sou', 'a01b97c5-b3ef-4ec7-9918-2f56edd45405_w1ympu'
-  flat.save
-
-  Amenity.ids.each do |amenity|
-    FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity)
+  rooms = ['kitchen', 'living', 'main', 'office', 'bathroom'].shuffle
+  rooms.each do |room|
+    image_room = "#{room}-#{rand(1..4)}.jpeg"
+    file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
+    file = File.open(file_path)
+    flat.photos.attach(io: file, filename: image_room, content_type: "image/jpeg")
   end
 
-  # amenities.sample(6).each do |amenity|
-  #   FlatAmenity.create(name: amenity, flat_id: Flat.ids.last)
-  # end
+  flat.address = address(flat)
+  flat.save
+
+  random_amenities = rand(4..8)
+  Amenity.ids.sample(random_amenities).each do |amenity|
+    FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity)
+  end
 end
 puts 'Flats created!'
+
+puts 'Adding some likes...'
+Flat.all.each do |flat|
+  30.times do
+    user = User.all.sample
+    Like.create(flat: flat, user: user)
+  end
+end
+puts 'Some flats have likes!'
 
 puts 'Creating a testing user...'
 User.create(
