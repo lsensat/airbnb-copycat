@@ -21,10 +21,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    # super
     @user = current_user
-    if @user.update(account_update_params)
-      redirect_to root_path
+    if params[:user][:password].present?
+      if @user.valid_password?(params[:user][:current_password])
+        # Update the password
+        @user.update(user_params)
+        # Continue with your logic or redirect
+        redirect_to root_path
+      else
+        # Handle incorrect current password
+        flash[:alert] = 'Current password is incorrect.'
+        render :edit
+      end
+    else
+      # Update other attributes (excluding password-related changes)
+      @user.update(account_update_params.except(:current_password, :password, :password_confirmation))
+      # Continue with your logic or redirect
+      redirect_to edit_user_password_path(current_user)
     end
   end
 

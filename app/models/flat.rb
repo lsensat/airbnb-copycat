@@ -14,6 +14,6 @@ class Flat < ApplicationRecord
   has_many :likes
 
   include PgSearch::Model
-  multisearchable against: [:address]
+  multisearchable against: [:address, :latitude, :longitude]
 
 end
