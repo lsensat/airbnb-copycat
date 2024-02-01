@@ -5,7 +5,7 @@
   <% if flat.photos.length != 0 %>
     <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
   <% else %>
-    <%= image_tag "house.webp", alt:"house", crop: :fit %>
+    <%= image_tag "house.webp", alt:"house", gratvity: :auto, crop: :fill %>
   <% end %>
   <%= link_to flat_path(flat), data: { turbo: false } do %>
     <section class="flat-card-info">

@@ -27,19 +27,19 @@
   <section class="flat-images">
     <% if @flat.photos.empty? %>
       <div class="main-image">
-        <%= cl_image_tag('pw64vj1jlxc1v5iwgp9ysy7nh7cc', crop: :fill) %>
+        <%= cl_image_tag('pw64vj1jlxc1v5iwgp9ysy7nh7cc', gravity: :auto, fetch_format: :auto, crop: :fill) %>
       </div>
     <% else %>
       <div class="main-image">
         <%= link_to flat_photos_path(@flat) do %>
-          <%= cl_image_tag(@flat.photos[0].key, crop: :fill) %>
+          <%= cl_image_tag(@flat.photos[0].key, gravity: :auto,crop: :fill) %>
         <% end %>
       </div>
       <div class="second-image">
         <% if @flat.photos.length > 1 %>
           <% for index in 0..3 %>
             <%= link_to flat_photos_path(@flat) do %>
-              <%= cl_image_tag(@flat.photos[index].key, crop: :fill) %>
+              <%= cl_image_tag(@flat.photos[index].key, gravity: :auto,crop: :fill) %>
             <% end %>
           <% end %>
         <% end %>

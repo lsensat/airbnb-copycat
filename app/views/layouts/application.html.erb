@@ -42,7 +42,10 @@
               <% if current_user.photo.nil? %>
                 User
               <% else %>
-                <%= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, class: 'avatar-bordered' %>
+                <div class="avatar-container">
+                  <i class="fa-solid fa-bars"></i>
+                  <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, class: 'avatar' %>
+                </div>
               <% end %>
             </a>
 
@@ -83,7 +86,7 @@
     <footer>
       <div class="airbnb-info">
         <ul>
-          <strong>Support</strong>
+          <h4><strong>Support</strong></h4>
           <li><%= link_to "Help Center", "#" %></li>
           <li><%= link_to "AirCover", "#" %></li>
           <li><%= link_to "Anti-discrimination", "#" %></li>
@@ -92,7 +95,7 @@
           <li><%= link_to "Report neighborhood concern", "#" %></li>
         </ul>
         <ul>
-          <strong>Hosting</strong>
+          <h4><strong>Hosting</strong></h4>
           <li><%= link_to "Airbnb your home", "#" %></li>
           <li><%= link_to "AirCover for Hosts", "#" %></li>
           <li><%= link_to "Hosting resources", "#" %></li>
@@ -101,7 +104,7 @@
           <li><%= link_to "Airbnb-friendly apartments", "#" %></li>
         </ul>
         <ul>
-          <strong>Airbnb</strong>
+          <h4><strong>Airbnb</strong></h4>
           <li><%= link_to "Newsroom", "#" %></li>
           <li><%= link_to "New features", "#" %></li>
           <li><%= link_to "Careers", "#" %></li>

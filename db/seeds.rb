@@ -64,12 +64,12 @@ User.ids.sample(10).each_with_index do |user, index|
     [flat.street, flat.city, flat.zip, flat.country].compact.join(', ')
   end
 
-  rooms = ['kitchen', 'living', 'main', 'office', 'bathroom'].shuffle
-  rooms.each do |room|
+  rooms = ['main', 'kitchen', 'living', 'office', 'bathroom']
+  rooms.shuffle.each do |room|
     image_room = "#{room}-#{rand(1..4)}.jpeg"
     file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
     file = File.open(file_path)
-    flat.photos.attach(io: file, filename: image_room, content_type: "image/jpeg")
+    flat.photos.attach(io: file, filename: image_room)
   end
 
   flat.address = address(flat)
