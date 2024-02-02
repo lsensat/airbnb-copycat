@@ -44,7 +44,7 @@
               <% else %>
                 <div class="avatar-container">
                   <i class="fa-solid fa-bars"></i>
-                  <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, class: 'avatar' %>
+                  <%# <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, class: 'avatar' %> %>
                 </div>
               <% end %>
             </a>
@@ -69,19 +69,15 @@
               <li><%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %></li>
             </ul>
         <% end %>
-
-
-
       </div>
     </nav>
+
+    <%# <p class="notice"><%= notice %>
+    <%# <p class="alert"><%= alert %>
 
     <section class="main-body">
       <%= yield %>
     </section>
-
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <footer>
       <div class="airbnb-info">

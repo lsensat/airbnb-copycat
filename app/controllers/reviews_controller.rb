@@ -3,7 +3,11 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @review = Review.new
+    unless current_user.bookings.where(flat: @flat).empty?
+      @review = Review.new
+    else
+      redirect_to flat_path(@flat), notice: 'First you should have booked this place'
+    end
   end
 
   def create

@@ -14,6 +14,7 @@ puts 'Deleting previous amenities...'
 FlatAmenity.delete_all
 Amenity.delete_all
 puts 'Deleting bookings...'
+BookingDate.delete_all
 Booking.delete_all
 puts 'Deleting likes...'
 Like.delete_all
@@ -22,9 +23,11 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
+total_users = 10
+
 puts 'Creating users...'
 require "open-uri"
-10.times do
+total_users.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   user = User.new(
@@ -33,8 +36,9 @@ require "open-uri"
     email: Faker::Internet.unique.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'gmail'),
     password: 'UsersAreTested1'
   )
-  file = URI.open("https://thispersondoesnotexist.com/")
-  user.photo.attach(io: file, filename: "avatar.png", content_type: "image/png")
+  # face_image = "face-#{rand(1..total_users)}.jpeg"
+  # file = File.open(File.join(Rails.root, 'app', 'assets', 'images', face_image))
+  # user.photo.attach(io: file, filename: "avatar.jpeg")
   user.save
 end
 puts 'Users created!'
@@ -50,7 +54,7 @@ puts 'Amenities created!'
 
 puts 'Creating flats...'
 
-User.ids.sample(10).each_with_index do |user, index|
+User.ids.sample(total_users * 0.8).each_with_index do |user, index|
   flat = Flat.new(
     city: Faker::Address.city, country: Faker::Address.country, bedrooms: rand(1..4),
     price: rand(50..500),
@@ -66,10 +70,10 @@ User.ids.sample(10).each_with_index do |user, index|
 
   rooms = ['main', 'kitchen', 'living', 'office', 'bathroom']
   rooms.shuffle.each do |room|
-    image_room = "#{room}-#{rand(1..4)}.jpeg"
-    file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
-    file = File.open(file_path)
-    flat.photos.attach(io: file, filename: image_room)
+    image_room = "#{room}-#{rand(1..10)}.jpeg"
+    # file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
+    # file = File.open(file_path)
+    # flat.photos.attach(io: file, filename: image_room)
   end
 
   flat.address = address(flat)
@@ -90,6 +94,41 @@ Flat.all.each do |flat|
   end
 end
 puts 'Some flats have likes!'
+
+puts 'Creating some reviews...'
+
+Flat.all.sample(total_users * 0.9).each do |flat|
+  User.all.sample(total_users * 0.8).each do |user|
+    comment = 
+    rating = rand(1..5)
+    flat.reviews.create(user: user, flat: flat, comment: comment, rating: )
+  end
+end
+
+puts 'Reviews created!'
+
+def create_booking_dates(booking, flat)
+  flat_price = flat.price
+
+  (booking.start_time..booking.end_time).to_a.each do |date|
+    booking.booking_dates.create(date: date, price: flat_price)
+  end
+end
+
+puts 'Booking some places...'
+User.all.sample(total_users * 0.5).each do |user|
+  @flat = Flat.all.sample
+  year = 2024
+  month = rand(2..4)
+  day = rand(2..25)
+  @booking = Booking.create(user: user, flat: @flat,
+    start_time: "#{year}-#{month}-#{day}",
+    end_time: "#{year}-#{month}-#{day + rand(2..4)}"
+  )
+
+  booking_dates = create_booking_dates(@booking, @flat)
+end
+puts 'Booked!'
 
 puts 'Creating a testing user...'
 User.create(
