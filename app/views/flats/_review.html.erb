@@ -1,5 +1,10 @@
 <div class="review">
-  <p>by <strong><%= review.user.first_name %></strong></p>
+  <div class="review-profile">
+    <%= cl_image_tag review.user.photo.key, class: 'avatar' %>
+    <p><strong><%= review.user.first_name %></strong></p>
+  </div>
+
+
 
   <div class="review-rating">
     <div>
@@ -17,5 +22,4 @@
     </div>
   </div>
   <p><em><%= review.comment %></em></p>
-  <p><%= review.rating.to_f %> <i class="fa-solid fa-star"></i></p>
 </div>

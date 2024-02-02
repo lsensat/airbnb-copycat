@@ -9,11 +9,16 @@
     margin-bottom: 0px;
   }
   i{
-    font-size: 1em;
+    font-size: 0.8em;
   }
   .review-rating{
     display: flex;
     justify-content: left;
+    align-items: center;
+
+    div p{
+      margin-left: 0.3em;
+    }
   }
   .review{
     font-size: 0.9em;
@@ -21,5 +26,12 @@
   .review-date{
     font-size: 0.9em;
     font-weight: bold;
+  }
+  .review-profile{
+    display: flex;
+    align-items: center;
+    p{
+      margin-left: 0.5em;
+    }
   }
 }
