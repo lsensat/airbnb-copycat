@@ -24,7 +24,7 @@
     <nav>
       <div id="logo">
         <%= link_to root_path do %>
-          <%= image_tag "airbnb-logo.png", alt: "Airbnb", width: 100 %>
+          <%= cl_image_tag("airbnb-copycat/airbnb-logo_u4e6la.png", alt: "Airbnb", width: 100) %>
         <% end %>
       </div>
       <div id="search-field">
@@ -48,7 +48,7 @@
               <% else %>
                 <div class="avatar-container">
                   <i class="fa-solid fa-bars"></i>
-                  <%= cl_image_tag current_user.photo.key, gravity: :face, crop: :thumb, class: 'avatar' %>
+                  <%= cl_image_tag(current_user.photo, gravity: :face, crop: :thumb, class: 'avatar') %>
                 </div>
               <% end %>
             </a>

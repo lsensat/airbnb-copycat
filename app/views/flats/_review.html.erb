@@ -1,10 +1,8 @@
 <div class="review">
   <div class="review-profile">
-    <%= cl_image_tag review.user.photo.key, class: 'avatar' %>
+    <%= cl_image_tag(review.user.photo.key, class: 'avatar') %>
     <p><strong><%= review.user.first_name %></strong></p>
   </div>
-
-
 
   <div class="review-rating">
     <div>
