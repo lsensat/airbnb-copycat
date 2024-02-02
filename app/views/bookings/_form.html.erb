@@ -10,8 +10,8 @@
     <p class="warning"><em>You won't be charged yet</em></p>
 
     <ul>
+      <li><%= @flat.price %> x 1</li>
       <li><%= @flat.price %></li>
-      <li></li>
       <%# <li><%= f.input :total_price, :as => :hidden, input_html: { data: { flatpickr_target: "priceTotal", initialPrice_target: @flat.price }, value: @flat.price, readonly: true } %></li>
     </ul>
     <ul>
@@ -20,7 +20,7 @@
     </ul>
     <ul class="total">
       <li><strong>Total</strong></li>
-      <li></li>
+      <li><%= @flat.price + 233 %></li>
       <%# <li><%= f.input :total_price, label: false, input_html: { data: { flatpickr_target: "priceTotal" }, value: @flat.price, readonly: true } %></li>
     </ul>
   <% end %>
