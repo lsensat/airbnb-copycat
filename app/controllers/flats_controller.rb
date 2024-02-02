@@ -25,6 +25,7 @@ class FlatsController < ApplicationController
   def show
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
     @amenities = Amenity.all
+    @identity_verified = true if @flat.user.first_name && @flat.user.last_name
   end
 
   def new

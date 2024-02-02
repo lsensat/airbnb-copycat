@@ -59,7 +59,7 @@
         <%= @flat.baths / @flat.guests.to_f.round(1) %> <%= @flat.baths != 1.0 ? "baths" : "bath" %>
       </p>
       <% if average_rating(@flat) >= 0 %>
-        <p><%= average_rating(@flat) %><i class="fa-solid fa-star"></i></p>
+        <p><%= average_rating(@flat).round(1) %><i class="fa-solid fa-star"></i></p>
       <% else %>
         <p>No rating yet.</p>
       <% end %>
@@ -119,7 +119,11 @@
       <p>Joined in <%= @flat.user.created_at %></p>
       <div class="account-data">
         <p><i class="fa-solid fa-star"></i> <%= @flat.reviews.size %> Review</p>
-        <p><i class="fa-solid fa-shield"></i> Identity verified</p>
+        <% if @identity_verified %>
+          <p><i class="fa-solid fa-shield"></i> Identity verified</p>
+        <% else %>
+          <p><i class="fa-solid fa-shield-halved"></i> Identity not fully verified</p>
+        <% end %>
       </div>
       <div class="btn-action">
         <%= link_to "Contact Host", "#" %>

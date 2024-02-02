@@ -23,7 +23,7 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
-total_users = 10
+total_users = 40
 
 puts 'Creating users...'
 require "open-uri"
@@ -36,9 +36,9 @@ total_users.times do
     email: Faker::Internet.unique.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'gmail'),
     password: 'UsersAreTested1'
   )
-  # face_image = "face-#{rand(1..total_users)}.jpeg"
-  # file = File.open(File.join(Rails.root, 'app', 'assets', 'images', face_image))
-  # user.photo.attach(io: file, filename: "avatar.jpeg")
+  face_image = "face-#{rand(1..total_users)}.jpeg"
+  file = File.open(File.join(Rails.root, 'app', 'assets', 'images', face_image))
+  user.photo.attach(io: file, filename: "avatar.jpeg")
   user.save
 end
 puts 'Users created!'
@@ -57,10 +57,11 @@ puts 'Creating flats...'
 User.ids.sample(total_users * 0.8).each_with_index do |user, index|
   flat = Flat.new(
     city: Faker::Address.city, country: Faker::Address.country, bedrooms: rand(1..4),
-    price: rand(50..500),
-    description: Faker::Lorem.paragraph(sentence_count: rand(2..4)),
+    price: rand(40..500),
+    description: Faker::Lorem.paragraph(sentence_count: rand(4..8)),
     flat_type: "#{['Room', 'Shared Room', 'Place to stay'].sample}",
     street: Faker::Address.street_address, zip: Faker::Address.zip,
+    guests: rand(1..5), bath: rand(1..2),
     user_id: user
   )
 
@@ -71,17 +72,16 @@ User.ids.sample(total_users * 0.8).each_with_index do |user, index|
   rooms = ['main', 'kitchen', 'living', 'office', 'bathroom']
   rooms.shuffle.each do |room|
     image_room = "#{room}-#{rand(1..10)}.jpeg"
-    # file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
-    # file = File.open(file_path)
-    # flat.photos.attach(io: file, filename: image_room)
+    file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
+    file = File.open(file_path)
+    flat.photos.attach(io: file, filename: image_room)
   end
 
   flat.address = address(flat)
   flat.save
 
-  random_amenities = rand(4..8)
-  Amenity.ids.sample(random_amenities).each do |amenity|
-    FlatAmenity.create(flat_id: Flat.ids.last, amenity_id: amenity)
+  Amenity.ids.sample(rand(4..8)).each do |amenity|
+    FlatAmenity.create(flat: Flat.last, amenity_id: amenity)
   end
 end
 puts 'Flats created!'
@@ -98,10 +98,10 @@ puts 'Some flats have likes!'
 puts 'Creating some reviews...'
 
 Flat.all.sample(total_users * 0.9).each do |flat|
-  User.all.sample(total_users * 0.8).each do |user|
-    comment = 
+  User.all.sample(total_users * rand(0.3..0.9)).each do |user|
+    comment = Faker::Lorem.paragraph(sentence_count: rand(2..4))
     rating = rand(1..5)
-    flat.reviews.create(user: user, flat: flat, comment: comment, rating: )
+    flat.reviews.create(user: user, flat: flat, comment: comment, rating: rating)
   end
 end
 
