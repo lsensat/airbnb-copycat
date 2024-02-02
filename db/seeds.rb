@@ -23,7 +23,7 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
-total_users = 40
+total_users = 20
 
 puts 'Creating users...'
 require "open-uri"
