@@ -26,70 +26,72 @@ User.delete_all
 
 total_users = 20
 
+cloudinary_public_path = "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat"
+
 user_faces = {
-  "face-1": "airbnb-copycat/face-1_rj8s4v",
-  "face-2": "airbnb-copycat/face-2_a3er6f",
-  "face-3": "airbnb-copycat/face-3_ticx4h",
-  "face-4": "airbnb-copycat/face-4_hcukpe",
-  "face-5": "airbnb-copycat/face-5_k3u4cz",
-  "face-6": "airbnb-copycat/face-6_lyw5bl",
-  "face-7": "airbnb-copycat/face-6_lyw5bl",
-  "face-8": "airbnb-copycat/face-8_bgci3p",
-  "face-9": "airbnb-copycat/face-9_bdpf0k",
-  "face-10": "airbnb-copycat/face-10_taaico",
+  "face-1": "face-1_rj8s4v",
+  "face-2": "face-2_a3er6f",
+  "face-3": "face-3_ticx4h",
+  "face-4": "face-4_hcukpe",
+  "face-5": "face-5_k3u4cz",
+  "face-6": "face-6_lyw5bl",
+  "face-7": "face-6_lyw5bl",
+  "face-8": "face-8_bgci3p",
+  "face-9": "face-9_bdpf0k",
+  "face-10": "face-10_taaico",
 }
 
 house = {
-  "bathroom-1": "airbnb-copycat/bathroom-1_x24yqj",
-  "bathroom-2": "airbnb-copycat/bathroom-2_u2kzd5",
-  "bathroom-3": "airbnb-copycat/bathroom-3_lagmy5",
-  "bathroom-4": "airbnb-copycat/bathroom-4_nnff23",
-  "bathroom-5": "airbnb-copycat/bathroom-5_ro0px3",
-  "bathroom-6": "airbnb-copycat/bathroom-6_amgnib",
-  "bathroom-7": "airbnb-copycat/bathroom-7_lab297",
-  "bathroom-8": "airbnb-copycat/bathroom-8_g0fhja",
-  "bathroom-9": "airbnb-copycat/bathroom-9_f0mvqk",
-  "bathroom-10": "airbnb-copycat/bathroom-10_zplwcd",
-  "kitchen-1": "airbnb-copycat/kitchen-2_fayho6",
-  "kitchen-2": "airbnb-copycat/kitchen-1_f6vntz",
-  "kitchen-3": "airbnb-copycat/kitchen-3_vxuifa",
-  "kitchen-4": "airbnb-copycat/kitchen-4_xohcsw",
-  "kitchen-5": "airbnb-copycat/kitchen-4_xohcsw",
-  "kitchen-6": "airbnb-copycat/kitchen-6_xk3lbn",
-  "kitchen-7": "airbnb-copycat/kitchen-7_zh6eat",
-  "kitchen-8": "airbnb-copycat/kitchen-8_dwqhvh",
-  "kitchen-9": "airbnb-copycat/kitchen-9_vb4ipp",
-  "kitchen-10": "airbnb-copycat/kitchen-10_wugk5z",
-  "living-1": "airbnb-copycat/living-1_hjvpcu",
-  "living-2": "airbnb-copycat/living-2_mm7ytj",
-  "living-3": "airbnb-copycat/living-3_jbexm4",
-  "living-4": "airbnb-copycat/living-4_qzlpzn",
-  "living-5": "airbnb-copycat/living-5_cciufg",
-  "living-6": "airbnb-copycat/living-6_be39d7",
-  "living-7": "airbnb-copycat/living-7_vdnlnt",
-  "living-8": "airbnb-copycat/living-8_ttyidr",
-  "living-9": "airbnb-copycat/living-9_tvhxfm",
-  "living-10": "airbnb-copycat/living-10_wnhzj2",
-  "main-1": "airbnb-copycat/main-1_upknwi",
-  "main-2": "airbnb-copycat/main-2_obtzlh",
-  "main-3": "airbnb-copycat/main-3_savvci",
-  "main-4": "airbnb-copycat/main-4_vukgzc",
-  "main-5": "airbnb-copycat/main-5_rmiljf",
-  "main-6": "airbnb-copycat/main-6_t2vn6k",
-  "main-7": "airbnb-copycat/main-7_qnvrfo",
-  "main-8": "airbnb-copycat/main-8_l90rxe",
-  "main-9": "airbnb-copycat/main-9_wigspx",
-  "main-10": "airbnb-copycat/main-10_wocnzf",
-  "office-1": "airbnb-copycat/office-1_uph3xp",
-  "office-2": "airbnb-copycat/office-2_eb0ac1",
-  "office-3": "airbnb-copycat/office-3_xqnlei",
-  "office-4": "airbnb-copycat/office-4_wncwfz",
-  "office-5": "airbnb-copycat/office-5_eurduo",
-  "office-6": "airbnb-copycat/office-6_znvhjx",
-  "office-7": "airbnb-copycat/office-7_bphtcx",
-  "office-8": "airbnb-copycat/office-8_zbppre",
-  "office-9": "airbnb-copycat/office-9_nvxwrb",
-  "office-10": "airbnb-copycat/office-10_fhiuso",
+  "bathroom-1": "bathroom-1_x24yqj",
+  "bathroom-2": "bathroom-2_u2kzd5",
+  "bathroom-3": "bathroom-3_lagmy5",
+  "bathroom-4": "bathroom-4_nnff23",
+  "bathroom-5": "bathroom-5_ro0px3",
+  "bathroom-6": "bathroom-6_amgnib",
+  "bathroom-7": "bathroom-7_lab297",
+  "bathroom-8": "bathroom-8_g0fhja",
+  "bathroom-9": "bathroom-9_f0mvqk",
+  "bathroom-10": "bathroom-10_zplwcd",
+  "kitchen-1": "kitchen-2_fayho6",
+  "kitchen-2": "kitchen-1_f6vntz",
+  "kitchen-3": "kitchen-3_vxuifa",
+  "kitchen-4": "kitchen-4_xohcsw",
+  "kitchen-5": "kitchen-4_xohcsw",
+  "kitchen-6": "kitchen-6_xk3lbn",
+  "kitchen-7": "kitchen-7_zh6eat",
+  "kitchen-8": "kitchen-8_dwqhvh",
+  "kitchen-9": "kitchen-9_vb4ipp",
+  "kitchen-10": "kitchen-10_wugk5z",
+  "living-1": "living-1_hjvpcu",
+  "living-2": "living-2_mm7ytj",
+  "living-3": "living-3_jbexm4",
+  "living-4": "living-4_qzlpzn",
+  "living-5": "living-5_cciufg",
+  "living-6": "living-6_be39d7",
+  "living-7": "living-7_vdnlnt",
+  "living-8": "living-8_ttyidr",
+  "living-9": "living-9_tvhxfm",
+  "living-10": "living-10_wnhzj2",
+  "main-1": "main-1_upknwi",
+  "main-2": "main-2_obtzlh",
+  "main-3": "main-3_savvci",
+  "main-4": "main-4_vukgzc",
+  "main-5": "main-5_rmiljf",
+  "main-6": "main-6_t2vn6k",
+  "main-7": "main-7_qnvrfo",
+  "main-8": "main-8_l90rxe",
+  "main-9": "main-9_wigspx",
+  "main-10": "main-10_wocnzf",
+  "office-1": "office-1_uph3xp",
+  "office-2": "office-2_eb0ac1",
+  "office-3": "office-3_xqnlei",
+  "office-4": "office-4_wncwfz",
+  "office-5": "office-5_eurduo",
+  "office-6": "office-6_znvhjx",
+  "office-7": "office-7_bphtcx",
+  "office-8": "office-8_zbppre",
+  "office-9": "office-9_nvxwrb",
+  "office-10": "office-10_fhiuso",
 }
 
 puts 'Creating users...'
@@ -103,11 +105,11 @@ total_users.times do
     email: Faker::Internet.unique.email(name: "#{first_name} #{last_name}", separators: ['-'], domain: 'gmail'),
     password: 'UsersAreTested1'
   )
-  face_image = user_faces["face-#{rand(1..total_users)}"]
-
-  user.photo.image = face_image
+  face_image = user_faces[:"face-#{rand(1..10)}"]
+  face_image_url = "#{cloudinary_public_path}/#{face_image}"
+  file = URI.open(face_image_url)
   # file = File.open(File.join(Rails.root, 'app', 'assets', 'images', face_image))
-  # user.photo.attach(io: file, filename: "avatar.jpeg")
+  user.photo.attach(io: file, filename: "#{face_image}")
   user.save
 end
 puts 'Users created!'
@@ -140,8 +142,11 @@ User.ids.sample(total_users * 0.8).each_with_index do |user, index|
 
   rooms = ['main', 'kitchen', 'living', 'office', 'bathroom']
   rooms.shuffle.each do |room|
-    image_room = house["#{room}-#{rand(1..10)}"]
-    flat.photos.attach = Cloudinary::Uploader.upload(image_room)['public_id']
+    image_room = house[:"#{room}-#{rand(1..10)}"]
+    image_room_url = "#{cloudinary_public_path}/#{image_room}"
+    file = URI.open(image_room_url)
+    flat.photos.attach(io: file, filename: "#{image_room}")
+    # flat.photos.attach(io: URI.open("#{cloudinary_public_path}/#{image_room}.jpeg"), filename: "#{image_room}.jpeg")
     # file_path = File.join(Rails.root, 'app', 'assets', 'images', image_room)
     # file = File.open(file_path)
     # flat.photos.attach(io: file, filename: image_room)

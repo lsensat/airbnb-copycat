@@ -1,5 +1,5 @@
 <%= simple_form_for(@flat) do |f| %>
-  <%= f.input :type, collection: ['Room', 'Shared Room', 'Place to stay'] %>
+  <%= f.input :flat_type, collection: ['Room', 'Shared Room', 'Place to stay'] %>
   <%= f.input :description %>
   <%= f.input :street %>
   <%= f.input :zip %>
