@@ -24,7 +24,7 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
-total_users = 20
+total_users = 60
 
 cloudinary_public_path = "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat"
 
@@ -125,13 +125,19 @@ puts 'Amenities created!'
 
 puts 'Creating flats...'
 
-User.ids.sample(total_users * 0.8).each_with_index do |user, index|
+require "json"
+
+filepath = File.join(Rails.root, 'db', 'data', 'places.json')
+serialized_places = File.read(filepath)
+places = JSON.parse(serialized_places)
+
+User.ids.sample(places.length).each_with_index do |user, index|
   flat = Flat.new(
-    city: Faker::Address.city, country: Faker::Address.country, bedrooms: rand(1..4),
+    city: places[index]['city'], country: places[index]['country'], bedrooms: rand(1..4),
     price: rand(40..500),
     description: Faker::Lorem.paragraph(sentence_count: rand(4..8)),
     flat_type: "#{['Room', 'Shared Room', 'Place to stay'].sample}",
-    street: Faker::Address.street_address, zip: Faker::Address.zip,
+    street: places[index]['street'], zip: places[index]['zip'],
     guests: rand(1..5), baths: rand(1..2),
     user_id: user
   )
