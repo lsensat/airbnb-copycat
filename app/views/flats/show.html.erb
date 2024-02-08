@@ -93,7 +93,7 @@
       <% else %>
         <h3>Reviews</h3>
         <div class="review-container">
-          <% @flat.reviews.each do |review| %>
+          <% @flat.reviews.sample( @flat.reviews.length > 6 ? 6 : @flat.reviews.max ).each do |review| %>
             <%= render 'review', review: review %>
           <% end %>
         </div>

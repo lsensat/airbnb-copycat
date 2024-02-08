@@ -178,8 +178,8 @@ puts 'Some flats have likes!'
 
 puts 'Creating some reviews...'
 
-Flat.all.sample(total_users * 0.9).each do |flat|
-  User.all.sample(total_users * rand(0.3..0.9)).each do |user|
+Flat.all.sample(places.length).each do |flat|
+  User.all.sample(places.length * rand(0.3..0.9)).each do |user|
     comment = Faker::Lorem.paragraph(sentence_count: rand(2..4))
     rating = rand(1..5)
     flat.reviews.create(user: user, flat: flat, comment: comment, rating: rating)
@@ -197,11 +197,11 @@ def create_booking_dates(booking, flat)
 end
 
 puts 'Booking some places...'
-User.all.sample(total_users * 0.5).each do |user|
+User.all.sample(total_users).each do |user|
   @flat = Flat.all.sample
-  year = 2024
-  month = rand(2..4)
-  day = rand(2..25)
+  year = rand(2023..2024)
+  month = rand(1..12)
+  day = rand(1..25)
   @booking = Booking.create(user: user, flat: @flat,
     start_time: "#{year}-#{month}-#{day}",
     end_time: "#{year}-#{month}-#{day + rand(2..4)}"
