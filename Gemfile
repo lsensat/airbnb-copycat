@@ -39,6 +39,7 @@ gem 'cloudinary'
 gem 'country_select'
 gem 'geocoder'
 gem 'pg_search'
+gem "nokogiri", ">= 1.16.2"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
