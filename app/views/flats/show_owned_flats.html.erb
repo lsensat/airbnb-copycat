@@ -1,0 +1,9 @@
+<h2>Your places</h2>
+
+<div id="flats-container">
+  <% @flats.each do |flat| %>
+    <div class="flat-card">
+      <%= render 'shared/card', flat: flat %>
+    </div>
+  <% end %>
+</div>

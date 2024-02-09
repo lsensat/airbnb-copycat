@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, except: %i[index new create destroy show_photos]
+  before_action :set_flat, except: %i[index new create destroy show_photos show_owned_flats]
   before_action :authenticate_user!, except: %i[index show show_photos]
 
   def index
@@ -66,6 +66,10 @@ class FlatsController < ApplicationController
 
   def show_photos
     @flat = Flat.find(params[:flat_id])
+  end
+
+  def show_owned_flats
+    @flats = Flat.where(user: current_user)
   end
 
   private

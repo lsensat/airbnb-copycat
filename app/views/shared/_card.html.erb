@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && controller.action_name == 'index' %>
   <%= render 'shared/like', flat: flat %>
 <% end %>
 
