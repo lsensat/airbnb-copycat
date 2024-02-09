@@ -3,17 +3,7 @@
 <div id="flats-container">
   <% @likes.each do |like| %>
     <div class="flat-card">
-      <%= render "flats/card", flat: like.flat %>
+      <%= render "shared/card", flat: like.flat %>
     </div>
   <% end %>
 </div>
-
-<ul>
-  <% @likes.each do |like| %>
-    <li>
-      <%= link_to flat_path(like.flat) do %>
-        <%= like.flat.flat_type %>: <%= like.flat.address %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>

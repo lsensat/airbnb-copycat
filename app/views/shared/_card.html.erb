@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
-  <%= render 'like', flat: flat %>
+  <%= render 'shared/like', flat: flat %>
 <% end %>
 
   <% if flat.photos.length != 0 %>
     <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
   <% else %>
-    <%= image_tag "main-1.jpeg", alt:"house", gratvity: :auto, crop: :fill %>
+    <%= image_tag "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat/main-3_savvci", alt:"house", gratvity: :auto, crop: :fill %>
   <% end %>
   <%= link_to flat_path(flat), data: { turbo: false } do %>
     <section class="flat-card-info">

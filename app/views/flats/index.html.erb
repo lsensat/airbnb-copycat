@@ -2,7 +2,7 @@
   <div id="flats-container">
     <% @flats.each do |flat| %>
       <div class="flat-card">
-        <%= render 'card', flat: flat.searchable %>
+        <%= render 'shared/card', flat: flat.searchable %>
       </div>
     <% end %>
   </div>
@@ -16,7 +16,7 @@
     <% @flats.each do |flat| %>
       <div class="flat-card">
         <%# <%= turbo_frame_tag flat.id do %>
-          <%= render 'card', flat: flat %>
+          <%= render 'shared/card', flat: flat %>
         <%# <% end %>
       </div>
     <% end %>

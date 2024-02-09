@@ -56,7 +56,7 @@
       <p>
         <%= @flat.guests %> guests ·
         <%= @flat.bedrooms %> <%= @flat.bedrooms > 1 ? "bedrooms" : "bedroom" %> ·
-        <%= @flat.baths / @flat.guests.to_f.round(1) %> <%= @flat.baths != 1.0 ? "baths" : "bath" %>
+        <%= @flat.baths %> <%= @flat.baths != 1.0 ? "baths" : "bath" %>
       </p>
       <% if average_rating(@flat) >= 0 %>
         <p><%= average_rating(@flat).round(1) %><i class="fa-solid fa-star"></i></p>
@@ -142,8 +142,12 @@
         </ul>
         <ul>
           <strong>Safety & property</strong>
-          <li>Carbon monoxide alarm not reported</li>
-          <li>Smoke alarm not reported</li>
+          <% if @flat.amenities.exclude? "Carbon monoxide alarm" %>
+            <li>Carbon monoxide alarm not reported</li>
+          <% end %>
+          <% if @flat.amenities.exclude? "Smoke alarm" %>
+            <li>Smoke alarm not reported</li>
+          <% end %>
           <li><%= link_to "Show more", "#" %></li>
         </ul>
         <ul>
