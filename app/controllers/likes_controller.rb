@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @likes = Like.all
+    @likes = Like.where(user: current_user)
   end
 
   def create

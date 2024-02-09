@@ -1,11 +1,9 @@
 <h2>Stays</h2>
 
-<ul>
+<div id="flats-container">
   <% @bookings.each do |booking| %>
-  <li>
-    <%= link_to flat_path(booking.flat) do %>
-      <%= booking.flat.address %> (from <%= booking.booking_dates.first.date %> to <%= booking.booking_dates.last.date %>)
-    <% end %>
-  </li>
+    <div class="flat-card">
+      <%= render "shared/card", flat: booking.flat %>
+    </div>
   <% end %>
-</ul>
+</div>
