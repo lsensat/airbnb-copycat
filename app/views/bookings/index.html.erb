@@ -3,6 +3,7 @@
 <div id="flats-container">
   <% @bookings.each do |booking| %>
     <div class="flat-card">
+      <p>From <%= Date.strptime(booking.start_time) %> to <%= booking.end_time %></p>
       <%= render "shared/card", flat: booking.flat %>
     </div>
   <% end %>
