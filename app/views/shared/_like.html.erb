@@ -6,7 +6,6 @@
         action: "click->like#add",
         like_flat_value: flat.id,
         like_like_id_value: nil,
-        turbo_frame: flat.id
       }, remote: false) do %>
       <i class="fa-regular fa-heart" data-like-target="like"></i>
     <% end %>
@@ -17,7 +16,6 @@
         action: "click->like#delete",
         like_flat_value: flat.id,
         like_like_id_value: @flats_liked.where(flat: flat).ids.first,
-        turbo_frame: flat.id
       }, remote: false) do %>
       <i class="fa-solid fa-heart" data-like-target="like"></i>
     <% end %>

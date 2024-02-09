@@ -22,11 +22,12 @@ export default class extends Controller {
     const content = {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      // body: JSON.stringify({
-        // "flat": this.flatValue,
-        // "X-CSRF-Token": token
-      // })
+      body: JSON.stringify({
+        "flat": this.flatValue,
+        "X-CSRF-Token": token
+      })
     }
+    console.log(url)
 
     fetch(url, content)
     .then(response => {
