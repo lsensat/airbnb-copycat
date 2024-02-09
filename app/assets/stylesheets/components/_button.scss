@@ -12,6 +12,16 @@
   color: black;
 }
 
+.btn-action-link{
+  text-decoration: none;
+  color: black;
+}
+
+.btn-action-link:hover{
+  text-decoration: underline;
+  color: black;
+}
+
 .btn-action{
   width: max-content;
   margin-block: 1em;
@@ -19,21 +29,7 @@
   padding-block: 0.7em;
   border: 1.2px black solid;
   border-radius: 0.5em;
-
-  a{
-    text-decoration: none;
-    color: black;
-  }
-}
-
-.btn-action-long{
-  width: 100%;
-  margin-block: 1em;
-  padding-inline: 0.9em;
-  padding-block: 0.7em;
-  border: 1.2px black solid;
-  border-radius: 0.5em;
-
+  background-color: white;
   a{
     text-decoration: none;
     color: black;
@@ -47,17 +43,14 @@
     color: white;
   }
 }
-.btn-action-long:hover {
-  background-color: black;
-  color: white;
-  a{
-    color: white;
-  }
+
+.btn-long{
+  width: 100%;
+  background-color: white;
 }
 
 
 .btn-delete{
-  width: max-content;
   margin-block: 1em;
   padding-inline: 0.9em;
   padding-block: 0.7em;

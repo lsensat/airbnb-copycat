@@ -5,7 +5,7 @@
       <%= f.input :start_time, as: :string, label: 'Check-in', input_html: { data: { flatpickr_target: "startTime" } } %>
       <%= f.input :end_time, as: :string, label: 'Checkout', input_html: { data: { flatpickr_target: "endTime", action: "change->flatpickr#updatePrice" }, id: 'endTime' } %>
     </section>
-    <%= f.submit "Reserve", class: "btn-action-long" %>
+    <%= f.submit "Reserve", class: "btn-action btn-long" %>
 
     <p class="warning"><em>You won't be charged yet</em></p>
 
