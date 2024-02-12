@@ -1,6 +1,6 @@
 <h2>Favourites</h2>
 
-<div id="flats-container">
+<div class="list-all">
   <% @likes.each do |like| %>
     <div class="flat-card">
       <%= render "shared/card", flat: like.flat %>

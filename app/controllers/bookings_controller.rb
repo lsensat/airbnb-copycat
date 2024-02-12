@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.where(user: current_user).sort_by { |booking| DateTime.parse(booking.start_time) }.reverse!
   end
 
   def new

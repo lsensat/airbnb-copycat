@@ -1,0 +1,6 @@
+<div class="flat-card">
+  <p>From <%=  DateTime.parse(booking.start_time).strftime('%d %b') %>
+    to <%=  DateTime.parse(booking.end_time).strftime('%d %b') %>
+  </p>
+  <%= render "shared/card", flat: booking.flat %>
+</div>

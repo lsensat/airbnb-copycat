@@ -1,10 +1,9 @@
 <h2>Stays</h2>
 
-<div id="flats-container">
+<div class="list-all">
   <% @bookings.each do |booking| %>
-    <div class="flat-card">
-      <p>From <%= Date.strptime(booking.start_time) %> to <%= booking.end_time %></p>
-      <%= render "shared/card", flat: booking.flat %>
-    </div>
+    <% if booking.start_time > DateTime.now %>
+      <%= render "stays", booking: booking %>
+    <% end %>
   <% end %>
 </div>
