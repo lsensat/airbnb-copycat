@@ -4,6 +4,9 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user: current_user).sort_by { |booking| DateTime.parse(booking.start_time) }.reverse!
+    @future_stays = []
+    @passed_stays = []
+    @bookings.each { |booking| booking.start_time > DateTime.now ? @future_stays.push(booking) : @passed_stays.push(booking) }
   end
 
   def new
@@ -21,6 +24,8 @@ class BookingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+
 
   private
 

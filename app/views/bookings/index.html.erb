@@ -1,9 +1,18 @@
-<h2>Stays</h2>
+<h2>Next stays</h2>
 
 <div class="list-all">
-  <% @bookings.each do |booking| %>
-    <% if booking.start_time > DateTime.now %>
+  <% if @future_stays.empty? %>
+    <%= link_to "Lookg for your next stay", flats_path, class: "btn-action" %>
+  <% else %>
+    <% @future_stays.each do |booking| %>
       <%= render "stays", booking: booking %>
     <% end %>
+  <% end %>
+</div>
+
+<h2>You have been in...</h2>
+<div class="list-all">
+  <% @passed_stays.each do |booking| %>
+    <%= render "stays", booking: booking %>
   <% end %>
 </div>
