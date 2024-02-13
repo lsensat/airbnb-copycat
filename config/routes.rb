@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'owned-places', to: 'flats#show_owned_flats'
   resources :flats do
     get 'photos', to: 'flats#show_photos'
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[new create destroy]
     resources :reviews, only: %i[new create]
     resources :likes, only: %i[index create destroy]
   end

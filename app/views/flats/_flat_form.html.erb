@@ -16,3 +16,7 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit class: 'btn-action' %>
 <% end %>
+
+<% if controller.action_name == "edit" %>
+  <%= link_to "Remove from my Airbnbs", flat_path(@flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
