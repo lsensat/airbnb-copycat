@@ -4,7 +4,7 @@
   <%= f.input :street %>
   <%= f.input :zip %>
   <%= f.input :city %>
-  <%= f.country_select :country, label: "Country" %>
+  <%= f.input :country, as: :country, input_html: {label: 'Country', class: 'form-select'} %>
   <%= f.input :bedrooms %>
   <%= f.input :baths %>
   <%= f.input :guests %>
