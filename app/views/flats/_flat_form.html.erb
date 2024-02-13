@@ -18,5 +18,5 @@
 <% end %>
 
 <% if controller.action_name == "edit" %>
-  <%= link_to "Remove from my Airbnbs", flat_path(@flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "Remove places", flat_path(@flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete" %>
 <% end %>

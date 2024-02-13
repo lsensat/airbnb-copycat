@@ -3,11 +3,11 @@
     <h4><%= @flat.flat_type %> in <%= @flat.city %></h4>
     <div class="flat-links">
       <ul>
-        <li>
-          <% if current_user %>
-            <%= link_to "Cancel booking", flat_booking_path(@flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          <% end %>
-        </li>
+        <% if current_user && !@bookings.empty? %>
+          <li>
+            <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @bookings.last), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </li>
+        <% end %>
         <li>
           <%= link_to "#" do %>
             <i class="fa fa-arrow-up-from-bracket"></i> Share

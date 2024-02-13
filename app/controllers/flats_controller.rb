@@ -26,6 +26,7 @@ class FlatsController < ApplicationController
     @markers = [{ lat: @flat.latitude, lng: @flat.longitude }]
     @amenities = Amenity.all
     @identity_verified = true if @flat.user.first_name && @flat.user.last_name
+    @bookings = Booking.where(user: current_user)
   end
 
   def new

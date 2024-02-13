@@ -6,7 +6,8 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user: current_user).sort_by { |booking| DateTime.parse(booking.start_time) }.reverse!
     @future_stays = []
     @passed_stays = []
-    @bookings.each { |booking| booking.start_time > DateTime.now ? @future_stays.push(booking) : @passed_stays.push(booking) }
+    @bookings.each { |booking| booking.end_time > DateTime.now ? @future_stays.push(booking) : @passed_stays.push(booking) }
+    @future_stays.reverse!
   end
 
   def new
@@ -25,7 +26,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    raise
+    @booking = Booking.find(params[:booking])
 
+    if @booking.destroy
+      redirect_to flats_path
+    else
+      render :show, status: :unprocessable_entity
+    end
+  end
 
   private
 

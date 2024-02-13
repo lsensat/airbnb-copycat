@@ -12,7 +12,9 @@
 
 <h2>You have been in...</h2>
 <div class="list-all">
-  <% @passed_stays.each do |booking| %>
-    <%= render "stays", booking: booking %>
+  <% if !@passed_stays.empty? %>
+    <% @passed_stays.each do |booking| %>
+      <%= render "stays", booking: booking %>
+    <% end %>
   <% end %>
 </div>
