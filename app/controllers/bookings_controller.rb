@@ -27,9 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    raise
-    @booking = Booking.find(params[:booking])
-
+    @booking = Booking.find(params[:booking_id])
     if @booking.destroy
       redirect_to flats_path
     else
