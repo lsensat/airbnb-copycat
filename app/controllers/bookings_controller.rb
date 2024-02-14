@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
 
   def show
     @markers = [{lat: @flat.latitude, lng: @flat.longitude}]
+    @booking = Booking.find(params[:id])
   end
 
   def destroy

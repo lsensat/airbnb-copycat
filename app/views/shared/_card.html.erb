@@ -7,7 +7,7 @@
   <% else %>
     <%= image_tag "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat/main-3_savvci", alt:"house", gratvity: :auto, crop: :fill %>
   <% end %>
-  <% url = controller == "index" ? flat_path(flat) : flat_booking_path(flat_id: flat.id, id: current_user.bookings.where(flat: flat).ids) %>
+  <% url = controller.controller_name == "flats" ? flat_path(flat) : flat_booking_path(flat_id: flat.id, id: current_user.bookings.where(flat: flat).ids) %>
   <%= link_to url, data: { turbo: false } do %>
     <section class="flat-card-info">
       <section class="flat-card-info-public">
