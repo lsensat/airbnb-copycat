@@ -1,0 +1,14 @@
+<h2><%= @flat.flat_type %> in <%= @flat.city %></h2>
+
+<div class="flats-container">
+  <ul>
+    <li>
+      <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
+  </ul>
+</div>
+<div id="map-container"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

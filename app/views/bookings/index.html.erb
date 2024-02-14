@@ -1,20 +1,21 @@
-<h2>Next stays</h2>
+<h2>Trips</h2>
 
 <div class="list-all">
   <% if @future_stays.empty? %>
-    <%= link_to "Lookg for your next stay", flats_path, class: "btn-action" %>
+    <%= link_to "Look for your next stay", flats_path, class: "btn-action-link" %>
   <% else %>
+    <h2><%= @future_stays.length > 1 ? "Next trips" : "Next trip" %></h2>
     <% @future_stays.each do |booking| %>
-      <%= render "stays", booking: booking %>
+      <%= render "trips", booking: booking %>
     <% end %>
   <% end %>
 </div>
 
-<h2>You have been in...</h2>
-<div class="list-all">
-  <% if !@passed_stays.empty? %>
+<% if !@passed_stays.empty? %>
+<h2>Where you've been</h2>
+  <div class="list-all">
     <% @passed_stays.each do |booking| %>
-      <%= render "stays", booking: booking %>
+      <%= render "trips", booking: booking %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
