@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    
+    @markers = [{lat: @flat.latitude, lng: @flat.longitude}]
   end
 
   def destroy

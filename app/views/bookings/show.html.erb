@@ -6,6 +6,8 @@
       <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     </li>
   </ul>
+
+
 </div>
 <div id="map-container"
   data-controller="map"
