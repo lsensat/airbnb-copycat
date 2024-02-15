@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:booking_id])
     if @booking.destroy
-      redirect_to flats_path
+      redirect_to user_bookings_path(user_id: current_user.id)
     else
       render :show, status: :unprocessable_entity
     end

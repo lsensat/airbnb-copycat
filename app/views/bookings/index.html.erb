@@ -1,15 +1,15 @@
-<h2>
+<h1>
   <% if @future_stays.length > 1 %>
     Next trips
-  <% elsif @future_stays.length = 1 %>
+  <% elsif @future_stays.length == 1 %>
     Next trip
   <% else %>
     Trips
   <% end %>
-</h2>
+</h1>
 
 <% if @future_stays.empty? %>
-  <%= link_to "Look for your next stay", flats_path, class: "btn-action-link" %>
+  <%= link_to "Look for your next stay", flats_path, class: "btn-action" %>
 <% else %>
   <div class="list-all">
     <% @future_stays.each do |booking| %>

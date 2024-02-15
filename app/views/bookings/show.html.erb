@@ -89,7 +89,7 @@
     <p>If you need help, we’re available 24/7 from anywhere in the world.</p>
   </section>
 
-  <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete btn-long" %>
+  <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete btn-long" %>
 </div>
 <div id="map-container"
   data-controller="map"
