@@ -5,26 +5,31 @@
 
 <h2><%= @flat.flat_type %> in <%= @flat.city %></h2>
   <section>
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-            <%= cl_image_tag @flat.photos.first.blob.key, class: "" %>
+    <% if @flat.photos.length > 0 %>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% @flat.photos.each_with_index do |photo, index| %>
+            <% if index == 0 %>
+              <div class="carousel-item active">
+                  <%= cl_image_tag photo[index].blob.key, class: "d-block" %>
+              </div>
+            <% else %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo[index].blob.key, class: "d-block" %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-        <% @flat.photos.each do |photo| %>
-          <div class="carousel-item">
-            <%= cl_image_tag photo.blob.key, class: "" %>
-          </div>
-        <% end %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <% end %>
 
     <%= @booking.start_time %>
     <%= @booking.end_time %>
