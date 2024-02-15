@@ -1,0 +1,12 @@
+#carouselExample{
+  width: 400px;
+  height: 400px;
+
+  .carousel-item{
+    img{
+      width: 400px;
+      height: 400px;
+      border-radius: 1em;
+    }
+  }
+}
