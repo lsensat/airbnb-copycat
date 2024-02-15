@@ -1,11 +1,14 @@
 #carouselExample{
-  width: 400px;
+  width: 425px;
   height: max-content;
 
+  .carousel-inner{
+    border-radius: 1em;
+  }
   .carousel-item{
     img{
-      width: 400px;
-      height: 400px;
+      width: 425px;
+      height: 425px;
       border-radius: 1em;
     }
   }

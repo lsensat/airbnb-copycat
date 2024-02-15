@@ -9,47 +9,67 @@
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
           <% @flat.photos.each_with_index do |photo, index| %>
-            <% if index == 0 %>
-              <div class="carousel-item active">
-                  <%= cl_image_tag photo[index].blob.key, class: "d-block" %>
-              </div>
-            <% else %>
-              <div class="carousel-item">
-                <%= cl_image_tag photo[index].blob.key, class: "d-block" %>
-              </div>
-            <% end %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+                <%= cl_image_tag photo.blob.key, class: "d-block", crop: :fit %>
+            </div>
           <% end %>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
     <% end %>
 
-    <%= @booking.start_time %>
-    <%= @booking.end_time %>
     <div>
-      <h5>Message your host</h5>
-      <p><%= @flat.user.first_name %></p>
+      <div>
+        <p>Check-in</p>
+        <%= @booking.start_time %>
+      </div>
+      <div>
+        <p>Checkout</p>
+        <%= @booking.end_time %>
+      </div>
+    </div>
+
+    <div>
+      <%= link_to "#" do %>
+        <h5>Message your host</h5>
+        <p><%= @flat.user.first_name %></p>
+      <% end %>
     </div>
     <div>
       <h5>Your place</h5>
-      <p><%= @flat.description %></p>
+      <p><%= @flat.description.truncate(60, separator: ' ', omission: '...') %></p>
     </div>
   </section>
 
 
   <section>
     <h3>Reservation Details</h3>
+    <div>
+      <div>
+        <h5>Who's coming</h5>
+        <p>1</p>
+      </div>
+      <div class="avatar-container">
+        <% if current_user.photo.key %>
+          <%= cl_image_tag(current_user.photo.key, gravity: :face, crop: :thumb, class: 'avatar') %>
+        <% else %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
+      </div>
+    </div>
+
   </section>
 
   <section>
     <h3>Rules and instructions</h3>
+    <h5>House rules</h5>
   </section>
 
   <section>
