@@ -2,28 +2,28 @@
   <%= render 'shared/like', flat: flat %>
 <% end %>
 
-  <% if flat.photos.length != 0 %>
-    <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
-  <% else %>
-    <%= image_tag "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat/main-3_savvci", alt:"house", gratvity: :auto, crop: :fill %>
-  <% end %>
-
-<% flat.bookings.where(user: current_user).ids.each do |booking| %>
-  <% url = controller.controller_name == "flats" ? flat_path(flat) : flat_booking_path(flat_id: flat.id, id: booking) %>
-
-  <%= link_to url, data: { turbo: false } do %>
-    <section class="flat-card-info">
-      <section class="flat-card-info-public">
-        <h6><%= flat.flat_type %> in <%= flat.city %></h6>
-        <% if flat.reviews.empty? %>
-          <p>No rating yet</p>
-        <% else %>
-          <p><%= average_rating(flat).round(1) %><i class="fa-regular fa-star"></i></p>
-        <% end %>
-      </section>
-      <div class="flat-card-info-price">
-        <h6>€<%= flat.price %></h6>
-      </div>
-    </section>
-  <% end %>
+<% if flat.photos.length != 0 %>
+  <%= cl_image_tag flat.photos.first.blob.key, crop: :fit %>
+<% else %>
+  <%= image_tag "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat/main-3_savvci", alt:"house", gratvity: :auto, crop: :fill %>
 <% end %>
+
+<%# <% flat.bookings.where(user: current_user).ids.each do |booking| %>
+<% url = controller.controller_name == "flats" ? flat_path(flat) : flat_booking_path(flat_id: flat.id, id: booking.id) %>
+
+<%= link_to url, data: { turbo: false } do %>
+  <section class="flat-card-info">
+    <section class="flat-card-info-public">
+      <h6><%= flat.flat_type %> in <%= flat.city %></h6>
+      <% if flat.reviews.empty? %>
+        <p>No rating yet</p>
+      <% else %>
+        <p><%= average_rating(flat).round(1) %><i class="fa-regular fa-star"></i></p>
+      <% end %>
+    </section>
+    <div class="flat-card-info-price">
+      <h6>€<%= flat.price %></h6>
+    </div>
+  </section>
+<% end %>
+<%# <% end %>

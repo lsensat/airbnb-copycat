@@ -1,21 +1,35 @@
-<h2>Trips</h2>
-
-<div class="list-all">
-  <% if @future_stays.empty? %>
-    <%= link_to "Look for your next stay", flats_path, class: "btn-action-link" %>
+<h2>
+  <% if @future_stays.length > 1 %>
+    Next trips
+  <% elsif @future_stays.length = 1 %>
+    Next trip
   <% else %>
-    <h2><%= @future_stays.length > 1 ? "Next trips" : "Next trip" %></h2>
-    <% @future_stays.each do |booking| %>
-      <%= render "trips", booking: booking %>
-    <% end %>
+    Trips
   <% end %>
-</div>
+</h2>
+
+<% if @future_stays.empty? %>
+  <%= link_to "Look for your next stay", flats_path, class: "btn-action-link" %>
+<% else %>
+  <div class="list-all">
+    <% @future_stays.each do |booking| %>
+      <div class="flat-card">
+        <%= render "trips", booking: booking %>
+        <%= render "shared/card", flat: booking.flat, booking: booking %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 
 <% if !@passed_stays.empty? %>
 <h2>Where you've been</h2>
   <div class="list-all">
     <% @passed_stays.each do |booking| %>
-      <%= render "trips", booking: booking %>
+      <div class="flat-card">
+        <%= render "trips", booking: booking %>
+        <%= render "shared/card", flat: booking.flat, booking: booking %>
+      </div>
     <% end %>
   </div>
 <% end %>
