@@ -1,14 +1,53 @@
+<%= link_to(user_bookings_path(user_id: current_user.id), class: "btn-normal") do %>
+  <i class="fa-solid fa-chevron-left"></i>
+<% end %>
+
 <h2><%= @flat.flat_type %> in <%= @flat.city %></h2>
 
 <div class="flats-container">
-  <ul>
-    <li>
-      <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </li>
-  </ul>
+  <section>
 
-  <%= @booking.start_time %>
-  <%= @booking.end_time %>
+
+
+    <%= @booking.start_time %>
+    <%= @booking.end_time %>
+    <div>
+      <h5>Message your host</h5>
+      <p><%= @flat.user.first_name %></p>
+    </div>
+    <div>
+      <h5>Your place</h5>
+      <p><%= @flat.description %></p>
+    </div>
+  </section>
+
+
+  <section>
+    <h3>Reservation Details</h3>
+  </section>
+
+  <section>
+    <h3>Rules and instructions</h3>
+  </section>
+
+  <section>
+    <h3>Hosted by <%= @flat.user.first_name %></h3>
+    <h5>About your host</h5>
+    <p>Something to say</p>
+  </section>
+
+  <section>
+    <h3>Payment info</h3>
+    <h5>Payment details</h5>
+    <p>Total cost: € <%= (@flat.price * @booking.booking_dates.length).to_f.round(2) %></p>
+  </section>
+
+  <section>
+    <h3>Get support any time</h3>
+    <p>If you need help, we’re available 24/7 from anywhere in the world.</p>
+  </section>
+
+  <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @bookings), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete btn-long" %>
 </div>
 <div id="map-container"
   data-controller="map"
