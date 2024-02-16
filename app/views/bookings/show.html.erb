@@ -38,24 +38,27 @@
       </div>
     </div>
 
-    <div>
-      <%= link_to "#" do %>
-        <h5>Message your host</h5>
+    <%= link_to("#", class: "document-link") do %>
+      <i class="fa-regular fa-message"></i>
+      <div>
+        <h5> Message your host</h5>
         <p><%= @flat.user.first_name %></p>
-      <% end %>
-    </div>
-    <div>
-      <%= link_to flat_path(@flat) do %>
+      </div>
+    <% end %>
+
+    <%= link_to("#", class: "document-link") do %>
+      <i class="fa-solid fa-location-dot"></i>
+      <div>
         <h5>Your place</h5>
         <p><%= @flat.description.truncate(60, separator: ' ', omission: '...') %></p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </section>
 
 
-  <section>
+  <section class="booking-details">
     <h3>Reservation Details</h3>
-    <div id="booking-info-guests">
+    <div class="booking-info-host-guests">
       <div>
         <h5><strong>Who's coming</strong></h5>
         <p>1</p>
@@ -68,24 +71,23 @@
         <% end %>
       </div>
     </div>
-    <div>
+    <div class="bordered-top">
       <h5><strong>Cancellation policy</strong></h5>
       <p>If its possible to cancel</p>
     </div>
-
-    <%= link_to("#", class: "document-link") do %>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
       <div>
         <i class="fa-solid fa-globe"></i> Get a PDF for visa purposes
       </div>
       <i class="fa-solid fa-chevron-right"></i>
     <% end %>
-    <%= link_to("#", class: "document-link") do %>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
       <div>
         <i class="fa-solid fa-print"></i> Print details
       </div>
       <i class="fa-solid fa-chevron-right"></i>
     <% end %>
-    <%= link_to("#", class: "document-link") do %>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
       <div>
         <i class="fa-solid fa-receipt"></i> Get receipts
       </div>
@@ -94,26 +96,63 @@
 
   </section>
 
-  <section>
+  <section class="booking-details">
     <h3>Rules and instructions</h3>
     <h5>House rules</h5>
+    <p><%= @flat.guests %> maximum</p>
+    <p>Pets allowed</p>
+    <p>No parties or events</p>
+    <p><%= link_to "Show more", "#" %></p>
+    <%= link_to(flat_path(@flat), class: "document-link bordered-top pointer") do %>
+      <div>
+        <i class="fa-solid fa-house"></i> Show listing
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+    <% end %>
   </section>
 
-  <section>
-    <h3>Hosted by <%= @flat.user.first_name %></h3>
+  <section class="booking-details">
+    <div class="booking-info-host-guests">
+      <h3>Hosted by <%= @flat.user.first_name %></h3>
+      <%= cl_image_tag @flat.user.photo.key, gravity: :face, crop: :thumb, class: "avatar" %>
+    </div>
     <h5>About your host</h5>
-    <p>Something to say</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga accusantium amet perferendis tempora voluptas dolorem adipisci, dignissimos blanditiis. Officiis perspiciatis laboriosam, veniam nostrum aut et in perferendis expedita. Ea, accusamus?</p>
   </section>
 
-  <section>
+  <section class="booking-details">
     <h3>Payment info</h3>
     <h5>Payment details</h5>
     <p>Total cost: € <%= (@flat.price * @booking.booking_dates.length).to_f.round(2) %></p>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
+      <div>
+        <i class="fa-solid fa-calendar-plus"></i> Add details for expensing your trip
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+    <% end %>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
+      <div>
+        <i class="fa-solid fa-receipt"></i> Get receipts
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+    <% end %>
   </section>
 
-  <section>
+  <section class="booking-details">
     <h3>Get support any time</h3>
     <p>If you need help, we’re available 24/7 from anywhere in the world.</p>
+    <%= link_to("#", class: "document-link pointer") do %>
+      <div>
+        <i class="fa-brands fa-airbnb"></i> Get Airbnb support
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+    <% end %>
+    <%= link_to("#", class: "document-link pointer") do %>
+      <div>
+        <i class="fa-solid fa-circle-question"></i> Visit the Help Center
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+    <% end %>
   </section>
 
   <%= link_to "Cancel booking", flat_booking_path(flat_id: @flat, booking_id: @booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-delete btn-long" %>

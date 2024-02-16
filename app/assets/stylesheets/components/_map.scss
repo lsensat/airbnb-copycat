@@ -9,11 +9,15 @@
   position: absolute;
   left: 61%;
   top: 5em;
-  height: 90vh; /* Adjust the height as needed */
+  height: 92vh; /* Adjust the height as needed */
   background-color: #f0f0f0;
 
   .mapboxgl-popup {
     max-width: 200px;
+  }
+
+  .mapboxgl-canvas{
+    height: max-content;
   }
 
   div.mapboxgl-popup-content{

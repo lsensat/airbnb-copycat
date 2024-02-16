@@ -89,57 +89,59 @@
       <%= yield %>
     </section>
 
-    <footer>
-      <div class="airbnb-info">
-        <ul>
-          <h4><strong>Support</strong></h4>
-          <li><%= link_to "Help Center", "#" %></li>
-          <li><%= link_to "AirCover", "#" %></li>
-          <li><%= link_to "Anti-discrimination", "#" %></li>
-          <li><%= link_to "Disability support", "#" %></li>
-          <li><%= link_to "Cancellation options", "#" %></li>
-          <li><%= link_to "Report neighborhood concern", "#" %></li>
-        </ul>
-        <ul>
-          <h4><strong>Hosting</strong></h4>
-          <li><%= link_to "Airbnb your home", "#" %></li>
-          <li><%= link_to "AirCover for Hosts", "#" %></li>
-          <li><%= link_to "Hosting resources", "#" %></li>
-          <li><%= link_to "Community forum", "#" %></li>
-          <li><%= link_to "Hosting responsibly", "#" %></li>
-          <li><%= link_to "Airbnb-friendly apartments", "#" %></li>
-        </ul>
-        <ul>
-          <h4><strong>Airbnb</strong></h4>
-          <li><%= link_to "Newsroom", "#" %></li>
-          <li><%= link_to "New features", "#" %></li>
-          <li><%= link_to "Careers", "#" %></li>
-          <li><%= link_to "Investors", "#" %></li>
-          <li><%= link_to "Gift cards", "#" %></li>
-          <li><%= link_to "Airbnb.org emergency stays", "#" %></li>
-        </ul>
-      </div>
-      <div class="language-social">
-        <ul>
-          <li>English (US)</li>
-          <li>€ EUR</li>
-          <li>
-            <%= link_to 'https://www.facebook.com/' do %>
-              <i class="fa-brands fa-square-facebook"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to 'https://twitter.com/' do %>
-              <i class="fa-brands fa-square-twitter"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to 'https://www.instagram.com/' do %>
-              <i class="fa-brands fa-square-instagram"></i>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </footer>
+    <% unless controller.controller_name == "bookings" && controller.action_name == "show" %>
+      <footer>
+        <div class="airbnb-info">
+          <ul>
+            <h4><strong>Support</strong></h4>
+            <li><%= link_to "Help Center", "#" %></li>
+            <li><%= link_to "AirCover", "#" %></li>
+            <li><%= link_to "Anti-discrimination", "#" %></li>
+            <li><%= link_to "Disability support", "#" %></li>
+            <li><%= link_to "Cancellation options", "#" %></li>
+            <li><%= link_to "Report neighborhood concern", "#" %></li>
+          </ul>
+          <ul>
+            <h4><strong>Hosting</strong></h4>
+            <li><%= link_to "Airbnb your home", "#" %></li>
+            <li><%= link_to "AirCover for Hosts", "#" %></li>
+            <li><%= link_to "Hosting resources", "#" %></li>
+            <li><%= link_to "Community forum", "#" %></li>
+            <li><%= link_to "Hosting responsibly", "#" %></li>
+            <li><%= link_to "Airbnb-friendly apartments", "#" %></li>
+          </ul>
+          <ul>
+            <h4><strong>Airbnb</strong></h4>
+            <li><%= link_to "Newsroom", "#" %></li>
+            <li><%= link_to "New features", "#" %></li>
+            <li><%= link_to "Careers", "#" %></li>
+            <li><%= link_to "Investors", "#" %></li>
+            <li><%= link_to "Gift cards", "#" %></li>
+            <li><%= link_to "Airbnb.org emergency stays", "#" %></li>
+          </ul>
+        </div>
+        <div class="language-social">
+          <ul>
+            <li>English (US)</li>
+            <li>€ EUR</li>
+            <li>
+              <%= link_to 'https://www.facebook.com/' do %>
+                <i class="fa-brands fa-square-facebook"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'https://twitter.com/' do %>
+                <i class="fa-brands fa-square-twitter"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'https://www.instagram.com/' do %>
+                <i class="fa-brands fa-square-instagram"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    <% end %>
   </body>
 </html>
