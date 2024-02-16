@@ -25,7 +25,7 @@
       </div>
     <% end %>
 
-    <div id="booking-check">
+    <div id="booking-check" class="bordered-bot">
       <div>
         <p><strong>Check-in</strong></p>
         <p><%= DateTime.parse(@booking.start_time).strftime('%a, %b %d') %></p>
@@ -41,7 +41,7 @@
     <%= link_to("#", class: "document-link") do %>
       <i class="fa-regular fa-message"></i>
       <div>
-        <h5> Message your host</h5>
+        <p>Message your host</p>
         <p><%= @flat.user.first_name %></p>
       </div>
     <% end %>
@@ -49,7 +49,7 @@
     <%= link_to("#", class: "document-link") do %>
       <i class="fa-solid fa-location-dot"></i>
       <div>
-        <h5>Your place</h5>
+        <p>Your place</p>
         <p><%= @flat.description.truncate(60, separator: ' ', omission: '...') %></p>
       </div>
     <% end %>
@@ -141,13 +141,13 @@
   <section class="booking-details">
     <h3>Get support any time</h3>
     <p>If you need help, we’re available 24/7 from anywhere in the world.</p>
-    <%= link_to("#", class: "document-link pointer") do %>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
       <div>
         <i class="fa-brands fa-airbnb"></i> Get Airbnb support
       </div>
       <i class="fa-solid fa-chevron-right"></i>
     <% end %>
-    <%= link_to("#", class: "document-link pointer") do %>
+    <%= link_to("#", class: "document-link bordered-top pointer") do %>
       <div>
         <i class="fa-solid fa-circle-question"></i> Visit the Help Center
       </div>
