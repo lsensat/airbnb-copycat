@@ -12,6 +12,15 @@
   color: black;
 }
 
+a.btn-link{
+  text-decoration: underline;
+  color: black;
+}
+
+a.btn-link:hover{
+  color: black;
+}
+
 .btn-action-link{
   text-decoration: none;
   color: black;
@@ -52,7 +61,8 @@
 
 
 .btn-delete{
-  margin-block: 1em;
+  margin-top: 2em;
+  margin-bottom: 3em;
   padding-inline: 0.9em;
   padding-block: 0.7em;
   border: 1.2px red solid;

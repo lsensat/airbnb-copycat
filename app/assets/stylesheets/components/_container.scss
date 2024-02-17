@@ -22,7 +22,7 @@
   width: 60%;
   overflow-y: auto;
   height: 90vh;
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
 }
 
 .booking-details{
@@ -57,7 +57,19 @@
   i{
     margin-right: 0.5rem;
   }
+
+  .contact-place{
+    align-items: center;
+    p{
+      margin-bottom: 0;
+    }
+    i{
+      font-size: 2em;
+    }
+  }
 }
+
+
 
 .document-link:hover{
   background-color: rgb(240, 240, 240);
@@ -74,4 +86,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.margin-bottom{
+  margin-bottom: 2em;
 }
