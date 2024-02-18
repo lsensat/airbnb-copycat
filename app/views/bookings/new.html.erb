@@ -4,17 +4,17 @@
     <%= link_to flat_path(@flat) do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
-    <h2>Confirm and pay</h2>
+    <h3>Confirm and pay</h3>
   </div>
 
   <main class="flat-info">
     <section>
-      <h2>Your trip</h2>
+      <h3>Your trip</h3>
       <%= render 'form', flat: @flat %>
     </section>
 
     <section>
-      <h2>Travel insurance</h2>
+      <h3>Travel insurance</h3>
       <ul>
         <li>Add travel insurance for € 37.80</li>
         <li><%= link_to "Add" %></li>
@@ -24,7 +24,7 @@
     </section>
 
     <section>
-      <h2>Required for your trip</h2>
+      <h3>Required for your trip</h3>
       <p>Message the Host</p>
       <p>Share why you're traveling, who's coming with you, and what you love about the space.</p>
 
@@ -34,7 +34,7 @@
     </section>
 
     <section>
-      <h2>Cancellation policy</h2>
+      <h3>Cancellation policy</h3>
       <p>This reservation is non-refundable. <%= link_to "Learn more", "#" %></p>
     </section>
 

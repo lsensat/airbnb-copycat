@@ -3,8 +3,8 @@
     <i class="fa-solid fa-chevron-left"></i>
   <% end %>
 
-  <h2><%= @flat.flat_type %> in <%= @flat.city %></h2>
-  <section>
+  <h3><%= @flat.flat_type %> in <%= @flat.city %></h3>
+  <section class="booking-details">
     <% if @flat.photos.length > 0 %>
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -38,20 +38,20 @@
       </div>
     </div>
 
-    <%= link_to("#", class: "document-link") do %>
+    <%= link_to("#", class: "document-link basic-info") do %>
       <i class="fa-regular fa-message"></i>
-      <div>
-        <p>Message your host</p>
-        <p><%= @flat.user.first_name %></p>
-      </div>
+      <ul>
+        <li>Message your host</li>
+        <li><%= @flat.user.first_name %></li>
+      </ul>
     <% end %>
 
-    <%= link_to("#", class: "document-link") do %>
+    <%= link_to("#", class: "document-link basic-info") do %>
       <i class="fa-solid fa-location-dot"></i>
-      <div>
-        <p>Your place</p>
-        <p><%= @flat.description.truncate(60, separator: ' ', omission: '...') %></p>
-      </div>
+      <ul>
+        <li>Your place</li>
+        <li><%= @flat.description.truncate(50, separator: ' ', omission: '...') %></li>
+      </ul>
     <% end %>
   </section>
 
@@ -99,10 +99,12 @@
   <section class="booking-details">
     <h3>Rules and instructions</h3>
     <h5>House rules</h5>
-    <p><%= @flat.guests %> maximum</p>
-    <p>Pets allowed</p>
-    <p>No parties or events</p>
-    <p><%= link_to "Show more", "#", class: "btn-link" %></p>
+    <ul>
+      <li><%= @flat.guests %> maximum</li>
+      <li>Pets allowed</li>
+      <li>No parties or events</li>
+      <li><%= link_to "Show more", "#", class: "btn-link" %></li>
+    </ul>
     <%= link_to(flat_path(@flat), class: "document-link bordered-top pointer") do %>
       <div>
         <i class="fa-solid fa-house"></i> Show listing
