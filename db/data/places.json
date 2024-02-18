@@ -20,8 +20,8 @@
   {
     "country": "united kingdom",
     "city": "london",
-    "zip": "SW1A 1AA",
-    "street": "Buckingham Palace"
+    "zip": "SW1E 6DY",
+    "street": "New Arch House, 57B Catherine Pl"
   },
   {
     "country": "spain",
@@ -38,8 +38,8 @@
   {
     "country": "japan",
     "city": "tokyo",
-    "zip": "100-0001",
-    "street": "Chiyoda City 123"
+    "zip": "101-0054",
+    "street": "3-chōme-13-3 Kanda Nishikichō"
   },
   {
     "country": "china",
@@ -80,8 +80,8 @@
   {
     "country": "united kingdom",
     "city": "london",
-    "zip": "SW1A 2AA",
-    "street": "Westminster Abbey"
+    "zip": "SW1P 3SE",
+    "street": "20 Great College St"
   },
   {
     "country": "spain",
@@ -98,8 +98,8 @@
   {
     "country": "japan",
     "city": "tokyo",
-    "zip": "100-0002",
-    "street": "Shinjuku City 123"
+    "zip": "169-0072",
+    "street": "2-chōme-3-16-102 Ōkubo"
   },
   {
     "country": "china",
@@ -140,8 +140,8 @@
   {
     "country": "united kingdom",
     "city": "london",
-    "zip": "SW1A 3AA",
-    "street": "Tower Bridge"
+    "zip": "SE1 2UP",
+    "street": "226 Horselydown Ln"
   },
   {
     "country": "spain",
@@ -218,8 +218,8 @@
   {
     "country": "japan",
     "city": "tokyo",
-    "zip": "100-0004",
-    "street": "Ginza 123"
+    "zip": "104-0061",
+    "street": "6-chōme-8 Ginza"
   },
   {
     "country": "china",
@@ -278,8 +278,8 @@
   {
     "country": "japan",
     "city": "tokyo",
-    "zip": "100-0005",
-    "street": "Asakusa 123"
+    "zip": "111-0032",
+    "street": "4-chōme-10 Asakusa"
   },
   {
     "country": "china",
