@@ -1,266 +1,302 @@
 [
   {
-    "street": "Calle Mayor 1",
-    "zip": "28013",
-    "country": "Spain",
-    "city": "Madrid"
+    "country": "spain",
+    "city": "madrid",
+    "zip": "28001",
+    "street": "Calle de Alcala 123"
   },
   {
-    "street": "Carrer de Provença 123",
-    "zip": "08029",
-    "country": "Spain",
-    "city": "Barcelona"
+    "country": "germany",
+    "city": "berlin",
+    "zip": "10115",
+    "street": "Friedrichstrasse 123"
   },
   {
-    "street": "Avenue des Champs-Élysées 1",
-    "zip": "75008",
-    "country": "France",
-    "city": "Paris"
+    "country": "france",
+    "city": "paris",
+    "zip": "75001",
+    "street": "Rue de Rivoli 123"
   },
   {
-    "street": "Unter den Linden 10",
-    "zip": "10117",
-    "country": "Germany",
-    "city": "Berlin"
+    "country": "united kingdom",
+    "city": "london",
+    "zip": "SW1A 1AA",
+    "street": "Buckingham Palace"
   },
   {
-    "street": "Baker Street 221B",
-    "zip": "NW1 6XE",
-    "country": "United Kingdom",
-    "city": "London"
+    "country": "spain",
+    "city": "barcelona",
+    "zip": "08001",
+    "street": "La Rambla 123"
   },
   {
-    "street": "1 Chome-1-1 Marunouchi",
-    "zip": "100-0005",
-    "country": "Japan",
-    "city": "Tokyo"
-  },
-  {
-    "street": "Tiananmen Square",
-    "zip": "100000",
-    "country": "China",
-    "city": "Pekin"
-  },
-  {
-    "street": "Sydney Opera House, Bennelong Point",
+    "country": "australia",
+    "city": "sydney",
     "zip": "2000",
-    "country": "Australia",
-    "city": "Sydney"
+    "street": "123 George St"
   },
   {
-    "street": "Avenida 9 de Julio 1925",
-    "zip": "C1073ABA",
-    "country": "Argentina",
-    "city": "Buenos Aires"
+    "country": "japan",
+    "city": "tokyo",
+    "zip": "100-0001",
+    "street": "Chiyoda City 123"
   },
   {
-    "street": "Times Square",
-    "zip": "10036",
-    "country": "United States",
-    "city": "New York"
-  },
-  {
-    "street": "Los Angeles City Hall, 200 N Spring St",
-    "zip": "90012",
-    "country": "United States",
-    "city": "Los Angeles"
-  },
-  {
-    "street": "Calle Mayor 2",
-    "zip": "28013",
-    "country": "Spain",
-    "city": "Madrid"
-  },
-  {
-    "street": "Carrer de Provença 124",
-    "zip": "08029",
-    "country": "Spain",
-    "city": "Barcelona"
-  },
-  {
-    "street": "Avenue des Champs-Élysées 2",
-    "zip": "75008",
-    "country": "France",
-    "city": "Paris"
-  },
-  {
-    "street": "Unter den Linden 11",
-    "zip": "10117",
-    "country": "Germany",
-    "city": "Berlin"
-  },
-  {
-    "street": "Baker Street 221C",
-    "zip": "NW1 6XE",
-    "country": "United Kingdom",
-    "city": "London"
-  },
-  {
-    "street": "1 Chome-1-2 Marunouchi",
-    "zip": "100-0005",
-    "country": "Japan",
-    "city": "Tokyo"
-  },
-  {
-    "street": "Tiananmen Square",
+    "country": "china",
+    "city": "beijing",
     "zip": "100000",
-    "country": "China",
-    "city": "Pekin"
+    "street": "Dongcheng District 123"
   },
   {
-    "street": "Sydney Opera House, Bennelong Point",
-    "zip": "2000",
-    "country": "Australia",
-    "city": "Sydney"
+    "country": "USA",
+    "city": "new york",
+    "zip": "10003",
+    "street": "123 5th Ave"
   },
   {
-    "street": "Avenida 9 de Julio 1926",
-    "zip": "C1073ABA",
-    "country": "Argentina",
-    "city": "Buenos Aires"
+    "country": "USA",
+    "city": "los angeles",
+    "zip": "90028",
+    "street": "6911 Hollywood Blvd"
   },
   {
-    "street": "Times Square",
-    "zip": "10036",
-    "country": "United States",
-    "city": "New York"
+    "country": "spain",
+    "city": "madrid",
+    "zip": "28002",
+    "street": "Calle de Gran Via 123"
   },
   {
-    "street": "Los Angeles City Hall, 201 N Spring St",
-    "zip": "90012",
-    "country": "United States",
-    "city": "Los Angeles"
-  },
-  {
-    "street": "Calle Mayor 3",
-    "zip": "28013",
-    "country": "Spain",
-    "city": "Madrid"
-  },
-  {
-    "street": "Carrer de Provença 125",
-    "zip": "08029",
-    "country": "Spain",
-    "city": "Barcelona"
-  },
-  {
-    "street": "Avenue des Champs-Élysées 3",
-    "zip": "75008",
-    "country": "France",
-    "city": "Paris"
-  },
-  {
-    "street": "Unter den Linden 12",
+    "country": "germany",
+    "city": "berlin",
     "zip": "10117",
-    "country": "Germany",
-    "city": "Berlin"
+    "street": "Alexanderplatz 123"
   },
   {
-    "street": "Baker Street 221D",
-    "zip": "NW1 6XE",
-    "country": "United Kingdom",
-    "city": "London"
+    "country": "france",
+    "city": "paris",
+    "zip": "75002",
+    "street": "Champs-Elysees 123"
   },
   {
-    "street": "1 Chome-1-3 Marunouchi",
-    "zip": "100-0005",
-    "country": "Japan",
-    "city": "Tokyo"
+    "country": "united kingdom",
+    "city": "london",
+    "zip": "SW1A 2AA",
+    "street": "Westminster Abbey"
   },
   {
-    "street": "Tiananmen Square",
-    "zip": "100000",
-    "country": "China",
-    "city": "Pekin"
+    "country": "spain",
+    "city": "barcelona",
+    "zip": "08002",
+    "street": "Passeig de Gracia 123"
   },
   {
-    "street": "Sydney Opera House, Bennelong Point",
+    "country": "australia",
+    "city": "sydney",
     "zip": "2000",
-    "country": "Australia",
-    "city": "Sydney"
+    "street": "109 Pitt St"
   },
   {
-    "street": "Avenida 9 de Julio 1927",
-    "zip": "C1073ABA",
-    "country": "Argentina",
-    "city": "Buenos Aires"
+    "country": "japan",
+    "city": "tokyo",
+    "zip": "100-0002",
+    "street": "Shinjuku City 123"
   },
   {
-    "street": "Times Square",
+    "country": "china",
+    "city": "beijing",
+    "zip": "100001",
+    "street": "Xicheng District 123"
+  },
+  {
+    "country": "USA",
+    "city": "new york",
     "zip": "10036",
-    "country": "United States",
-    "city": "New York"
+    "street": "1584 Broadway"
   },
   {
-    "street": "Los Angeles City Hall, 202 N Spring St",
-    "zip": "90012",
-    "country": "United States",
-    "city": "Los Angeles"
+    "country": "USA",
+    "city": "los angeles",
+    "zip": "90401",
+    "street": "123 Santa Monica Blvd"
   },
   {
-    "street": "Calle Mayor 4",
-    "zip": "28013",
-    "country": "Spain",
-    "city": "Madrid"
+    "country": "spain",
+    "city": "madrid",
+    "zip": "28003",
+    "street": "Calle de Serrano 123"
   },
   {
-    "street": "Carrer de Provença 126",
-    "zip": "08029",
-    "country": "Spain",
-    "city": "Barcelona"
+    "country": "germany",
+    "city": "berlin",
+    "zip": "10119",
+    "street": "Potsdamer Platz 123"
   },
   {
-    "street": "Avenue des Champs-Élysées 4",
-    "zip": "75008",
-    "country": "France",
-    "city": "Paris"
+    "country": "france",
+    "city": "paris",
+    "zip": "75003",
+    "street": "Le Marais 123"
   },
   {
-    "street": "Unter den Linden 13",
-    "zip": "10117",
-    "country": "Germany",
-    "city": "Berlin"
+    "country": "united kingdom",
+    "city": "london",
+    "zip": "SW1A 3AA",
+    "street": "Tower Bridge"
   },
   {
-    "street": "Baker Street 221E",
-    "zip": "NW1 6XE",
-    "country": "United Kingdom",
-    "city": "London"
+    "country": "spain",
+    "city": "barcelona",
+    "zip": "08003",
+    "street": "Avinguda Diagonal 123"
   },
   {
-    "street": "1 Chome-1-4 Marunouchi",
+    "country": "australia",
+    "city": "Lidcombe NSW",
+    "zip": "2141",
+    "street": "25 Ostend St"
+  },
+  {
+    "country": "japan",
+    "city": "tokyo",
+    "zip": "151-0064",
+    "street": "1-chōme-10 Uehara"
+  },
+  {
+    "country": "china",
+    "city": "beijing",
+    "zip": "100002",
+    "street": "Chaoyang District 123"
+  },
+  {
+    "country": "USA",
+    "city": "new york",
+    "zip": "10024",
+    "street": "241 Central Park W"
+  },
+  {
+    "country": "USA",
+    "city": "los angeles",
+    "zip": "90027",
+    "street": "123 Sunset Blvd"
+  },
+  {
+    "country": "spain",
+    "city": "madrid",
+    "zip": "28004",
+    "street": "Calle Mayor 123"
+  },
+  {
+    "country": "germany",
+    "city": "berlin",
+    "zip": "10178",
+    "street": "Checkpoint Charlie 123"
+  },
+  {
+    "country": "france",
+    "city": "paris",
+    "zip": "75004",
+    "street": "Notre-Dame Cathedral"
+  },
+  {
+    "country": "united kingdom",
+    "city": "london",
+    "zip": "SE1 1PF",
+    "street": "20 Sudrey St"
+  },
+  {
+    "country": "spain",
+    "city": "barcelona",
+    "zip": "08004",
+    "street": "Placa de Catalunya 123"
+  },
+  {
+    "country": "australia",
+    "city": "sydney",
+    "zip": "2026",
+    "street": "110 Campbell Parade"
+  },
+  {
+    "country": "japan",
+    "city": "tokyo",
+    "zip": "100-0004",
+    "street": "Ginza 123"
+  },
+  {
+    "country": "china",
+    "city": "beijing",
+    "zip": "100003",
+    "street": "Fengtai District 123"
+  },
+  {
+    "country": "USA",
+    "city": "new york",
+    "zip": "10023",
+    "street": "33 W 75th St"
+  },
+  {
+    "country": "USA",
+    "city": "los angeles",
+    "zip": "90212",
+    "street": "123 Rodeo Dr"
+  },
+  {
+    "country": "spain",
+    "city": "madrid",
+    "zip": "28005",
+    "street": "Calle de Atocha 123"
+  },
+  {
+    "country": "germany",
+    "city": "berlin",
+    "zip": "10179",
+    "street": "Brandenburg Gate"
+  },
+  {
+    "country": "france",
+    "city": "paris",
+    "zip": "75005",
+    "street": "Louvre Museum"
+  },
+  {
+    "country": "united kingdom",
+    "city": "london",
+    "zip": "EC4V 5AG",
+    "street": "6 Wardrobe Pl"
+  },
+  {
+    "country": "spain",
+    "city": "barcelona",
+    "zip": "08005",
+    "street": "Port Olimpic 123"
+  },
+  {
+    "country": "australia",
+    "city": "sydney",
+    "zip": "2007",
+    "street": "202-218 Pyrmont St"
+  },
+  {
+    "country": "japan",
+    "city": "tokyo",
     "zip": "100-0005",
-    "country": "Japan",
-    "city": "Tokyo"
+    "street": "Asakusa 123"
   },
   {
-    "street": "Tiananmen Square",
-    "zip": "100000",
-    "country": "China",
-    "city": "Pekin"
+    "country": "china",
+    "city": "beijing",
+    "zip": "100004",
+    "street": "Haidian District 123"
   },
   {
-    "street": "Sydney Opera House, Bennelong Point",
-    "zip": "2000",
-    "country": "Australia",
-    "city": "Sydney"
+    "country": "USA",
+    "city": "new york",
+    "zip": "10001",
+    "street": "30 W 33rd St"
   },
   {
-    "street": "Avenida 9 de Julio 1928",
-    "zip": "C1073ABA",
-    "country": "Argentina",
-    "city": "Buenos Aires"
-  },
-  {
-    "street": "Times Square",
-    "zip": "10036",
-    "country": "United States",
-    "city": "New York"
-  },
-  {
-    "street": "Los Angeles City Hall, 203 N Spring St",
-    "zip": "90012",
-    "country": "United States",
-    "city": "Los Angeles"
+    "country": "USA",
+    "city": "los angeles",
+    "zip": "90028",
+    "street": "6752 Hollywood Blvd"
   }
 ]

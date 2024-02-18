@@ -1,16 +1,22 @@
 <% if params[:query].present? %>
-  <div id="flats-container">
-    <% @flats.each do |flat| %>
-      <div class="flat-card">
-        <%= render 'shared/card', flat: flat.searchable %>
-      </div>
-    <% end %>
-  </div>
-  <div id="map-container"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+  <% if @flats.empty? %>
+    <div id="flats-container">
+      <%= link_to "No results found...", flats_path, class: "btn-link" %>
+    </div>
+  <% else %>
+    <div id="flats-container">
+      <% @flats.each do |flat| %>
+        <div class="flat-card">
+          <%= render 'shared/card', flat: flat.searchable %>
+        </div>
+      <% end %>
+    </div>
+    <div id="map-container"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  <% end %>
 <% else %>
   <section class="list-all">
     <% @flats.each do |flat| %>

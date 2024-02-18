@@ -1,6 +1,7 @@
 <div class="flat">
-  <header>
-    <h4><%= @flat.flat_type %> in <%= @flat.city %></h4>
+  <header class="margin-bottom">
+    <h4><%= @flat.flat_type %> in <%= @flat.city.titleize %></h4>
+    <p><%= @flat.address %></p>
     <div class="flat-links">
       <ul>
         <li>
@@ -106,7 +107,7 @@
     </section>
     <section>
       <h3>Where you'll be</h3>
-      <p><%= @flat.city.capitalize %>, <%= @flat.country %></p>
+      <p><%= @flat.city.titleize %>, <%= @flat.country.titleize %></p>
       <div id="map-flat"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"

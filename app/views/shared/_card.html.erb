@@ -14,7 +14,7 @@
 <%= link_to url, data: { turbo: false } do %>
   <section class="flat-card-info">
     <section class="flat-card-info-public">
-      <h6><%= flat.flat_type %> in <%= flat.city %></h6>
+      <h6><%= flat.flat_type %> in <%= flat.city.titleize %></h6>
       <% if flat.reviews.empty? %>
         <p>No rating yet</p>
       <% else %>
