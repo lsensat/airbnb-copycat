@@ -24,7 +24,7 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
-total_users = 50
+total_users = 10
 
 cloudinary_public_path = "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat"
 
@@ -111,8 +111,9 @@ total_users.times do
   # file = File.open(File.join(Rails.root, 'app', 'assets', 'images', face_image))
   user.photo.attach(io: file, filename: "#{face_image}")
   user.save
+  puts "There are #{User.all.length} users created..."
 end
-puts 'Users created!'
+puts 'All users created!'
 
 puts 'Creating different amenities...'
 amenities = ['Kitchen', 'Wifi', 'Shared pool', 'TV', 'Washer', 'Air conditioning',
@@ -133,7 +134,7 @@ places = JSON.parse(serialized_places)
 
 User.ids.sample(places.length).each_with_index do |user, index|
   flat = Flat.new(
-    city: places[index]['city'], country: places[index]['country'], bedrooms: rand(1..4),
+    city: places[index]['city'].titleize, country: places[index]['country'].titleize, bedrooms: rand(1..4),
     price: rand(40..500),
     description: Faker::Lorem.paragraph(sentence_count: rand(4..8)),
     flat_type: "#{['Room', 'Shared Room', 'Place to stay'].sample}",
@@ -147,7 +148,8 @@ User.ids.sample(places.length).each_with_index do |user, index|
   end
 
   rooms = ['main', 'kitchen', 'living', 'office', 'bathroom']
-  rooms.shuffle.each do |room|
+  rooms.shuffle!
+  rooms.each do |room|
     image_room = house[:"#{room}-#{rand(1..10)}"]
     image_room_url = "#{cloudinary_public_path}/#{image_room}"
     file = URI.open(image_room_url)
@@ -164,8 +166,9 @@ User.ids.sample(places.length).each_with_index do |user, index|
   Amenity.ids.sample(rand(4..8)).each do |amenity|
     FlatAmenity.create(flat: Flat.last, amenity_id: amenity)
   end
+  puts "There are #{Flat.all.length} flats created..."
 end
-puts 'Flats created!'
+puts 'All flats created!'
 
 puts 'Adding some likes...'
 Flat.all.each do |flat|

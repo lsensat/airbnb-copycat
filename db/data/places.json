@@ -21,7 +21,7 @@
     "country": "united kingdom",
     "city": "london",
     "zip": "SW1E 6DY",
-    "street": "New Arch House, 57B Catherine Pl"
+    "street": "57B Catherine Pl"
   },
   {
     "country": "spain",
@@ -98,8 +98,8 @@
   {
     "country": "japan",
     "city": "tokyo",
-    "zip": "169-0072",
-    "street": "2-chōme-3-16-102 Ōkubo"
+    "zip": "160-0022",
+    "street": "2-chōme-3-16 Shinjuku"
   },
   {
     "country": "china",
@@ -217,9 +217,9 @@
   },
   {
     "country": "japan",
-    "city": "tokyo",
-    "zip": "104-0061",
-    "street": "6-chōme-8 Ginza"
+    "city": "Koto City",
+    "zip": "135-0033",
+    "street": "2-chōme-30-4 Fukagawa"
   },
   {
     "country": "china",
