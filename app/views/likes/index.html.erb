@@ -1,9 +1,13 @@
 <h2>Favourites</h2>
 
 <div class="list-all">
-  <% @likes.each do |like| %>
-    <div class="flat-card">
-      <%= render "shared/card", flat: like.flat %>
-    </div>
+  <% if @likes.length == 0 %>
+    <%= link_to "Start browing and save places for the future", flats_path, class: "btn-action" %>
+  <% else %>
+    <% @likes.each do |like| %>
+      <div class="flat-card">
+        <%= render "shared/card", flat: like.flat %>
+      </div>
+    <% end %>
   <% end %>
 </div>

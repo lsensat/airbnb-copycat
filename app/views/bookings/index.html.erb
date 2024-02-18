@@ -9,7 +9,9 @@
 </h2>
 
 <% if @future_stays.empty? %>
-  <%= link_to "Look for your next stay", flats_path, class: "btn-action" %>
+  <div class="list-all">
+    <%= link_to "Look for your next stay", flats_path, class: "btn-action" %>
+  </div>
 <% else %>
   <div class="list-all">
     <% @future_stays.each do |booking| %>
