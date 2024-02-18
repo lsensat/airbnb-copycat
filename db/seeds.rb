@@ -24,7 +24,7 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
-total_users = 10
+total_users = 50
 
 cloudinary_public_path = "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat"
 
@@ -169,7 +169,7 @@ puts 'Flats created!'
 
 puts 'Adding some likes...'
 Flat.all.each do |flat|
-  30.times do
+  20.times do
     user = User.all.sample
     Like.create(flat: flat, user: user)
   end
@@ -179,7 +179,7 @@ puts 'Some flats have likes!'
 puts 'Creating some reviews...'
 
 Flat.all.sample(places.length).each do |flat|
-  User.all.sample(places.length * rand(0.3..0.9)).each do |user|
+  User.all.sample(places.length * rand(0.2..0.6)).each do |user|
     comment = Faker::Lorem.paragraph(sentence_count: rand(2..4))
     rating = rand(1..5)
     flat.reviews.create(user: user, flat: flat, comment: comment, rating: rating)
