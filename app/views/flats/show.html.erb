@@ -116,7 +116,7 @@
 
     <section>
       <h3>Hosted by <%= @flat.user.first_name %></h3>
-      <p>Joined in <%= @flat.user.created_at %></p>
+      <p>Joined in <%= @flat.user.created_at.strftime('%b %Y') %></p>
       <div class="account-data">
         <p><i class="fa-solid fa-star"></i> <%= @flat.reviews.size %> Review</p>
         <% if @identity_verified %>
