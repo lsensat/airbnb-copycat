@@ -32,14 +32,14 @@
     <% else %>
       <div class="main-image">
         <%= link_to flat_photos_path(@flat) do %>
-          <%= cl_image_tag(@flat.photos[0].key, gravity: :auto,crop: :fill) %>
+          <%= cl_image_tag(@flat.photos[0].key, gravity: :auto,crop: :fill, class: "room") %>
         <% end %>
       </div>
       <div class="second-image">
         <% if @flat.photos.length > 1 %>
           <% for index in 0..3 %>
             <%= link_to flat_photos_path(@flat) do %>
-              <%= cl_image_tag(@flat.photos[index].key, gravity: :auto,crop: :fill) %>
+              <%= cl_image_tag(@flat.photos[index].key, gravity: :auto,crop: :fill, class: "room") %>
             <% end %>
           <% end %>
         <% end %>

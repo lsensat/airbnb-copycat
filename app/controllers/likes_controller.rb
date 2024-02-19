@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     if @like.save
       render json: { status: 'success' }
     else
-      render json: { errors: @like.error.messages, status: 'error' }
+      render json: { errors: @like.errors.full_messages, status: 'error' }
     end
   end
 
@@ -22,7 +22,7 @@ class LikesController < ApplicationController
     if @like.destroy
       render json: { status: 'success' }
     else
-      render json: { errors: @like.error.messages, status: 'error' }
+      render json: { errors: @like.errors.full_messages, status: 'error' }
     end
   end
 

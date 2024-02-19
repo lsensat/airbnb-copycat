@@ -21,10 +21,12 @@ export default class extends Controller {
 
     const content = {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        "flat": this.flatValue,
+      headers: {
+        "Content-Type": "application/json",
         "X-CSRF-Token": token
+      },
+      body: JSON.stringify({
+        "flat": this.flatValue
       })
     }
     console.log(url)
@@ -35,11 +37,15 @@ export default class extends Controller {
       return response.json()
     })
     .then(data => {
+      console.log(data)
       if (data.status === 'success'){
         this.likeTarget.classList.toggle("fa-solid")
         this.likeTarget.classList.toggle("fa-regular")
       }
     })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 
   delete(event) {
