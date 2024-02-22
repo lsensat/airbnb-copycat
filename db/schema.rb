@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_25_190105) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_204454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_190105) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "flat_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "host", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_chatrooms_on_flat_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
   create_table "flat_amenities", force: :cascade do |t|
     t.bigint "flat_id", null: false
     t.bigint "amenity_id", null: false
@@ -106,6 +116,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_190105) do
     t.datetime "updated_at", null: false
     t.index ["flat_id"], name: "index_likes_on_flat_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -147,11 +167,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_25_190105) do
   add_foreign_key "booking_dates", "bookings"
   add_foreign_key "bookings", "flats"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "flats"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "flat_amenities", "amenities"
   add_foreign_key "flat_amenities", "flats"
   add_foreign_key "flats", "users"
   add_foreign_key "likes", "flats"
   add_foreign_key "likes", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "flats"
   add_foreign_key "reviews", "users"
 end

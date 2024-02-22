@@ -1,0 +1,12 @@
+<h2>Inbox</h2>
+
+<% if @hosts.where(host: current_user.id) || @chatrooms.where(user_id: current_user.id) %>
+  <ul>
+    <% @chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom) do %>
+        <li>Flat at <%= chatroom.flat.city %> by <%= User.where(id: chatroom.host).first.first_name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+<%  %>

@@ -10,3 +10,5 @@ pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
 pin "mapbox-gl" # @3.0.1
 pin "process" # @2.0.1
 pin "flatpickr" # @4.6.13
+pin "@rails/actioncable", to: "actioncable.esm.js"
+pin_all_from "app/javascript/channels", under: "channels"
