@@ -1,6 +1,19 @@
 <h2>Inbox</h2>
 
-<% if @hosts.where(host: current_user.id) || @chatrooms.where(user_id: current_user.id) %>
+<% if @hosts.where(host: current_user.id) && !@hosts.empty? %>
+  <h3>Your the Host</h3>
+  <ul>
+    <% @hosts.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom) do %>
+        <li>Flat at <%= chatroom.flat.city %> by <%= User.where(id: chatroom.host).first.first_name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% if @chatrooms.where(user_id: current_user.id) && !@chatrooms.empty? %>
+  <h3>Your are the guests</h3>
   <ul>
     <% @chatrooms.each do |chatroom| %>
       <%= link_to chatroom_path(chatroom) do %>
