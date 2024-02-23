@@ -2,6 +2,5 @@ class Like < ApplicationRecord
   belongs_to :user
   belongs_to :flat
 
-  validates :user, presence: true
-  validates :flat, uniqueness: true
+  validates_uniqueness_of :user, scope: :flat
 end

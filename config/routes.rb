@@ -15,11 +15,15 @@ Rails.application.routes.draw do
   get 'owned-places', to: 'flats#show_owned_flats'
   resources :flats do
     get 'photos', to: 'flats#show_photos'
+    # get 'contact', to: 'flats#contact'
     resources :bookings, only: %i[new create show destroy]
     resources :reviews, only: %i[new create]
     resources :likes, only: %i[index create destroy]
   end
   resources :users do
     resources :bookings, only: %i[index]
+  end
+  resources :chatrooms, only: %i[index create show] do
+    resources :messages
   end
 end
