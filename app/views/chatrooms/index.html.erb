@@ -1,4 +1,4 @@
-<h2>Inbox</h2>
+<h2>Messages</h2>
 
 <% if @hosts.where(host: current_user.id) && !@hosts.empty? %>
   <h3>Your the Host</h3>
@@ -22,4 +22,3 @@
     <% end %>
   </ul>
 <% end %>
-<%  %>

@@ -19,11 +19,12 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create show destroy]
     resources :reviews, only: %i[new create]
     resources :likes, only: %i[index create destroy]
+    get 'open-chat', to: 'flats#open_chat'
   end
   resources :users do
     resources :bookings, only: %i[index]
   end
-  resources :chatrooms, only: %i[index create show] do
+  resources :chatrooms, only: %i[index show create] do
     resources :messages
   end
 end
