@@ -2,7 +2,16 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
-  <h1>Chat with <%= User.where(id: @chatroom.host ).first.first_name %></h1>
+  <div id="flat-chat">
+    <% if current_user.id == @chatroom.host %>
+      <h1>Chat with <%= User.find_by(id: @chatroom.host).first_name.titleize %></h1>
+    <% else %>
+      <h1>Chat with <%= User.find_by(id: @chatroom.user_id).first_name.titleize %></h1>
+    <% end %>
+
+
+    <%= render "shared/small_card", flat: Flat.find_by(id: @chatroom.flat_id) %>
+  </div>
 
   <div class="messages"
     data-chatroom-subscription-target="messages">
@@ -10,6 +19,7 @@
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
+
 
   <%= simple_form_for [@chatroom, @message],
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
@@ -19,6 +29,6 @@
       placeholder: "Write your message",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.submit "Send", class: "btn-action-small" %>
   <% end %>
 </div>

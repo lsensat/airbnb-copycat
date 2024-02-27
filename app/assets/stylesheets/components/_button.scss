@@ -47,7 +47,30 @@ a.btn-link:hover{
   }
 }
 
+.btn-action-small{
+  width: max-content;
+  padding-inline: 0.9em;
+  border: 1.2px black solid;
+  border-radius: 0.5em;
+  background-color: white;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 1em;
+  a{
+    text-decoration: none;
+  }
+}
+
 .btn-action:hover {
+  background-color: black;
+  color: white;
+  a{
+    color: white;
+  }
+}
+
+.btn-action-small:hover {
   background-color: black;
   color: white;
   a{

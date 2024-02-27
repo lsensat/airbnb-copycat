@@ -39,3 +39,45 @@ div.flat-card{
     color: black;
   }
 }
+
+#flat-chat{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .flat-small-image {
+    width: fit-content;
+  }
+
+  img{
+    width: 75px;
+    height: 75px;
+    border-radius: 0.5em;
+  }
+
+  a{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    color: black;
+    text-decoration: none;
+  }
+
+  .flat-small-card-info{
+    margin-left: 1em;
+  }
+
+  .flat-small-card{
+    p {
+      margin-block: 0px;
+      color: rgb(119, 119, 119);
+      font-size: smaller;
+    }
+    h6 {
+      margin-block: 0px;
+      color: rgb(95, 95, 95);
+      font-size: larger;
+    }
+  }
+}
