@@ -26,7 +26,7 @@ Flat.delete_all
 puts 'Deleting previous users...'
 User.delete_all
 
-total_users = 10
+total_users = 50
 
 cloudinary_public_path = "https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902333/development/airbnb-copycat"
 
