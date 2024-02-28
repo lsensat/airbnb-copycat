@@ -41,9 +41,8 @@ div.flat-card{
 }
 
 #flat-chat{
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
 
   .flat-small-image {
     width: fit-content;
@@ -69,6 +68,7 @@ div.flat-card{
   }
 
   .flat-small-card{
+    margin-left: 10%;
     p {
       margin-block: 0px;
       color: rgb(119, 119, 119);

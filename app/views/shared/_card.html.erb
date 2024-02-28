@@ -9,7 +9,7 @@
 <% end %>
 
 <%# <% flat.bookings.where(user: current_user).ids.each do |booking| %>
-<% url = controller.controller_name == "flats" ? flat_path(flat) : flat_booking_path(flat_id: flat.id, id: booking.id) %>
+<% url = controller.controller_name == "bookings" ? flat_booking_path(flat_id: flat.id, id: booking.id) : flat_path(flat) %>
 
 <%= link_to url, data: { turbo: false } do %>
   <section class="flat-card-info">

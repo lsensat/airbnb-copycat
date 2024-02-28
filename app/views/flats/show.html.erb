@@ -99,7 +99,7 @@
           <% end %>
         </div>
       <% end %>
-      <% if @flat.user != current_user %>
+      <% if @flat.user != current_user && Booking.find_by(user: current_user, flat: @flat).present? %>
         <div class="btn-action">
           <%= link_to "Post a review", new_flat_review_path(@flat) %>
         </div>
