@@ -6,7 +6,7 @@ class Flat < ApplicationRecord
   has_many_attached :photos
 
   has_many :flat_amenities
-  has_many :amenities, through: :flat_amenities
+  has_many :amenities, through: :flat_amenities, dependent: :destroy
 
   has_many :bookings, dependent: :destroy
 
