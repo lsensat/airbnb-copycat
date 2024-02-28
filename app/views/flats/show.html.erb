@@ -37,7 +37,8 @@
       </div>
       <div class="second-image">
         <% if @flat.photos.length > 1 %>
-          <% for index in 0..(@flat.photos.length - 1) %>
+          <% for index in 1..(@flat.photos.length - 1) %>
+            <% break if index > 4 %>
             <%= link_to flat_photos_path(@flat) do %>
               <%= cl_image_tag(@flat.photos[index].key, gravity: :auto,crop: :fill, class: "room") %>
             <% end %>

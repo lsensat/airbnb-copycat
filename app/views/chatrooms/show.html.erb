@@ -4,9 +4,11 @@
 
   <div id="flat-chat">
     <% if current_user.id == @chatroom.host %>
-      <h1>Chat with <%= User.find_by(id: @chatroom.host).first_name.titleize %></h1>
+      <% name = 'NoName' if User.find_by(id: @chatroom.host).first_name.nil? %>
+      <h1>Chat with <%= name.titleize %></h1>
     <% else %>
-      <h1>Chat with <%= User.find_by(id: @chatroom.user_id).first_name.titleize %></h1>
+      <% name = 'NoName' if User.find_by(id: @chatroom.user_id).first_name.nil? %>
+      <h1>Chat with <%= name.titleize %></h1>
     <% end %>
 
 
