@@ -208,8 +208,8 @@ User.all.sample(total_users).each do |user|
   month = rand(1..12)
   day = rand(1..25)
   @booking = Booking.create(user: user, flat: @flat,
-    start_time: "#{year}-#{month}-#{day}",
-    end_time: "#{year}-#{month}-#{day + rand(2..4)}"
+    start_time: ("#{year}-#{month}-#{day}").to_date,
+    end_time: ("#{year}-#{month}-#{day + rand(2..4)}").to_date
   )
 
   booking_dates = create_booking_dates(@booking, @flat)
