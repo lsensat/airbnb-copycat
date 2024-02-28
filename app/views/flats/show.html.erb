@@ -4,13 +4,13 @@
     <div class="flat-links">
       <ul>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to("#", class: "btn-action-link") do %>
             <i class="fa fa-arrow-up-from-bracket"></i> Share
           <% end %>
         </li>
         <% if @flat.user != current_user %>
           <li>
-            <%= link_to "#" do %>
+            <%= link_to("#", class: "btn-action-link") do %>
               <i class="fa fa-heart like"></i> Save
             <% end %>
           </li>
@@ -37,7 +37,7 @@
       </div>
       <div class="second-image">
         <% if @flat.photos.length > 1 %>
-          <% for index in 0..3 %>
+          <% for index in 0..(@flat.photos.length - 1) %>
             <%= link_to flat_photos_path(@flat) do %>
               <%= cl_image_tag(@flat.photos[index].key, gravity: :auto,crop: :fill, class: "room") %>
             <% end %>
@@ -125,9 +125,11 @@
           <p><i class="fa-solid fa-shield-halved"></i> Identity not fully verified</p>
         <% end %>
       </div>
-      <div class="btn-action">
-        <%= link_to "Contact Host", flat_open_chat_path(@flat) %>
-      </div>
+      <% if @flat.user != current_user %>
+        <div class="btn-action">
+          <%= link_to "Contact Host", flat_open_chat_path(@flat) %>
+        </div>
+      <% end %>
     </section>
 
     <section>
