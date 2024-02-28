@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, except: %i[index new create destroy show_photos show_owned_flats open_chat]
+  before_action :set_flat, except: %i[index new create show_photos show_owned_flats open_chat]
   before_action :authenticate_user!, except: %i[index show show_photos]
 
   def index

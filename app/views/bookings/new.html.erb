@@ -4,11 +4,11 @@
     <%= link_to flat_path(@flat) do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
-    <h3>Confirm and pay</h3>
   </div>
 
   <main class="flat-info">
     <section>
+      <h3>Confirm and pay</h3>
       <h3>Your trip</h3>
       <%= render 'form', flat: @flat %>
     </section>

@@ -4,19 +4,19 @@
     <div class="flat-links">
       <ul>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to("#", class: "btn-action-link") do %>
             <i class="fa fa-arrow-up-from-bracket"></i> Share
           <% end %>
         </li>
         <% if @flat.user != current_user %>
           <li>
-            <%= link_to "#" do %>
+            <%= link_to("#", class: "btn-action-link") do %>
               <i class="fa fa-heart like"></i> Save
             <% end %>
           </li>
         <% else %>
           <li>
-            <%= link_to "Edit", edit_flat_path(@flat) %>
+            <%= link_to("Edit", edit_flat_path(@flat), class: "btn-action-link") %>
           </li>
         <% end %>
       </ul>
@@ -37,7 +37,8 @@
       </div>
       <div class="second-image">
         <% if @flat.photos.length > 1 %>
-          <% for index in 0..3 %>
+          <% for index in 1..(@flat.photos.length - 1) %>
+            <% break if index > 4 %>
             <%= link_to flat_photos_path(@flat) do %>
               <%= cl_image_tag(@flat.photos[index].key, gravity: :auto,crop: :fill, class: "room") %>
             <% end %>
@@ -98,7 +99,7 @@
           <% end %>
         </div>
       <% end %>
-      <% if @flat.user != current_user %>
+      <% if @flat.user != current_user && Booking.find_by(user: current_user, flat: @flat).present? %>
         <div class="btn-action">
           <%= link_to "Post a review", new_flat_review_path(@flat) %>
         </div>
@@ -125,9 +126,11 @@
           <p><i class="fa-solid fa-shield-halved"></i> Identity not fully verified</p>
         <% end %>
       </div>
-      <div class="btn-action">
-        <%= link_to "Contact Host", flat_open_chat_path(@flat) %>
-      </div>
+      <% if @flat.user != current_user %>
+        <div class="btn-action">
+          <%= link_to "Contact Host", flat_open_chat_path(@flat) %>
+        </div>
+      <% end %>
     </section>
 
     <section>

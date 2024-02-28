@@ -1,9 +1,15 @@
 <h2>Your places</h2>
 
-<div class="list-all">
-  <% @flats.each do |flat| %>
-    <div class="flat-card">
-      <%= render 'shared/card', flat: flat %>
-    </div>
-  <% end %>
-</div>
+<% if @flats.empty? %>
+  <div class="list-all">
+    <%= link_to "Airbnb your place", new_flat_path, class: "btn-action" %>
+  </div>
+<% else %>
+  <div class="list-all">
+    <% @flats.each do |flat| %>
+      <div class="flat-card">
+        <%= render 'shared/card', flat: flat %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

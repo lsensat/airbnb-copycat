@@ -1,6 +1,10 @@
 <div class="review">
   <div class="review-profile">
-    <%= cl_image_tag(review.user.photo.key, class: 'avatar') %>
+    <% if review.user.photo.key.nil? %>
+      <i class="fa-solid fa-user"></i>
+    <% else %>
+      <%= cl_image_tag(review.user.photo.key, class: 'avatar') %>
+    <% end %>
     <p><strong><%= review.user.first_name %></strong></p>
   </div>
 

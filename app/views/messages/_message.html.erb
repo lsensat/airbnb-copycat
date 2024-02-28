@@ -1,6 +1,7 @@
 <div id="message-<%= message.id %>">
   <small>
-    <strong><%= message.user.first_name.titleize %></strong>
+    <% name = message.user.first_name %>
+    <strong><%= name.nil? ? 'NoName' : name.titleize %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>
