@@ -196,22 +196,23 @@ puts 'Reviews created!'
 def create_booking_dates(booking, flat)
   flat_price = flat.price
 
-  (booking.start_time..booking.end_time).to_a.each do |date|
+  (booking.start_time.to_date..booking.end_time.to_date).to_a.each do |date|
     booking.booking_dates.create(date: date, price: flat_price)
   end
 end
 
 puts 'Booking some places...'
 User.all.sample(total_users).each do |user|
+  max_day = Date.today.mday + rand(2..4)
   @flat = Flat.all.sample
-  year = rand(2023..2024)
+  year = 2024
   month = rand(1..12)
   day = rand(1..25)
-  @booking = Booking.create(user: user, flat: @flat,
-    start_time: ("#{year}-#{month}-#{day}").to_date,
-    end_time: ("#{year}-#{month}-#{day + rand(2..4)}").to_date
+  @booking = Booking.new(user: user, flat: @flat,
+    start_time: ("#{year}-#{month}-#{day}"),
+    end_time: ("#{year}-#{month}-#{day + rand(2..4)}"),
   )
-
+  @booking.save(validate: false)
   booking_dates = create_booking_dates(@booking, @flat)
 end
 puts 'Booked!'
