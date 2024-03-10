@@ -2,7 +2,8 @@
   <div id="logo">
     <%= link_to root_path do %>
       <%# <%= cl_image_tag("airbnb-copycat/airbnb-logo_u4e6la.png", alt: "Airbnb", width: 100) %>
-      <img src="https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902273/production/airbnb-copycat/airbnb-logo_u4e6la.png" alt="Airbnb" style="width: 100px;">
+      <img src="https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902273/production/airbnb-copycat/airbnb-logo_u4e6la.png" class="big-screen" alt="Airbnb" style="width: 100px;">
+      <img src="https://res.cloudinary.com/dylcu4v1a/image/upload/v1710097219/production/airbnb-copycat/airbnb-logo_u4e6la_np4lxp.jpg" class="small-screen" alt="Airbnb" style="width: 29px;">
     <% end %>
   </div>
   <div id="search-field">
@@ -10,10 +11,10 @@
   </div>
   <div class="profile">
     <%= link_to "#" do %>
-        <i class="fa fa-earth-americas btn-normal"></i>
+        <i class="fa fa-earth-americas btn-normal big-screen"></i>
       <% end %>
     <% if user_signed_in? %>
-      <%= link_to "Airbnb your home", new_flat_path, class: "btn-normal" %>
+      <%= link_to "Airbnb your home", new_flat_path, class: "btn-normal big-screen" %>
 
       <div class="dropdown">
         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">

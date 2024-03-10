@@ -1,0 +1,10 @@
+@media (max-width: 675px) {
+  .big-screen{
+    display: none;
+  }
+}
+@media (min-width: 675px) {
+  .small-screen{
+    display: none;
+  }
+}
