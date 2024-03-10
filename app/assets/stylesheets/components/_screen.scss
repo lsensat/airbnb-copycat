@@ -2,6 +2,9 @@
   .big-screen{
     display: none;
   }
+  .small-screen{
+    margin-right: 1em;
+  }
 }
 @media (min-width: 770px) {
   .small-screen{
