@@ -21,67 +21,7 @@
   </head>
 
   <body>
-    <nav>
-      <div id="logo">
-        <%= link_to root_path do %>
-          <%# <%= cl_image_tag("airbnb-copycat/airbnb-logo_u4e6la.png", alt: "Airbnb", width: 100) %>
-          <img src="https://res.cloudinary.com/dylcu4v1a/image/upload/v1706902273/production/airbnb-copycat/airbnb-logo_u4e6la.png" alt="Airbnb" style="width: 100px;">
-        <% end %>
-      </div>
-      <div id="search-field">
-        <%= render 'flats/search' %>
-      </div>
-      <div class="profile">
-        <%= link_to "#" do %>
-            <i class="fa fa-earth-americas btn-normal"></i>
-          <% end %>
-        <% if user_signed_in? %>
-          <%= link_to "Airbnb your home", new_flat_path, class: "btn-normal" %>
-
-          <div class="dropdown">
-            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <% if current_user.photo.key %>
-                <div class="avatar-container">
-                  <i class="fa-solid fa-bars"></i>
-                  <%= cl_image_tag(current_user.photo.key, gravity: :face, class: 'avatar') %>
-                </div>
-              <% else %>
-                <div class="avatar-container">
-                  <i class="fa-solid fa-bars"></i>
-                  <i class="fa-solid fa-user"></i>
-                </div>
-              <% end %>
-            </a>
-
-            <ul class="dropdown-menu">
-              <li><%= link_to "Airbnb your home", new_flat_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Your Airbnbs", owned_places_path, class: "dropdown-item" %></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= link_to "Favourites", flat_likes_path(current_user.likes), class: "dropdown-item" %></li>
-              <li><%= link_to "Trips", user_bookings_path(current_user), class: "dropdown-item" %></li>
-              <li><%= link_to "Messages", chatrooms_path, class: "dropdown-item" %></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= link_to "Account", edit_user_registration_path(current_user), class: "dropdown-item" %></li>
-              <li><%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
-            </ul>
-          </div>
-
-        <% else %>
-
-          <div class="dropdown">
-            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="avatar-container">
-                <i class="fa-solid fa-bars"></i>
-              </div>
-            </a>
-
-            <ul class="dropdown-menu">
-              <li><%= link_to "Log In", new_user_session_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %></li>
-            </ul>
-        <% end %>
-      </div>
-    </nav>
+    <%= render "shared/navbar" %>
 
     <%# <p class="notice"><%= notice %>
     <%# <p class="alert"><%= alert %>
@@ -91,58 +31,7 @@
     </section>
 
     <% unless controller.controller_name == "bookings" && controller.action_name == "show" %>
-      <footer>
-        <div class="airbnb-info">
-          <ul>
-            <h4><strong>Support</strong></h4>
-            <li><%= link_to "Help Center", "#" %></li>
-            <li><%= link_to "AirCover", "#" %></li>
-            <li><%= link_to "Anti-discrimination", "#" %></li>
-            <li><%= link_to "Disability support", "#" %></li>
-            <li><%= link_to "Cancellation options", "#" %></li>
-            <li><%= link_to "Report neighborhood concern", "#" %></li>
-          </ul>
-          <ul>
-            <h4><strong>Hosting</strong></h4>
-            <li><%= link_to "Airbnb your home", "#" %></li>
-            <li><%= link_to "AirCover for Hosts", "#" %></li>
-            <li><%= link_to "Hosting resources", "#" %></li>
-            <li><%= link_to "Community forum", "#" %></li>
-            <li><%= link_to "Hosting responsibly", "#" %></li>
-            <li><%= link_to "Airbnb-friendly apartments", "#" %></li>
-          </ul>
-          <ul>
-            <h4><strong>Airbnb</strong></h4>
-            <li><%= link_to "Newsroom", "#" %></li>
-            <li><%= link_to "New features", "#" %></li>
-            <li><%= link_to "Careers", "#" %></li>
-            <li><%= link_to "Investors", "#" %></li>
-            <li><%= link_to "Gift cards", "#" %></li>
-            <li><%= link_to "Airbnb.org emergency stays", "#" %></li>
-          </ul>
-        </div>
-        <div class="language-social">
-          <ul>
-            <li>English (US)</li>
-            <li>€ EUR</li>
-            <li>
-              <%= link_to 'https://www.facebook.com/' do %>
-                <i class="fa-brands fa-square-facebook"></i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to 'https://twitter.com/' do %>
-                <i class="fa-brands fa-square-twitter"></i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to 'https://www.instagram.com/' do %>
-                <i class="fa-brands fa-square-instagram"></i>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </footer>
+      <%= render "shared/footer" %>
     <% end %>
   </body>
 </html>
