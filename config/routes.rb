@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     # get 'contact', to: 'flats#contact'
     resources :bookings, only: %i[new create show destroy]
     resources :reviews, only: %i[new create]
-    resources :likes, only: %i[index create destroy]
+    resources :likes, only: %i[index new create edit update]
     get 'open-chat', to: 'flats#open_chat'
   end
   resources :users do
